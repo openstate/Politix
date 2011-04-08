@@ -1,0 +1,8 @@
+@import url('/tinymce/jscripts/tiny_mce/themes/advanced/css/editor_ui.css');
+
+.mceToolbarTop {border-bottom: 1px solid #000; }
+.mceToolbarBottom {border-top: 1px solid #000;}
+.mceStatusbarTop {border-bottom: 1px solid #000;}
+.mceStatusbarBottom {border-top: 1px solid #000;}
+.mceStatusbar {border-bottom: 1px solid #000;}
+.mceEditor {border: 1px solid #000;}

@@ -1,0 +1,464 @@
+/*	---------------- Cascading Style Sheet bij www.watstemtmijnraad.nl ------------------------------------------------------ */
+
+/*	Imports
+	----------------------------------------------------------------------------------------------------------------------- */
+@import './plugs/wizard.css';
+@import './plugs/archive.css';	
+	
+/*	General
+	----------------------------------------------------------------------------------------------------------------------- */
+
+html,body,td,input,input[type="text"],select,textarea { 
+	font-family: georgia, "bitstream vera serif", "vera serif", "times new roman", serif;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+#container {
+/*	width: 48em;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -24em;
+	background-color: #fdf9f5;
+	min-height: 100%;
+	height: auto;*/
+	height: 100%;
+}
+
+
+/*	Header
+	----------------------------------------------------------------------------------------------------------------------- */
+
+#header {
+	position: relative;
+	margin-top: 15px;
+	height: 50px;
+	width: 100%;
+	background: #000 url('/images/wsmr.gif') no-repeat 24px center;
+	border-top: 1px solid white;
+}
+
+#header h1 {
+	line-height:50px;
+	margin-left: 100px;
+	color: white;
+}
+
+#header a:visited {
+	color: white;
+}
+
+
+/*	Generic navigation
+	----------------------------------------------------------------------------------------------------------------------- */
+
+	#genericnavigation {
+		position: absolute;
+		top: 0;
+		right: 40px;
+		height: 100%;
+		line-height: 50px;
+		color: #989898;
+		font-size: .7em;
+		font-family: tahoma, verdana, arial, helvetica, sans-serif;
+	}
+
+#genericnavigation a:hover {
+	color: #ce53c6;
+}
+
+#genericnavigation a:link,
+#genericnavigation a:visited {
+	color: #989898;
+}
+
+/*	Navigation
+	----------------------------------------------------------------------------------------------------------------------- */	
+
+#nav-wrapper {
+	background: url('/images/bg-nav-wrapper.gif') repeat-y;
+	height: 75px;
+	padding-top: 25px;
+}
+
+#nav {
+	background: url('/images/bg-nav.gif') no-repeat 0px 20px;
+	height: 40px;
+	border-bottom: 1px solid #989898;
+	padding-left: 75px;
+	overflow: hidden;
+}
+
+#nav ul li {
+	display: block;
+	float: left;
+}
+
+#nav ul li a {
+	color: black;
+	font-weight: bold;
+	font-size: .8em;
+	display: block;
+	float: left;
+	height: 1.3em;
+	padding-top: 1.6em;
+	margin-right: 3em;
+}
+#nav ul li a:hover {	
+	border-bottom: 3px solid black;
+}
+
+#nav ul li.active a {
+	border-bottom: 3px solid black;
+}
+
+
+/* Wrapper
+	----------------------------------------------------------------------------------------------------------------------- */
+
+#wrapper {
+	position: relative;
+	height: 100%;
+	background: #fff url('/images/bg-content.gif') repeat-y 25px;
+}
+
+#border {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background: url('/images/border2.gif') repeat-x;
+ 	height: 25px;
+}
+
+#left {
+	margin-left: 25px;
+	height: 100%;
+}
+
+#right {
+	float: right;
+	width: 265px;
+	height: 100%;
+	padding-left: 5px;
+	padding-right: 30px;
+	background: url('/images/bg.gif') repeat-y right;
+}
+
+#spacer {
+	padding-top: 75px;
+}
+
+#right h2 {
+	border-left: 3px solid black;
+	padding-left: 10px;
+}
+
+#right p {
+	line-height: 1.2em;
+	font-size: 0.8em;
+	text-align: justify;
+	padding: 0 10px;
+	margin: 10px 0;
+}
+
+/*	Content
+	----------------------------------------------------------------------------------------------------------------------- */
+
+#content {
+	padding-right: 10px;
+	background: url('/images/bg-content.gif') repeat-y left;
+}
+
+#left > /*IE7-hack*/#content {
+	padding-right: 310px;
+}
+
+#content .i {
+	margin-left: 75px;
+}
+
+#content h2,
+.raadsstuk .header .title,
+.rs .header .title {
+	margin-left: 0px;
+	margin-bottom: 20px;
+	padding-left: 75px;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	background: url('/images/bg-h2.gif') repeat-y;
+	color: #f46;
+}
+
+/*	Page
+	----------------------------------------------------------------------------------------------------------------------- */
+
+	#content p {
+		padding: 0 20px 20px 0px;
+		text-align: justify;
+		font-size: 0.8em;
+		line-height: 1.2em;
+	}
+		#steps a {
+			color: #000;
+		}
+			#steps a:hover {
+				color: #FF6600;
+			}
+			#content a.formLink {
+				line-height: 1.2em;
+				float: left;
+				clear: left;
+				padding: 4px 4px 4px 144px;
+			}
+
+	#content input,
+	#content input[type="text"],
+	#content input[type="password"] {
+		font-size: 1.2em;
+	}
+	
+	
+/*	Generic classes
+	----------------------------------------------------------------------------------------------------------------------- */	
+	
+.hide {
+	display: none;
+}
+
+.invisible {
+	visibility: hidden;
+}
+.column {
+	width: 50%;
+	float: left;
+}
+.text,
+.password {
+	display: block;
+	width: 200px;
+}
+.error {
+	color: red;
+}
+
+
+/*	Tables
+	----------------------------------------------------------------------------------------------------------------------- */
+
+table {
+	font-size: .675em;
+	font-size: 1em;
+	line-height: 1.2em;
+}
+
+table th {
+	padding: 4px;
+}
+
+	table.form th {
+		width: 120px;
+		padding: 4px 4px 4px 0px;
+	}
+	table td {
+		padding: 4px 4px 4px 0px;
+	}
+		table td h3 {
+			padding: 30px 0 10px 36px;
+			font-size: 1.2em;
+		}
+		
+		
+/*	Forms
+	----------------------------------------------------------------------------------------------------------------------- */
+
+form {
+	font-size: .7em;
+}
+	form strong.label {
+		display: block;
+		width: 120px;
+		float: left;
+		margin: 4px 4px 4px 40px;
+		margin: 4px 4px 4px 20px;
+	}
+		form strong.label label {
+			margin: 0;
+			padding: 0;
+		}
+	form .field {
+		display: block;
+		float: left;
+		margin: 4px;
+	}
+	form .button {
+		margin-left: 164px;
+	}
+	form p {
+		margin: 4px 4px 30px 4px;
+		font-size: 1.2em;
+		font-style: italic;
+		line-height: 1.2em;
+	}
+	form br.clear {
+		clear: left;
+	}
+	#content form h3 {
+		font-size: 1.2em;
+	}
+
+/*  Pager
+	----------------------------------------------------------------------------------------------------------------------- */
+
+.pager span, .pager a {
+	font-size: .75em;
+}
+
+.pager a:hover {
+	text-decoration: underline;
+	color: #009ae1;
+}
+
+/*	Footer
+	----------------------------------------------------------------------------------------------------------------------- */
+
+#footer {
+	float: left;
+	clear: both;
+	position: absolute;
+	bottom: 50px;
+	width: 265px;
+}
+	#footer p {
+		font-size: .8em;
+		text-align: center;
+		color: #989898;
+	}
+
+	optgroup option {
+		 padding-left: 20px;
+	}
+
+.rs {
+	margin: .3em .3em .3em 0em;
+}
+
+.rs .header .title {
+	font-size: 100%;
+	color: #f46;
+}
+
+.rs .header .region {
+	font-style: italic;
+}
+
+.rs .summary {
+	font-size: 80%;
+	margin: 3px 0px;
+}
+
+.rs .footer {
+	font-size: 80%;
+	color: #009ae1;
+}
+
+td.party {
+	color: #f46;
+	font-weight: bold;
+	width: 40%;
+}
+
+
+th.votes, td.votes {
+	width: 15%;
+}
+
+.raadsstuk .header {
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+#content .raadsstuk .summary h2 {
+	background: transparent;
+	padding-left: 0px;
+	color: black;
+	border: none;
+}
+
+.raadsstuk .result.r2 {
+	color: red;
+}
+
+.raadsstuk .result.r1 {
+	color: green;
+}
+
+.raadsstuk .result.r0 {
+	color: black;
+}
+
+.tags {
+	padding-top: 20px;
+	text-align: right;
+}
+
+.tags .tag {
+	color: grey;
+}
+
+.tags_result {
+	color: grey;
+}
+
+.stats {
+	font-size: 80%;
+	padding-top: 20px;
+}
+
+.stats p#stats {
+	padding: 0px;
+	text-align: right;
+}
+
+p#noresults {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+input.search {
+	width: 400px;
+}
+
+.politician .name {
+	text-indent: 30px;
+}
+
+.vote.r-1 {
+	color: blue;
+}
+
+.vote.r0 {
+	color: green;
+}
+
+.vote.r1 {
+	color: red;
+}
+
+.vote.r2 {
+	color: #f60;
+}
+
+.vote.r3 {
+	color: #aa0;
+}
+
+#search_toggle a {
+	text-decoration: none;
+}
+
+#search_toggle a:hover {
+	text-decoration: underline;
+}

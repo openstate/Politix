@@ -1,0 +1,52 @@
+8
+
+dir
+57
+http://host08.accepte.nl/repos/politix/public_html/tinymce/jscripts/tiny_mce/plugins/devkit/css
+http://host08.accepte.nl/repos/politix
+
+
+
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a3189d24-e339-4d94-a982-af3f4112dbaa
+
+devkit_ui.css
+file
+
+
+
+
+2008-11-18T08:33:46.000000Z
+ca3e9336bfb4bc511738f6d2d6693306
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+devkit.css
+file
+
+
+
+
+2008-11-18T08:33:46.000000Z
+1fdee80fdc34802395a507eb1054ae1f
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+

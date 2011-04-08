@@ -1,0 +1,52 @@
+8
+
+dir
+57
+http://host08.accepte.nl/repos/politix/public_html/tinymce/jscripts/tiny_mce/plugins/devkit/jscripts
+http://host08.accepte.nl/repos/politix
+
+
+
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a3189d24-e339-4d94-a982-af3f4112dbaa
+
+devkit.js
+file
+
+
+
+
+2008-11-18T08:33:46.000000Z
+45d76e5e22a438e94d60da0b5c2f7c96
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+diff.js
+file
+
+
+
+
+2008-11-18T08:33:46.000000Z
+114f92867b682b2f641cc09b2f2a41bb
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+

@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--
+   Watstemtmijnraad Raadsstukken import file.
+
+   Copyright (c) 2008 Accepté
+   All Rights Reserved. 
+-->
+
+    <!-- Import block, root element. -->
+    <xsd:element name="import">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="schema" minOccurs="0" maxOccurs="1" type="schema" />
+                <xsd:element name="raadsstukken" minOccurs="0" maxOccurs="1" type="raadsstukken" />
+            </xsd:sequence>
+            
+            <!-- 
+                version - import file version, always 1.0
+                site    - site name, eg "Watstemtmijnraad" or "Politix"
+            -->
+            <xsd:attribute name="version" type="xsd:token" use="required"/>
+            <xsd:attribute name="site" type="xsd:token" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+  
+
+    <!-- "The World" of Watstemtmijnraad. Describes all objects referenced by raadsstukken -->
+    <xsd:complexType name="schema">
+        <xsd:sequence>
+            <xsd:element name="regions" minOccurs="0" maxOccurs="1" type="regions" />
+            <xsd:element name="categories" minOccurs="0" maxOccurs="1" type="categories" />
+            <xsd:element name="parties" minOccurs="0" maxOccurs="1" type="parties" />
+            <xsd:element name="politicians" minOccurs="0" maxOccurs="1" type="politicians" />
+        </xsd:sequence> 
+    </xsd:complexType>
+
+
+    <!--
+      Describes all regions references by this document.
+      You should receive dump of region tree together with this DTD.
+      
+      The importer will lookup for any regions already defined in our database prior
+      to create new one on demand. The unique name is used for the lookup. 
+    -->    
+    <xsd:complexType name="regions">
+        <xsd:sequence>
+            <!--
+                Region tree. Each raadsstuk, politician and party belong to one or more regions.
+                
+                The region is normally referenced by name path like:
+                  '/Europa/Nederland/Groningen' - starts by level 1, absolute path
+                  'Groningen' - starts by level 3 (provincie), relative path, resolved to /Europa/Nederland/Groningen
+                  'Groningen/Assen' - starts by level 3, relative path, resolved to /Europa/Nederland/Groningen/Assen
+            -->
+            <xsd:element name="region" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="regions" minOccurs="0" maxOccurs="1" type="regions" />
+                    </xsd:sequence>
+                    
+                    <!--
+                    	name  - name of the region, path of names in the tree is unique key
+                    	path  - optional '/' separated path to the parent region. The path will be
+                                calculated from the current level. By default the path is empty, thus
+                                the parent region is the current node, except for the top most 'regions'
+                                element which has default path of 'Europa/Nederland'.
+                                
+                                Note: by using 'path' you may ommit 'regions' container and define
+                                the regions tree as a simple list of 'region' elements.
+                                
+                        Warning: you can't create regions 'Europa' and 'Nederland' at level 3, so
+                        any relative name starting with 'Europa will be seen as absolute /Europa and
+                        any relative name starting with Nederland will be seen as absolute /Europa/Nederland.
+                    -->
+                    <xsd:attribute name="name" use="required">
+                         <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:pattern value="[^/]+"/>
+                            </xsd:restriction>
+                         </xsd:simpleType>
+                    </xsd:attribute>
+                    
+                    <xsd:attribute name="path" type="regionPath" use="optional"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <!--
+        List of categories referenced by other objects.
+        
+        You should obtain list of all categories together with this DTD.
+        Any category not registered in watstemtmijnraad.nl database can be
+        added on demand by 'category' element described bellow.
+    -->
+    <xsd:complexType name="categories">
+        <xsd:sequence>
+            <!--
+                Single category.
+            
+                Per import file category list is optional, any missing category referenced
+                elsewere will be created on demand. However this element is usefull to specify
+                level information and description of the category.
+            -->
+            <xsd:element name="category" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!--
+                            Per level category description.
+                            
+                            There are following levels available:
+                                - 1 - Internationaal - /Europa is of this level
+                                - 2 - Landelijk - /Europa/Nederland
+                                - 3 - Provincie - /Europa/Nederland/Groningen
+                                - 4 - Gemeente - /Europa/Nederland/Groningen/Assen
+                                - 5 - Stadsdeel - /Europa/Nederland/Noord-Holland/Amsterdam/Osdorp
+                            
+                            Other levels than listed above are invalid.
+                            
+                            You may specify which categories are available at which levels. By default
+                            any new category will be added to level 2 - 'Landelijk'.
+                        -->
+                        <xsd:element name="inlevel" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <!--
+                                	level           - region level (number)
+                                    description     - additional description of the category whithin this level, default empty
+                                -->
+                                <xsd:attribute name="level" use="required">
+                                    <xsd:simpleType>
+                                        <xsd:restriction base="xsd:positiveInteger">
+                                            <xsd:minInclusive value="1" />
+                                            <xsd:maxInclusive value="5" />
+                                        </xsd:restriction>
+                                    </xsd:simpleType>
+                                </xsd:attribute>
+                                
+                                <xsd:attribute name="description" type="xsd:string" use="optional" />
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                    
+                    <!--
+                        name            - unique name of the category
+                        description     - description of the category, used only when creating new category, default empty
+                    -->
+                    <xsd:attribute name="name" type="xsd:string" use="required"/>
+                    <xsd:attribute name="description" type="xsd:string" use="optional"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+
+    <!-- Describes all parties references by this document. -->
+    <xsd:complexType name="parties">
+        <xsd:sequence>
+            <!-- Party tree.
+                 Party  name is unique.
+            -->
+            <xsd:element name="party" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+
+                        <!-- List of all parent parties.
+                             If this element is present and is not empty, then party becomes a combination
+                             of other parties. For example 'Progressief Woerden (PvdA/GroenLinks)' is a
+                             combination of 'GroenLinks' and 'Partij van de Arbeid'
+                        -->
+                        <xsd:element name="combination" minOccurs="0" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <!-- Reference to a party within combination block. -->
+                                    <xsd:element name="partyref" minOccurs="1" maxOccurs="unbounded">
+                                        <xsd:complexType>
+                                            <!-- party   - unique party name -->
+                                            <xsd:attribute name="party" type="xsd:string" use="required" />
+                                        </xsd:complexType>
+                                    </xsd:element>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        
+                        <!--
+                            Each party is present in one or more regions for specific timerange.
+                            
+                            This element is optional, if a party is voting while not being present in a
+                            region, then it will be automatically registered for a short time period
+                            including the vote date. By using this element you may register a party
+                            for an actual/real time period.
+                            
+                            Warning: to prevent lots of party registrations just for one day (vote date
+                            of the raadsstuk) always register party for the range from the earliest
+                            to the latest vote date of the raadsstuks that party is voting. 
+                        -->
+                        <xsd:element name="inregion" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <!--
+                                	region     - region path where in party may vote voor a raadsstuk
+                                    date_start - 'YYYY-mm-dd' or 'dd-mm-YYYY', first day, inclusive, default: negative infinity
+                                    date_end   - 'YYYY-mm-dd' or 'dd-mm-YYYY', last day, inclusive, default: positive infinity
+                                -->
+                                <xsd:attribute name="region" type="regionPath" use="required" />
+                                <xsd:attribute name="date_start" type="date" use="optional" />
+                                <xsd:attribute name="date_end" type="date" use="optional" />
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+    
+                    <!--
+                    	name   - unique name of the party, eg: Christen-Democratisch Appèl
+                    	region - region path where in the party was "created", where party is "globaly" active, the level.
+                                 Use '/Europa/Nederland' if you don't have such information.
+                                 
+                    	abbreviation - short form, eg: CDA, default empty
+                    -->
+                    <xsd:attribute name="name" type="xsd:string" use="required"/>
+                    <xsd:attribute name="region" type="regionPath" use="required"/>
+                    <xsd:attribute name="abbreviation" type="xsd:token" use="optional"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <!--
+        List of all politicians refferenced by raadsstukken in this document.
+        
+        You should obtain list of all politicians together with this DTD.
+        Any politician not registered in watstemtmijnraad.nl database can be
+        registered by 'politician' element described bellow.
+    -->
+    <xsd:complexType name="politicians">
+        <xsd:sequence>
+            <!--
+                Register politician. A politician is a unique combination of:
+                    (initials, last_name, gender, email, region)
+                    
+                Importer look-up's for any already defined politician usign fields described above.
+                Any missing politician will be created on demand.
+                
+                WARNING: If you want to add a *new* politician with already existing
+                (initials, last_name, gender) combinatin, then be sure to provide email and/or
+                region distinct from already existing politician. Otherwise you will link all
+                info to the existing politician. Of course you should be sure that your person
+                and the registered one are really different people in the real world.
+                
+                The 'id' is an document wide unique identifier of the politician. This id
+                can be referenced by following syntax:
+                  - '{id}' or 'in:{id}' - reffers to a politician defined in this import document, eg. '3' or 'in:3'
+                  - 'ex:{id}' - reffers to a politician defined in a supplied list of politicians, eg: 'ex:10' 
+            -->
+            <xsd:element name="politician" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!--
+                            Optional element, register the politician for a specific function in (region, party).
+                            
+                            To be able to make vote for a specific raadsstuk the politician must have a not-expired 
+                            function in the region of that raadsstuk. The politician will be registered
+                            on demand for a small period of time including the vote date of the raadsstuk.
+                            Use this element to register a politician for a longer/actual/real period of time.
+                            
+                            Warning: always pre-register function for the time-range including all
+                            raadsstukken that this politician will vote for. This will prevent lots of
+                            'on demand' function registration just for one day (vote date of the raadsstuk). 
+                            
+                            Constraint:
+                                (politician.party.inregion.region = politician.function.region) AND
+                                (politician.party.inregion.[date_start, date_end] include politician.function.[date_start, date_end] 
+                                
+                        -->
+                        <xsd:element name="function" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <!--
+                                	category        - name of the category describing the function of the politician, default 'Geen' (no category)
+                                    region          - region path where in this politician works (he/she may vote for raadsstukken in this region)
+                                    party           - the party name where this politician belongs to
+                                    date_start      - 'YYYY-mm-dd' or 'dd-mm-YYYY', first day, inclusive, default: negative infinity
+                                    date_end        - 'YYYY-mm-dd' or 'dd-mm-YYYY', last day, inclusive, default: positive infinity
+                                    description     - short description of the function, default empty
+                                -->
+                                <xsd:attribute name="category" type="xsd:string" use="optional" />
+                                <xsd:attribute name="party" type="xsd:string" use="required" />
+                                <xsd:attribute name="description" type="xsd:string" use="optional" />
+                                <xsd:attribute name="region" type="regionPath" use="required" />
+                                <xsd:attribute name="date_start" type="date" use="optional" />
+                                <xsd:attribute name="date_end" type="date" use="optional" />
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+    
+                    <!--
+                        id       	- unique identifier of this politician, eg: '4'. Will be referenced as 'in:4' or '4' by other objects
+                        title       - title of the politician, default empty
+                        initials    - initials of the politician, default empty
+                        last_name   - last name of the politicians including any prefixes like 'van der', default empty
+                        gender      - gender of the politician, either 'male' or 'female'.
+                        email       - e-mail, default empty
+                        region      - region path, region where in this politician was "created", default empty
+                    -->
+                    <xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+                    <xsd:attribute name="title" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="initials" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="last_name" type="xsd:string" use="required"/>
+                    <xsd:attribute name="email" type="xsd:token" use="optional"/>
+                    <xsd:attribute name="region" type="regionPath" use="optional"/>
+                    
+                    <xsd:attribute name="gender" use="required">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:token" >
+                                <xsd:enumeration value="male" />
+                                <xsd:enumeration value="female" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    
+    <!-- Block of raadstukken to import. -->
+    <xsd:complexType name="raadsstukken">
+        <xsd:sequence>
+            <!--
+                Single raadsstuk to import.
+                
+                The collection of tags is optional, any missing tag will be created on demand.
+                
+                The 'description' and any 'level' information of the 'category' element will be
+                ignored if category with such name is already defined in schema or is found
+                in watstemtmijnraad.nl database.
+            -->
+            <xsd:element name="raadsstuk" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <!-- Raadsstuk summary. Contains usually text in CDATA block -->
+                        <xsd:element name="summary" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                        
+                        <!--
+                            The submitting procedure.
+                            
+                            Depending on the 'type' the submitter may or may not contain the list of
+                            politicians and reffer to the parent raadsstuk. Following types are available:
+                            
+                                - "Raadsvoorstel" - attribute 'submitter' is required and can be only "College" or "Presidium", contents of this element are ignored
+                                - "Burgerinitiatief" - attributes and contents of this element are ignored
+                                - "Initiatiefvoorstel" - list of 'politician' elements is required, 'submitter' attribute is ignored, 'parentref' element is ignored
+                                - "Motie", "Amendement" -  'parentref' element and list of 'politician' elements are required, 'submitter' attribute is ignored
+                                - "Onbekend" - attributes and contents of this element are ignored
+                        
+                            The following values are possible for 'submitter' attribute:
+                            
+                                - "College", "Presidium" - used by "Raadsvoorstel"
+                                - "Raadslid" - used by "Initiatiefvoorstel", "Motie" and "Amendement"
+                                - "Burger" - used by "Burgerinitiatief"
+                                - "Onbekend" - used by "Onbekend"
+
+
+                            Note: set submitter to "Onbekend" if you don't have such info.
+                                  parentref and politicianref are optional, even when they
+                                  are logically 'required', do not add them if you don't have
+                                  such info.
+                        -->
+                        <xsd:element name="submitter" minOccurs="1" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <!--
+                                        Links the child raadsstuk to the parent raadsstuk.
+    
+                                        WARNING: referenced raadsstuk MUST be defined prior to referencing them!
+                                    -->
+                                    <xsd:element name="parentref" minOccurs="0" maxOccurs="1">
+                                        <xsd:complexType>
+                                            <!--  raadsstuk       - references 'id' attribute of the 'raadsstuk' element  -->
+                                            <xsd:attribute name="raadsstuk" type="xsd:positiveInteger" use="required" />
+                                        </xsd:complexType>
+                                    </xsd:element>
+                                    
+                                    <!-- Links politician with the submitting procedure of the raadsstuk. -->
+                                    <xsd:element name="politicianref" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:complexType>
+                                            <!--  politician       - references 'id' attribute of the 'politician' element  -->
+                                            <xsd:attribute name="politician" type="politicianRef" use="required" />
+                                        </xsd:complexType>
+                                    </xsd:element>
+                                </xsd:sequence>
+                                
+                                <!--
+                                	type            - submitting instance type
+                                    submitter       - submitter type
+                                -->
+                                <xsd:attribute name="type" type="xsd:string" use="required" />
+                                <xsd:attribute name="submitter" type="xsd:string" use="required" />
+                            </xsd:complexType>
+                        </xsd:element>
+                        
+                        
+                        <!-- Assigns a single tag to the raadsstuk -->
+                        <xsd:element name="tag" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <!--  name        - name of the tag, eg 'politix'  -->
+                                <xsd:attribute name="name" type="xsd:string" use="required" />
+                            </xsd:complexType>
+                        </xsd:element>
+                        
+                        
+                        <!-- Assigns category to the raadsstuk -->
+                        <xsd:element name="category" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <!--  name        - name of the category  -->
+                                <xsd:attribute name="name" type="xsd:string" use="required" />
+                            </xsd:complexType>
+                        </xsd:element>
+                        
+                        
+                        <!-- Votes block. -->
+                        <xsd:element name="votes" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <!--
+                                        A single vote.
+                                        
+                                        A vote may be made by a politician or by a party. The politician must have
+                                        a valid non expired function to be able to vote, if not, then he/she will
+                                        be registered on demand for the small time period including 'vote_date' of
+                                        the raadsstuk.
+                                        
+                                        If the vote belongs to a party, then the vote will be assigned for the
+                                        special "Onbekend" politician. You can't mix votes of politicians and parties
+                                        together in one 'votes' block. 
+                                    -->
+                                    <xsd:element name="vote" minOccurs="0" maxOccurs="unbounded">
+                                        <xsd:complexType>
+                                            <!--
+                                            	vote            - the vote made
+                                                politician      - if votes.type is 'politician' then this attribute reffers
+                                                                  to the politician.id that made the vote, eg '15', 'in:10' or 'ex:6',
+                                                                  reffer to 'politician' element for more info.
+                                            
+                                                party           - if votes.type is 'party' then this attribue reffers to the
+                                                                  party.name that made the vote
+                                                                  
+                                                Constraint: either 'politician' or 'party' must be present, but not both. 
+                                            -->
+                                            <xsd:attribute name="politician" type="politicianRef" use="optional" />
+                                            <xsd:attribute name="party" type="xsd:string" use="optional" />
+                                            <xsd:attribute name="vote" use="required">
+                                                <xsd:simpleType>
+                                                    <xsd:restriction base="xsd:token" >
+                                                        <xsd:enumeration value="yes" />
+                                                        <xsd:enumeration value="no" />
+                                                        <xsd:enumeration value="remember" />
+                                                        <xsd:enumeration value="absent" />
+                                                    </xsd:restriction>
+                                                </xsd:simpleType>
+                                            </xsd:attribute>
+                                        </xsd:complexType>
+                                    </xsd:element>
+                                </xsd:sequence>
+                                
+                                <!--
+                                	type        - voting resolution, either per party or per politician.
+                                    result      - the actual/real-life status of the raadsstuk. for flexibility
+                                                  reasons it is possible that all politicians vote 'no' and the
+                                                  status is 'accepted', default 'new'.
+                                -->
+                                <xsd:attribute name="type" type="xsd:string" use="required" />
+                                <xsd:attribute name="result" type="xsd:string" use="optional" />
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+
+                    
+                    <!--
+                    	id          - docment wide unique identifier that is used by 'parentref' elements of the submitting procedure
+                        title       - name, short (single line) description
+                        code        - source ID and any other info important to the source site (free field), default empty
+                        vote_date   - voting date, format: YYYY-mm-dd or dd-mm-YYYY
+                        region      - region path, region where this raadsstuk belongs to
+                        show        - show in home page, default no
+                    -->
+                    <xsd:attribute name="id" type="xsd:positiveInteger" use="optional"/>
+                    <xsd:attribute name="title" type="xsd:string" use="required"/>
+                    <xsd:attribute name="code" type="xsd:string" use="optional"/>
+                    <xsd:attribute name="vote_date" type="date" use="required"/>
+                    <xsd:attribute name="region" type="regionPath" use="required" />
+                    
+                    <xsd:attribute name="show" use="optional">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:token">
+                                <xsd:enumeration value='yes' />
+                                <xsd:enumeration value='no' />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    
+
+<!-- ========================= Generic types =============================== -->
+    <!-- Region path.
+         Region path is a sequence of region names delimited by '/' character.
+    -->
+    <xsd:simpleType name="regionPath">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="(/)|([^/]*(/[^/]+)*)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- Date in format 'dd-mm-YYYY' or 'YYYY-mm-dd' -->
+    <xsd:simpleType name="date">
+        <xsd:restriction base="xsd:string">
+            <xsd:whiteSpace value="collapse" />
+            <xsd:pattern value="([0-9]{4}-[0-9]{2}-[0-9]{2})|([0-9]{2}-[0-9]{2}-[0-9]{4})"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="politicianRef">
+        <xsd:restriction base="xsd:string">
+            <xsd:whiteSpace value="collapse" />
+            <xsd:pattern value="((in)|(ex):)?[0-9]+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
+
+<!-- End of import file definition.
+     @author Sardar Yumatov (ja.doma@gmail.com)
+-->
+
