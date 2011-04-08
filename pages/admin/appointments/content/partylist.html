@@ -1,0 +1,6 @@
+{pofile appointments}
+{foreach name=partyloop from=$parties item=party}
+<option label="{$party->name}" value="{$party->id}">{$party->name}</option>
+{foreachelse}
+<option label="" value="0">##appointments.empty##</option>
+{/foreach}

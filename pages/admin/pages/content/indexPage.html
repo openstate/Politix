@@ -1,0 +1,49 @@
+{pofile form}
+{pofile page}
+{pofile index}
+<h2>Teksten</h2>
+<table class="list">
+	<tr>
+		<th>##page.url##</a></th>
+		<th>##page.title##</a></th>
+		<th>##form_options##</th>
+	</tr>
+	{foreach from=$default item=datarow key=id title='dataloop'}
+	<tr class="link{cycle values=', alt'}">
+		<td>{$datarow->url|htmlentities:2:'UTF-8'|nl2br}</td>
+		<td>{$datarow->title|htmlentities:2:'UTF-8'|nl2br}</td>
+		<td>
+			<a class="edit" href="edit/{$datarow->id}"><img src="/images/edit.png" alt="##form_edit##" title="##form_edit##" border="0" /></a>
+			{if $region == $datarow->region}
+			<a href="delete/{$datarow->id}"><img src="/images/delete.png" alt="##form_delete##" title="##form_delete##" border="0" /></a>
+			{/if}
+		</td>
+	</tr>
+	{foreachelse}
+	<tr><td colspan="3">##index.notfound##</td></tr>
+	{/foreach}
+</table>
+<div style="padding: 30px 0"/>
+<h2>Pagina's</h2>
+<p><a href="create/"><img src="/images/add.png" alt="##form_add##" title="##form_add##" border="0"/></a> <a href="create/">Toevoegen</a></p>
+<table class="list">
+	<tr>
+		<th><a href="?sortcol=url&amp;sort={if $formsort.col=='url' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='url'}current {$formsort.dir}{else}asc{/if}">##page.url##</a></th>
+		<th><a href="?sortcol=title&amp;sort={if $formsort.col=='title' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='title'}current {$formsort.dir}{else}asc{/if}">##page.title##</a></th>
+		<th><a href="?sortcol=linkText&amp;sort={if $formsort.col=='linkText' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='linkText'}current {$formsort.dir}{else}asc{/if}">##page.linkText##</a></th>
+		<th>##form_options##</th>
+	</tr>
+	{foreach from=$formdata item=datarow key=id title='dataloop'}
+	<tr class="link{cycle values=', alt'}">
+		<td>{$datarow->url|htmlentities:2:'UTF-8'|nl2br}</td>
+		<td>{$datarow->title|htmlentities:2:'UTF-8'|nl2br}</td>
+		<td>{$datarow->linkText|htmlentities:2:'UTF-8'|nl2br}</td>
+		<td>
+			<a class="edit" href="edit/{$datarow->id}"><img src="/images/edit.png" alt="##form_edit##" title="##form_edit##" border="0" /></a>
+			<a href="delete/{$datarow->id}"><img src="/images/delete.png" alt="##form_delete##" title="##form_delete##" border="0" /></a>					
+		</td>
+	</tr>
+	{foreachelse}
+	<tr><td colspan="4">##index.notfound##</td></tr>
+	{/foreach}
+</table>

@@ -1,0 +1,6 @@
+{pofile appointments}
+{foreach name=categoryloop from=$categories item=category}
+<option label="{$category->name}" value="{$category->id}">{$category->name}</option>
+{foreachelse}
+<option label="" value="0">##appointments.empty##</option>
+{/foreach}

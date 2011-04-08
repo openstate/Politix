@@ -1,0 +1,24 @@
+<?php
+
+require_once('DBs.class.php');
+require_once('Appointment.class.php');
+
+class IndexPage {
+	protected $appointments;
+
+	public function processGet($get) {
+		$db = DBs::inst(DBs::SYSTEM);
+		$ap = new Appointment();
+		if ($get['id'] == $_SESSION['politician']) {
+			
+		} else {
+			Dispatcher::forbidden();
+		}
+	}
+
+	public function show($smarty) {
+		$smarty->display('indexPage.html');
+	}
+}
+
+?>

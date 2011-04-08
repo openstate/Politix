@@ -1,0 +1,40 @@
+<form template="../../../../../../formgen/template.xml">
+	<object name="EditableRole">
+		<id name="id" />
+		<property name="title" required="1">
+			<caption>##roles_title##</caption>
+		</property>
+	</object>
+
+	<createform formname="createPage">
+		{pofile form} {pofile roles}
+		<field property="title" type="text" maxlength="40" class="text" />
+		<field id="submit">
+			<label />
+			<value><input type="submit" value="##form_create##" /></value>
+		</field>
+	</createform>
+
+	<editform inherits="createform" formname="editPage">
+		{pofile form} {pofile roles}
+		<field id="submit">
+			<label />
+			<value><input type="submit" value="##form_edit##" /></value>
+		</field>
+	</editform>
+
+	<list formname="indexPage">
+		{pofile form} {pofile roles}
+		<columns>
+			<column property="title" class="link" />
+			<column class="options">
+				<label>##form_options##</label>
+				<value>
+					<a href="/users/roles/assignRights/{$id}/">##roles_assign_rights##</a>
+					<a href="/users/roles/edit/{$id}/">##form_edit##</a>
+					<a href="/users/roles/delete/{$id}/" onclick="return confirm('##form_delete_question##')">##form_delete##</a>
+				</value>
+			</column>
+		</columns>
+	</list>
+</form>

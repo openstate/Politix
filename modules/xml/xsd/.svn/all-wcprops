@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/repos/politix/!svn/ver/1/modules/xml/xsd
+END
+form.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/politix/!svn/ver/1/modules/xml/xsd/form.xsd
+END
+query.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/repos/politix/!svn/ver/1/modules/xml/xsd/query.xsd
+END
+raad.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/politix/!svn/ver/1/modules/xml/xsd/raad.xsd
+END
+raadsstukken.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/1/modules/xml/xsd/raadsstukken.xsd
+END

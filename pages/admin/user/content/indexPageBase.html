@@ -1,0 +1,13 @@
+<a name="BackofficeUserList"></a><form action="" name="BackofficeUserList">
+<table class="list">
+								
+		<tr><th><a href="?sortcol=username&amp;sort={if $formsort.col=='username' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='username'}current {$formsort.dir}{else}asc{/if}">Gebruikersnaam</a></th><th><a href="?sortcol=firstname&amp;sort={if $formsort.col=='firstname' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='firstname'}current {$formsort.dir}{else}asc{/if}">Voornaam</a></th><th><a href="?sortcol=lastname&amp;sort={if $formsort.col=='lastname' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='lastname'}current {$formsort.dir}{else}asc{/if}">Achternaam</a></th><th>Opties</th></tr>
+			{foreach from=$formdata item=datarow key=id name='dataloop'}
+<tr class="link{cycle values=', alt'}"><td>{$datarow.username|htmlentities:2:'UTF-8'|nl2br}</td><td>{$datarow.firstname|htmlentities:2:'UTF-8'|nl2br}</td><td>{$datarow.lastname|htmlentities:2:'UTF-8'|nl2br}</td><td><a href="edit/{$datarow.id}"><img src="/images/edit.png" alt="Edit" title="Edit" border="0" /></a>
+					<a href="delete/{$datarow.id}" onclick="return confirm('Weet u zeker dat u dit item wilt verwijderen?');"><img src="/images/delete.png" alt="Verwijderen" title="Verwijderen" border="0" /></a>
+					<a href="role/{$datarow.id}"><img src="/images/r.gif" border="0" alt="Wijzig Rol" title="Wijzig Rol" /></a>
+					<a href="region/{$datarow.id}"><img src="/images/g.gif" border="0" alt="Wijzig Griffies" title="Wijzig Griffies" /></a></td></tr>
+{/foreach}
+
+			</table>
+</form>

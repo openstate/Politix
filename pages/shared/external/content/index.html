@@ -1,0 +1,19 @@
+{pofile external}
+
+<h2>##external.header##</h2>
+
+<p>
+	##external.description##
+</p>
+
+<p>
+	<a href="{$href}">{$href}</a>
+</p>
+
+{literal}
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+	document.write('<p><a href="javascript:window.close()">##external.backlink##<\/a><\/href>');
+//--><!]]>
+</script>
+{/literal}

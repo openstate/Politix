@@ -1,0 +1,49 @@
+8
+
+dir
+57
+http://host08.accepte.nl/repos/politix/pages/watstemtmijnraad
+http://host08.accepte.nl/repos/politix
+
+
+
+2009-04-08T12:45:31.404076Z
+52
+sardar.yamatov
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a3189d24-e339-4d94-a982-af3f4112dbaa
+
+raadsstukken
+dir
+
+select
+dir
+
+advsearch
+dir
+
+utils
+dir
+
+styles
+dir
+
+search
+dir
+
+home
+dir
+

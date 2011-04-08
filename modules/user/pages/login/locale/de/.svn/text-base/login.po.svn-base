@@ -1,0 +1,23 @@
+msgid  "login_header"
+msgstr "Anmelden"
+
+msgid  "login_username"
+msgstr "Kundenname"
+
+msgid  "login_password"
+msgstr "Passwort"
+
+msgid  "login_save"
+msgstr "Abspeichern"
+
+msgid "login_invalid"
+msgstr "Kein gültiger Benutzername und/ oder Passwort"
+
+msgid  "login_button"
+msgstr "Anmelden"
+
+msgid  "login_forgotpass"
+msgstr "Passwort vergessen? Klicken Sie hier, um ein neues Passwort zu erhalten."
+
+msgid  "login_register"
+msgstr "Legen Sie hier einen Account an!"

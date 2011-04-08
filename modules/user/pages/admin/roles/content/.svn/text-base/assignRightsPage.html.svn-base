@@ -1,0 +1,25 @@
+{pofile form} {pofile roles}
+<h2>##roles_assign_rights##</h2>
+<p>##role##: {$role->title}</p>
+
+<p><a href="/users/roles/rightList/">##roles_list_rights##</a></p>
+
+<table class="list">
+	<tr><th>##roles_module##</th><th>##roles_right##</th><th>##form_options##</th></tr>
+	{foreach from=$role->getRights() key=module item=rights}
+		{foreach from=$rights item=right}
+			<tr {cycle values=',class="alt"'}>
+				<td>{$module}</td>
+				<td>{$right}</td>
+				<td><a href="/users/roles/removeRight/{$role->id}/?module={$module}&right={$right}">##form_delete##</a></td>
+			</tr>
+		{/foreach}
+	{/foreach}
+	<form action="/users/roles/addRight/{$role->id}/" method="post">
+		<tr {cycle values=',class="alt"'}>
+			<td><input type="text" name="module" /></td>
+			<td><input type="text" name="right" /></td>
+			<td><input type="submit" value="##form_add##"></td>
+		</tr>
+	</form>
+</table>

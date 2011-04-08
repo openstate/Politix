@@ -1,0 +1,20 @@
+<a name="RegionList"></a><form action="" name="RegionList">
+<table class="list">
+				
+		
+		
+		<tr><th><a href="?sortcol=name&amp;sort={if $formsort.col=='name' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='name'}current {$formsort.dir}{else}asc{/if}">Naam</a></th><th><a href="?sortcol=level&amp;sort={if $formsort.col=='level' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='level'}current {$formsort.dir}{else}asc{/if}">{if !$hasSubs}Niveau{/if}</a></th><th><a href="?sortcol=parent&amp;sort={if $formsort.col=='parent' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='parent'}current {$formsort.dir}{else}asc{/if}">{if !$hasSubs}Is subniveau van{/if}</a></th><th>Opties</th></tr>
+			{foreach from=$formdata item=datarow key=id name='dataloop'}
+<tr class="link{cycle values=', alt'}">
+	<td>{$datarow.region_name|htmlentities:2:'UTF-8'|nl2br}</td>
+	<td>{$datarow.level_name}</td>
+	<td>{if $datarow.parent_name eq ''}Geen{else}{$datarow.parent_name}{/if}</td>
+	<td><a href="edit/{$datarow.id}"><img src="/images/edit.png" alt="Edit" title="Edit" border="0" /></a>
+		{if $datarow.subs eq 0}<a href="delete/{$datarow.id}" onclick="return confirm('Weet u zeker dat u de regio \'{$datarow.region_name}\' wilt verwijderen?');"><img src="/images/delete.png" alt="Verwijderen" title="Verwijderen" border="0" /></a>{/if}
+					
+				</td></tr>
+
+{/foreach}
+
+			</table>
+</form>

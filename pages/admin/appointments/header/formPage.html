@@ -1,0 +1,31 @@
+<script type="text/javascript" src="/javascripts/formValidation.js"></script>
+{if !$form.freeze}
+<script type="text/javascript" src="/javascripts/lookAheadText.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+{literal}
+var s = '--Typ hier om te zoeken--';
+
+window.addEvent('domready', function() {
+	if ($defined($('politician'))) {
+		lookAheadText = new LookAheadText($('politician'));
+		var el = lookAheadText.getElement();
+		el.injectBefore($('politician'));
+
+
+		el.blur = function() {
+			if (this.value == '')
+				this.setStyle('color', '#aaa').value = s;
+		}
+		el.focus = function() {
+			if (this.value == s)
+				this.setStyle('color', 'black').value = '';
+		}
+
+		el.addEvent('blur', el.blur).addEvent('focus', el.focus).blur();
+	}
+});
+{/literal}
+//--><!]]>
+</script>
+{/if}

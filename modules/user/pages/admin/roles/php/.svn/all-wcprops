@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php
+END
+rightListPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/rightListPage.class.php
+END
+removeRightPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/removeRightPage.class.php
+END
+createPageBase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/createPageBase.class.php
+END
+editPageBase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/editPageBase.class.php
+END
+deletePage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/deletePage.class.php
+END
+indexPageBase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/indexPageBase.class.php
+END
+createPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/createPage.class.php
+END
+assignRightsPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/assignRightsPage.class.php
+END
+editPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/editPage.class.php
+END
+addRightPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/addRightPage.class.php
+END
+indexPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/politix/!svn/ver/1/modules/user/pages/admin/roles/php/indexPage.class.php
+END

@@ -1,0 +1,49 @@
+{pofile form}
+{pofile votes}
+{pofile vote_form}
+{pofile raadsstuk}
+<h2>##votes.intro## '{$raadsstuk->title}' ##votes.on## {$raadsstuk->vote_date|date_format:'%e %B %Y'}</h2>
+<form action="" method="post">
+<table id="council">
+	<tr>
+		<td><span>{$region->level_name} {$region->name}</span></td><td>{include file=`$smartyData.contentDir`options.html prefix='council' class="raad" set=$council.vote}</td>
+	</tr>
+	{foreach from=$council item=party key=partyName}
+	{capture assign=pname}party[{$party.id}]{/capture}
+	<tr>
+		<td style="text-indent: 20px;"><span class="party-name">{$partyName}</span></td><td>{include file=`$smartyData.contentDir`options.html prefix=$pname class="party" set=$party.vote}</td>
+	</tr>
+	{foreach from=$party.politicians item=politician key=politicianId}
+	{capture assign=poname}politician[{$politicianId}]{/capture}
+	<tr>
+		<td style="text-indent: 40px"><span>{$politician.name}</span></td><td>{include file=`$smartyData.contentDir`options.html prefix=$poname class="$pname politician" set=$politician.vote->vote}</td>
+	</tr>
+	{/foreach}
+	{/foreach}
+	<tr>
+		<td class="space"><span id="resultCaption">##votes.result##</span></td>
+		<td class="space">
+			<input type="hidden" id="result" name="result" value="{$raadsstuk->result}"/>
+			<div class="result-item notVoted">
+				<div style="float: right">&raquo;</div><span class="vote-text">##raadsstuk.notvoted##</span>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="space">&nbsp;</td><td class="space"><input type="submit" name="submit" value="##form_submit##"/><input type="submit" name="submit_edit" value="##form_submit## en naar voorstel"/></td>
+	</tr>
+</table>
+<div id="vote-box" style="display: none">
+	<div class="vote-box-item voor border" id="box-voor"><input type="radio" name="vote" value="0"/><span class="vote-text">##votes.voor##</span></div>
+	<div class="vote-box-item tegen border" id="box-tegen"><input type="radio" name="vote" value="1"/><span class="vote-text">##votes.tegen##</span></div>
+	<div class="vote-box-item onthouden border" id="box-onthouden"><input type="radio" name="vote" value="2"/><span class="vote-text">##votes.onthouden##</span></div>
+	<div class="vote-box-item afwezig" id="box-afwezig"><input type="radio" name="vote" value="3"/><span class="vote-text">##votes.afwezig##</span></div>
+</div>
+<div id="result-box" style="display: none">
+	<div class="result-box-item voor border" id="box-accept"><input type="radio" name="result-radio" id="result-box-item-1" value="1"/><span class="vote-text">##raadsstuk.accepted##</span></div>
+	<div class="result-box-item tegen border" id="box-reject"><input type="radio" name="result-radio" id="result-box-item-2" value="2"/><span class="vote-text">##raadsstuk.rejected##</span></div>
+	<div class="result-box-item notVoted" id="box-notVoted"><input type="radio" name="result-radio" id="result-box-item-0" value="0"/><span class="vote-text">##raadsstuk.notvoted##</span></div>
+</div>
+<div id="spacer" style="height: 6em"/>
+</form>
+

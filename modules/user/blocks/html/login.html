@@ -1,0 +1,17 @@
+{pofile login}
+{if $global->user->loggedIn}
+<div class="logout">
+	<a href="/logout/">##login_logout##</a>
+	<p>##login_loggedInAs##: {$name}</p>
+	{if isset($role)}
+	  <p>##login_role##: {$role->toString()}</p>
+	{/if}
+</div>
+{else}
+<form method="post" action="/login" id="login">
+	<label for="username">##login_username##:</label> <input class="text" type="text" name="username" id="username" /><br />
+	<label for="password">##login_password##:</label> <input class="password" type="password" name="password" id="password" /><br />
+	<input type="hidden" name="destination" value="{$destination}" />
+	<input type="submit" value="##login_login##" class="form-submit" />
+</form>
+{/if}

@@ -1,0 +1,33 @@
+<a name="AppointmentCreate"></a><form action="" name="AppointmentCreate" method="post" enctype="multipart/form-data">
+<table class="form">
+		{pofile appointments}
+		{pofile form}		
+		<tr>
+			<th>##appointments.region##:</th>
+			<td>{html_options options=$regions id="region" name=region selected=$formdata.region} <span class="error" id="_err_region_0" style="{if !$formerrors.region_0}display:none{/if}">##form_inenum##</span></td>
+		</tr>
+		<tr>
+			<th>##appointments.party##:</th>
+			<td><div id="partyDiv">{html_options options=$parties id="party" name=party selected=$formdata.party} <span class="error" id="_err_party_0" style="{if !$formerrors.party_0}display:none{/if}">##form_inenum##</span></div></td>
+		</tr>
+		<tr>
+			<th>##appointments.category##:</th>
+			<td><div id="categoryDiv">{html_options options=$categories id="category" name=category selected=$formdata.category} <span class="error" id="_err_category_0" style="{if !$formerrors.category_0}display:none{/if}">##form_inenum##</span></div></td>
+		</tr>
+		<tr>
+			<th>##appointments.date_start##:</th>
+			<td>{html_select_date time=$formdata.time_start.unix field_order="DMY" field_array="date_start" start_year=1980 end_year=+10} <span class="error" id="_err_time_start_0" style="{if !$formerrors.time_start_0}display:none{/if}">##form_inenum##</span></td>
+		</tr>
+		<tr>
+			<th>##appointments.date_end##:</th>
+			<td>{html_select_date time=$formdata.time_end.unix field_order="DMY" field_array="date_end" start_year=1980 end_year=+10} <span class="error" id="_err_time_end_0" style="{if !$formerrors.time_end_0}display:none{/if}">##form_inenum##</span><span class="error" id="_err_time_start_1" style="{if !$formerrors.time_start_1}display:none{/if}">##appointments.invalid_date##</span></td>
+		</tr>
+		<tr>
+			<th>##appointments.description##:</th>
+			<td><input type="text" name="description" value="{$formdata.description}"/></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="##form_add##"/> </td>
+		</tr>
+</table>
+</form>

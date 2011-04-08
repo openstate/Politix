@@ -1,0 +1,36 @@
+<h2>Tags voor {$category->name}</h2>
+<p>
+	<a href="/categories/"><img src="/images/arrow_turn_up.png" title="Terug" alt="Terug" border="0" /></a>&nbsp;{$category->name}
+</p>
+<div id="message">{$message}</div>
+<form name="tagsList" id="tagsListForm" method="post" action="">
+<table class="list"><tr>
+	<th>&nbsp;</th>
+	<th>Tag</th>
+	<th>Opties</th>
+</tr>
+{foreach from=$tags item=tag}
+<tr class="link{cycle values=", alt"}">
+	<td><input type="checkbox" name="tag[]" value="{$tag->id}" class="checkbox" /></td>
+	<td>{$tag->name}</td>
+	<td>
+		<a href="?edit={$tag->id}"><img src="/images/edit.png" title="Tag Wijzigen" alt="Tag Wijzigen" border="0"/></a>
+	</td>
+</tr>
+{foreachelse}
+<tr class="link"><td>&nbsp;</td><td>Geen tags aanwezig</td></tr>
+{/foreach}
+</table>
+<div id="selects_java"></div>
+<input type="submit" name="delete" value="Verwijder geselecteerde(n)"/>
+</form>
+<br/><br/>
+<form name="tagAdd" id="tagAddForm" method="post" action="">
+<table class="form"><tr>
+	<td>Naam</td>
+	<td><input type="text" name="name" value="{$formdata.name|htmlentities:2:'UTF-8'}" /><span class="error" id="name_error" style="display:none;">Niet ingevuld</span></td>
+</tr><tr>
+	<td>&nbsp;</td>
+	<td><input type="submit" name="add" value="Toevoegen" /></td>
+</tr></table>
+</form>

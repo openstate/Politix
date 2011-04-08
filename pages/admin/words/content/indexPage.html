@@ -1,0 +1,21 @@
+<h2>Verdachte woorden</h2>
+<p><a href="/words/create/"><img src="/images/add.png" alt="Toevoegen" title="Toevoegen" border="0"/></a> <a href="/words/create/">Toevoegen</a></p>
+<a name="WordList"></a>
+<form action="" name="WordList">
+	<table class="list">
+		<tr>
+			<th>Woord</th>
+			<th>Opties</th>
+		</tr>
+		{foreach from=$formdata item=datarow key=id name='dataloop'}
+		<tr class="link{cycle values=', alt'}">
+			<td>{$datarow.word}</td>
+			<td><a href="/words/delete/{$datarow.id}" onclick="return confirm('Weet u zeker dat u dit item wilt verwijderen?');"><img src="/images/delete.png" alt="Verwijderen" title="Verwijderen" border="0" /></a></td>
+		</tr>
+		{foreachelse}
+		<tr>
+			<td>Geen</td>
+		</tr>
+		{/foreach}
+	</table>
+</form>

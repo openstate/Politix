@@ -1,0 +1,20 @@
+msgid "index.notfound"
+msgstr "Geen pagina's gevonden"
+
+msgid "index.success"
+msgstr "De pagina is succesvol %s."
+
+msgid "index.error"
+msgstr "De pagina kon niet worden %s, probeer het later nog eens."
+
+msgid "index.action.create"
+msgstr "toegevoegd"
+
+msgid "index.action.edit"
+msgstr "gewijzigd"
+
+msgid "index.action.delete"
+msgstr "verwijderd"
+
+msgid "index.urlexists"
+msgstr "De url bestaat al"

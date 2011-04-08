@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/politix/!svn/ver/1/pages/admin/appointments/php
+END
+indexPage.class.php.foo
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/indexPage.class.php.foo
+END
+createPageBase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/createPageBase.class.php
+END
+partyPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/partyPage.class.php
+END
+BOUserRolePoliticianAppointmentPartyHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRolePoliticianAppointmentPartyHelper.class.php
+END
+indexPageBase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/indexPageBase.class.php
+END
+DeleteVoteHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/DeleteVoteHelper.class.php
+END
+FormPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/FormPage.class.php
+END
+BOUserRoleSecretaryAppointmentPartyHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRoleSecretaryAppointmentPartyHelper.class.php
+END
+regionPageBase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/regionPageBase.class.php
+END
+LoadFormById.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/LoadFormById.class.php
+END
+mailPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/mailPage.class.php
+END
+createPartyPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/createPartyPage.class.php
+END
+BOUserRolePoliticianAppointmentRegionHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRolePoliticianAppointmentRegionHelper.class.php
+END
+editPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/editPage.class.php
+END
+BOUserRoleClerkAppointmentRegionHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRoleClerkAppointmentRegionHelper.class.php
+END
+BOUserRoleSecretaryAppointmentRegionHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRoleSecretaryAppointmentRegionHelper.class.php
+END
+ModifyHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/ModifyHelper.class.php
+END
+partyPageBase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/partyPageBase.class.php
+END
+AppointmentMailer.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/AppointmentMailer.class.php
+END
+partylistPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/partylistPage.class.php
+END
+deletePage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/deletePage.class.php
+END
+BOUserRoleAppointmentHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRoleAppointmentHelper.class.php
+END
+createPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/createPage.class.php
+END
+BOUserRoleClerkAppointmentPartyHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRoleClerkAppointmentPartyHelper.class.php
+END
+indexPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/indexPage.class.php
+END
+categorylistPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/categorylistPage.class.php
+END
+BOUserRoleAppointmentIdentityHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRoleAppointmentIdentityHelper.class.php
+END
+BOUserRolePoliticianAppointmentHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRolePoliticianAppointmentHelper.class.php
+END
+createPoliticianPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/createPoliticianPage.class.php
+END
+regionPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/regionPage.class.php
+END
+BOUserRoleClerkAppointmentHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRoleClerkAppointmentHelper.class.php
+END
+BOUserRoleSecretaryAppointmentHelper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/politix/!svn/ver/1/pages/admin/appointments/php/BOUserRoleSecretaryAppointmentHelper.class.php
+END

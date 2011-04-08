@@ -1,0 +1,23 @@
+<a name="EditableRoleCreate"></a><form action="" name="EditableRoleCreate" method="post" onsubmit="return formSubmit(this)" enctype="multipart/form-data">
+<table class="form">
+				
+		{pofile form} {pofile roles}
+		<tr>
+				<th>##roles_title##</th>
+				<td><input type="text" name="title" value="{$formdata.title|htmlentities:2:'UTF-8'}" id="title" onkeyup="revalidate(this.form)" maxlength="40" class="text" /> <span class="error" id="_err_title_0" style="{if !$formerrors.title_0}display:none{/if}">##form_required##</span></td>
+			</tr>
+			<tr>
+				<th>##roles_site##</th>
+				<td><select name="site" id="site" onkeyup="revalidate(this.form)">
+				{foreach from=$formdata.sites key=key item=site}
+					<option value="{$key}">{$site}
+				{/foreach}
+				</select><span class="error" id="_err_site_0" style="{if !$formerrors.site_0}display:none{/if}">##form_required##</span></td>
+			</tr>
+		<tr>
+				<th />
+				<td><input type="submit" value="##form_create##" /> </td>
+			</tr>
+			</table>
+</form><script type="text/javascript"><!--
+updateVisibility(document.forms['EditableRoleCreate']) //--></script>

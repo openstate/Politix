@@ -1,0 +1,17 @@
+msgid "index.title"
+msgstr "Opmaak wijzigen"
+
+msgid "index.success"
+msgstr "De opmaak is succesvol %s."
+
+msgid "index.error"
+msgstr "De opmaak kon niet worden %s, probeer het later nog eens."
+
+msgid "index.action.create"
+msgstr "toegevoegd"
+
+msgid "index.action.edit"
+msgstr "gewijzigd"
+
+msgid "index.action.delete"
+msgstr "verwijderd"

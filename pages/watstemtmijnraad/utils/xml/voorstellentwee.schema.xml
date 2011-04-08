@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<politix table="voorstellentwee">
+  <parties>
+    <party column="sp" keyname="sp"/>
+    <party column="groenlinks" keyname="groenlinks"/>
+    <party column="pvda" keyname="pvda"/>
+    <party column="d66" keyname="d66"/>
+    <party column="cda" keyname="cda"/>
+    <party column="christenunie" keyname="christenunie"/>
+    <party column="sgp" keyname="sgp"/>
+    <party column="vvd" keyname="vvd"/>
+    <party column="lpf" keyname="lpf"/>
+    <party column="wilders" keyname="wilders"/>
+    <party column="nawijn" keyname="nawijn"/>
+    <party column="lazrak" keyname="lazrak"/>
+    <party column="vanoudenallen" keyname="vanoudenallen"/>
+    <party column="eerdmansvanschijndel" keyname="eerdmansvanschijndel"/>
+  </parties>
+  <maps>
+    <map name="category" table="sys_categories" sequence="sys_categories_id_seq" type="list">
+      <list key="overig">
+        <mapval key="overig" name="Geen" id="-1"/>
+      </list>
+      <list key="democratie en bestuur"/>
+      <list key="internationaal">
+        <mapval key="internationaal" name="Internationale Betrekkingen" id="19"/>
+      </list>
+      <list key="arbeid en sociale zekerheid">
+        <mapval key="arbeid en sociale zekerheid" name="Werk en Inkomen" id="3"/>
+      </list>
+      <list key="onderwijs">
+        <mapval key="onderwijs" name="Onderwijs" id="10"/>
+      </list>
+      <list key="justitie en politie">
+        <mapval key="justitie en politie" name="Openbare Orde en Veiligheid" id="14"/>
+      </list>
+      <list key="milieu en omgeving">
+        <mapval key="milieu en omgeving" name="Natuur en Milieu" id="4"/>
+      </list>
+      <list key="gezondheidszorg">
+        <mapval key="gezondheidszorg" name="Gezondheid" id="6"/>
+      </list>
+      <list key="vervoer en verkeer">
+        <mapval key="vervoer en verkeer" name="Verkeer en Vervoer" id="7"/>
+      </list>
+      <list key="wonen">
+        <mapval key="wonen" name="Bouwen en Wonen" id="1"/>
+      </list>
+      <list key="belastingen">
+        <mapval key="belastingen" name="Financiën en Belasting" id="18"/>
+      </list>
+      <list key="energie"/>
+      <list key="media en communicatie"/>
+      <list key="economie en consument">
+        <mapval key="economie en consument" name="Economische Zaken En Werkgelegenheid" id="9"/>
+      </list>
+      <list key="immigratie en integratie">
+        <mapval key="immigratie en integratie" name="Burgerzaken" id="15"/>
+      </list>
+      <list key=""/>
+    </map>
+    <map name="type" table="rs_raadsstukken_type" sequence="rs_raadsstukken_type_id_seq" type="simple">
+      <mapval key="wetsvoorstel" name="Raadsvoorstel" id="1"/>
+      <mapval key="amendement" name="Amendement" id="3"/>
+      <mapval key="" name="Onbekend"/>
+      <mapval key="initiatiefwetsvoorstel" name="Initiatiefvoorstel" id="2"/>
+    </map>
+    <map name="result" table="" sequence="" type="simple">
+      <mapval key="Aangenomen" name="Aangenomen" id="1"/>
+      <mapval key="Afgewezen" name="Afgewezen" id="2"/>
+      <mapval key="Nog niet over gestemd" name="Niet gestemd" id="0"/>
+      <mapval key="" name="Niet gestemd" id="0"/>
+    </map>
+    <map name="submitter" table="rs_raadsstukken_submit_type" sequence="rs_raadsstukken_submit_type_id_seq" type="simple">
+      <mapval key="Onbekend" name="Onbekend"/>
+    </map>
+    <map name="region" table="sys_regions" sequence="sys_regions_id_seq" type="simple">
+      <mapval key="Nederland" name="Nederland" id="2"/>
+    </map>
+    <map name="tag" table="sys_tags" sequence="sys_tags_id_seq" type="simple">
+      <mapval key="politix" name="politix"/>
+    </map>
+    <map name="vote" table="" sequence="" type="simple">
+      <mapval key="niet bestaand" name="Skip" id="-1"/>
+      <mapval key="voor" name="Voor" id="0"/>
+      <mapval key="tegen" name="Tegen" id="1"/>
+      <mapval key="niet aanwezig" name="Afwezig" id="3"/>
+      <mapval key="onthouden van stemming" name="Onthouden" id="2"/>
+      <mapval key="" name="Skip" id="-1"/>
+      <mapval key="tegen,niet aanwezig" name="Tegen" id="1"/>
+    </map>
+    <map name="party" table="pol_parties" sequence="pol_parties_id_seq" type="party">
+      <mapval key="sp" name="Socialistische Partij" id="40" owner="Nederland" combination="0" short_form="sp"/>
+      <mapval key="groenlinks" name="GroenLinks" id="6" owner="Nederland" combination="0" short_form="groenlinks"/>
+      <mapval key="pvda" name="Partij van de Arbeid" id="1" owner="Nederland" combination="0" short_form="pvda"/>
+      <mapval key="d66" name="D66" id="32" owner="Nederland" combination="0" short_form="d66"/>
+      <mapval key="cda" name="Christen-Democratisch Appèl" id="4" owner="Nederland" combination="0" short_form="cda"/>
+      <mapval key="christenunie" name="ChristenUnie" id="31" owner="Nederland" combination="0" short_form="christenunie"/>
+      <mapval key="sgp" name="Staatkundig Gereformeerde Partij" id="39" owner="Nederland" combination="0" short_form="sgp"/>
+      <mapval key="vvd" name="Volkspartij voor Vrijheid en Democratie" id="44" owner="Nederland" combination="0" short_form="vvd"/>
+      <mapval key="lpf" name="Lijst Pim Fortuyn" owner="Nederland" combination="0" short_form="lpf"/>
+      <mapval key="wilders" name="Partij voor de Vrijheid" owner="Nederland" combination="0" short_form="wilders"/>
+      <mapval key="nawijn" name="Groep Nawijn" owner="Nederland" combination="0" short_form="nawijn"/>
+      <mapval key="lazrak" name="Groep Lazrak" owner="Nederland" combination="0" short_form="lazrak"/>
+      <mapval key="vanoudenallen" name="Groep Van Oudenallen" owner="Nederland" combination="0" short_form="vanoudenallen"/>
+      <mapval key="eerdmansvanschijndel" name="Groep Eerdmans-Van Schijndel" owner="Nederland" combination="0" short_form="eerdmansvanschijndel"/>
+      <mapval key="pvdd" name="Partij voor de Dieren" owner="Nederland" combination="0" short_form="pvdd"/>
+      <mapval key="pvv" name="Partij voor de Vrijheid" owner="Nederland" combination="0" short_form="pvv"/>
+      <mapval key="verdonk" name="Trots op Nederland" owner="Nederland" combination="0" short_form="verdonk"/>
+    </map>
+    <map name="politician" table="pol_politicians" sequence="pol_politicians_id_seq" type="politician">
+      <mapval key="sp" name="Onbekend"/>
+      <mapval key="groenlinks" name="Onbekend"/>
+      <mapval key="pvda" name="Onbekend"/>
+      <mapval key="d66" name="Onbekend"/>
+      <mapval key="cda" name="Onbekend"/>
+      <mapval key="christenunie" name="Onbekend"/>
+      <mapval key="sgp" name="Onbekend"/>
+      <mapval key="vvd" name="Onbekend"/>
+      <mapval key="lpf" name="Onbekend"/>
+      <mapval key="wilders" name="Onbekend"/>
+      <mapval key="nawijn" name="Onbekend"/>
+      <mapval key="lazrak" name="Onbekend"/>
+      <mapval key="vanoudenallen" name="Onbekend"/>
+      <mapval key="eerdmansvanschijndel" name="Onbekend"/>
+      <mapval key="pvdd" name="Onbekend"/>
+      <mapval key="pvv" name="Onbekend"/>
+      <mapval key="verdonk" name="Onbekend"/>
+    </map>
+  </maps>
+</politix>

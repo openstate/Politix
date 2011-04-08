@@ -1,0 +1,16 @@
+{pofile form}
+{pofile party}
+{pofile index}
+<form action="" name="RegionLinkForm" method="post" enctype="multipart/form-data">
+	<h2>{$form.header}</h2>
+	<table class="form">
+		<tr>
+			<th>{$form.date_field}</th>
+			<td>{html_select_date time=$formdata.date field_order='DMY' start_year=-5 end_year=+5} <span class="error" id="_err_date_invalid" style="{if !$formerrors.date_invalid}display:none{/if}">##form_validDate##</span></td>
+		</tr>
+		<tr>
+			<th/>
+			<td><input type="submit" name="submit" value="{$form.submitText}"/></td>
+		</tr>
+	</table>
+</form>

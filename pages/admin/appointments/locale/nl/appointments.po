@@ -1,0 +1,32 @@
+msgid "appointments.ajaxfailed"
+msgstr "Er is een interne fout opgetreden."
+
+msgid "appointments.empty"
+msgstr "Geen"
+
+msgid "appointments.region"
+msgstr "Regio"
+
+msgid "appointments.party"
+msgstr "Partij"
+
+msgid "appointments.category"
+msgstr "Categorie"
+
+msgid "appointments.date_start"
+msgstr "Aanvangsdatum"
+
+msgid "appointments.date_end"
+msgstr "Einddatum"
+
+msgid "appointments.description"
+msgstr "Omschrijving"
+
+msgid "appointments.politician"
+msgstr "Politicus"
+
+msgid "appointments.invalid_date"
+msgstr "De einddatum moet groter zijn dan aanvangsdatum"
+
+msgid "appointments.confirm_delete"
+msgstr "Weet u zeker dat u deze aanstelling wilt verwijderen?"

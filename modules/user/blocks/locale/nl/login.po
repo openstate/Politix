@@ -1,0 +1,17 @@
+msgid  "login_username"
+msgstr "E-mailadres"
+
+msgid  "login_password"
+msgstr "Wachtwoord"
+
+msgid  "login_login"
+msgstr "Log in"
+
+msgid  "login_logout"
+msgstr "Log uit"
+
+msgid  "login_loggedInAs"
+msgstr "Ingelogd als"
+
+msgid  "login_role"
+msgstr "Rol"

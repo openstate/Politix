@@ -1,0 +1,26 @@
+{pofile form} {pofile login}
+<a name="UserCreate"></a>
+<form action="" name="UserCreate" method="post" onsubmit="return validate(this);" enctype="multipart/form-data">
+		<strong class="label">##login_username##:</strong>
+		<input class="field text" type="text" name="username" value="{$formdata.username|htmlentities:2:'UTF-8'}" id="username" maxlength="40"/>
+		<span class="error" id="_err_username_0" style="{if !$formerrors.username_0}display:none{/if}">##form_required##</span>
+		<br class="clear" />
+
+		<strong class="label">##login_password##:</strong>
+		<input class="field password" type="password" name="password" value="{$formdata.password|htmlentities:2:'UTF-8'}" id="password" maxlength="40" />
+		<span class="error" id="_err_password_0" style="{if !$formerrors.password_0}display:none{/if}">##form_required##</span>
+		<span class="error" id="_err_password_1" style="{if !$formerrors.password_1}display:none{/if}"><br />##login_invalid##</span>
+		<br class="clear" />
+
+		<strong class="label">##login_save##:</strong>
+		<input class="field inputNoBorder" type="checkbox" name="cookie" id="cookie"{if $formdata.cookie} checked="checked"{/if} />
+		<br class="clear" />
+
+		<input class="field button" type="submit" value="##login_button##" /> 
+		<input type="hidden" name="destination" value="{$formdata.destination|htmlentities:2:'UTF-8'}" id="destination" />
+</form>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+	updateVisibility(document.forms['UserCreate'])
+//--><!]]>
+</script>

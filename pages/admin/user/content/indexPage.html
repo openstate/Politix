@@ -1,0 +1,12 @@
+<h2>Gebruikers</h2>
+
+<form method="get" action="/user/">
+<label for="query">Zoek op naam:</label>
+<input type="text" name="q" id="query" value="{$query}" />
+<input type="submit" value="Zoeken" />
+</form>
+
+{if $pager}<p class="pager">{$pager}</p>{/if}
+<p><a href="/user/create/"><img src="/images/add.png" border="0" alt="Toevoegen" title="Toevoegen" /></a> <a href="/user/create/">Toevoegen</a></p>
+
+{include file="`$smartyData.contentDir`/indexPageBase.html"}

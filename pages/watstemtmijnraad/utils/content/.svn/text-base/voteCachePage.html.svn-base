@@ -1,0 +1,114 @@
+<!-- BEGIN vote cache test page content -->
+
+<div style="margin-left: 77px">
+		<h1 style="text-align: center;">Cache faults</h1>
+			<table cellpadding="0" cellspacing="0" style="width: 100%">
+				<thead>
+					<tr><td colspan="4"><h3>Cached Voorstellen</h3></td></tr>
+
+					<tr>
+						<td class="voor">Voor</td>
+						<td class="tegen">Tegen</td>
+						<td class="onthouden">Onthouden</td>
+						<td class="afweizig">Afwezig</td>
+					</tr>
+
+					<tr><td colspan="4" style="height: 20px;"></td></tr>
+				</thead>
+
+				{foreach from=$result_data item=dat key=k name=results_loop}
+
+				<tbody>
+					<tr class="border_line">
+						<td class="raadstuk" colspan="3">{$dat.raadsstuk_id}: <a href="/raadsstukken/raadsstuk/{$dat.raadsstuk_id}" title="Ga naar {$dat.title|htmlentities:2:'UTF-8'}">{$dat.title|htmlentities:2:'UTF-8'|nl2br}</a></td>
+						<td><form action="/utils/voteCache" method="GET"><input type="hidden" name="correct_id" value="{$dat.raadsstuk_id}"><input type="submit" value="Correct"></form></td>
+					</tr>
+
+					<tr>
+						{foreach from=$dat.votes item=vote key=vk name=vote_loop}
+							{if $vote.incorrect}
+							<td><span class="fault">{$vote.in_cache_count}</span> ({$vote.difference}) <span class="correct">{$vote.filtered_count}</span> <span class="real">[{$vote.actual_count}]</span></td>
+							{else}
+							<td>{$vote.in_cache_count} <span class="real">[{$vote.actual_count}]</span></td>
+							{/if}
+						{/foreach}
+					</tr>
+
+					<tr>
+						<td colspan="4" style="padding-top: 10px; padding-bottom: 20px;">
+						{foreach  from=$dat.missing_people item=po key=pk name=poeple_loop}
+							<div class="{if $po.completely_missing}completely_missing{else}missing{/if}">{$po.id}: {$po.first_name} {$po.last_name} in {$po.region} - voted: {$po.vote_date} but [{$po.function_start} - {$po.function_end}]</div>
+						{/foreach}
+						</td>
+					</tr>
+				</tbody>
+
+				{foreachelse}
+					<tbody><tr><td colspan="4"><h3 style="text-align: center;">No cache faults! =)</h3></td></tr></tbody>
+				{/foreach}
+
+			</table>
+
+			<table cellpadding="0" cellspacing="0" style="width: 100%">
+				<thead>
+					<tr><td colspan="4"><h3>Not in cache</h3></td></tr>
+
+					<tr>
+						<td class="voor">Voor</td>
+						<td class="tegen">Tegen</td>
+						<td class="onthouden">Onthouden</td>
+						<td class="afweizig">Afwezig</td>
+					</tr>
+
+					<tr><td colspan="4" style="height: 20px;"></td></tr>
+				</thead>
+
+				{foreach from=$not_in_cache item=dat key=k name=results_loop}
+
+				<tbody>
+					<tr class="border_line">
+						<td class="raadstuk" colspan="3">{$dat.raadsstuk_id}: <a href="/raadsstukken/raadsstuk/{$dat.raadsstuk_id}" title="Ga naar {$dat.title|htmlentities:2:'UTF-8'}">{$dat.title|htmlentities:2:'UTF-8'|nl2br}</a></td>
+						<td><form action="/utils/voteCache" method="GET"><input type="hidden" name="correct_id" value="{$dat.raadsstuk_id}"><input type="submit" value="Correct"></form></td>
+					</tr>
+
+					<tr>
+						{foreach from=$dat.votes item=vote key=vk name=vote_loop}
+							<td>{$vote.filtered_count} <span class="real">[{$vote.actual_count}]</span></td>
+						{/foreach}
+					</tr>
+
+					<tr>
+						<td colspan="4" style="padding-top: 10px; padding-bottom: 20px;">
+						{foreach  from=$dat.missing_people item=po key=pk name=poeple_loop}
+							<div class="{if $po.completely_missing}completely_missing{else}missing{/if}">{$po.id}: {$po.first_name} {$po.last_name} in {$po.region} - voted: {$po.vote_date} but [{$po.function_start} - {$po.function_end}]</div>
+						{/foreach}
+						</td>
+					</tr>
+				</tbody>
+
+				{foreachelse}
+					<tbody><tr><td colspan="4"><h3 style="text-align: center;">Everything is cached</h3></td></tr></tbody>
+				{/foreach}
+
+			</table>
+
+			<div style="text-align: center; margin-top: 40px;">
+				<form style="display: inline" action="/utils/voteCache" method="GET"><input type="hidden" name="correct_all" value="1"><input type="submit" value="Correct All"></form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<form style="display: inline" action="/utils/voteCache" method="GET"><input type="submit" value="Refresh"></form>
+			</div>
+
+			<div style="margin-top: 50px; margin-bottom: 30px;">
+				{if $undo_SQL}
+					<h3>Undo SQL</h3>
+					<div style="border: 1px solid red; padding: 10px; font-family: monospace;">
+					{foreach  from=$undo_SQL item=sql key=sk name=undo_items_loop}
+						<div>{$sql}</div>
+					{/foreach}
+					</div>
+				{/if}
+
+				<div style="margin-top: 10px; text-align: center;">Time: {$benchmark_time} sec</div>
+				{if $operation_time > 0}<div style="text-align: center;">Operation time: {$operation_time} sec</div>{/if}
+			</div>
+</div>
+<!-- END vote cache test page content -->

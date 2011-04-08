@@ -1,0 +1,26 @@
+msgid "index.notfound"
+msgstr "Geen partijen gevonden"
+
+msgid "index.success"
+msgstr "De partij is succesvol %s."
+
+msgid "index.error"
+msgstr "De partij kon niet worden %s, probeer het later nog eens."
+
+msgid "index.action.create"
+msgstr "toegevoegd"
+
+msgid "index.action.edit"
+msgstr "gewijzigd"
+
+msgid "index.action.delete"
+msgstr "verwijderd"
+
+msgid "index.selectTwo"
+msgstr "Een combinatiepartij dient uit minimaal twee partijen te bestaan"
+
+msgid "index.region.success"
+msgstr "De koppeling is succesvol %s."
+
+msgid "index.region.error"
+msgstr "De koppeling kon niet worden %s, probeer het later nog eens."

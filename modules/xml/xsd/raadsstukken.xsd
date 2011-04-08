@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<xs:schema xmlns="http://www.watstemtmijnraad.nl"
+					 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					 targetNamespace="http://www.watstemtmijnraad.nl"
+					 elementFormDefault="qualified">
+
+	<xs:simpleType name="resultType">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="typeType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:positiveInteger"/>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="categoryListType">
+		<xs:sequence>
+			<xs:element name="category" type="categoryType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="categoryType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer"/>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="regionType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:positiveInteger"/>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tagListType">
+		<xs:sequence>
+			<xs:element name="tag" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="votesType">
+		<xs:sequence>
+			<xs:element name="yea" type="xs:integer"/>
+			<xs:element name="nay" type="xs:integer"/>
+			<xs:element name="abstain" type="xs:integer"/>
+			<xs:element name="absent" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="raadsstukType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:positiveInteger"/>
+			<xs:element name="region" type="regionType"/>
+			<xs:element name="title" type="xs:string"/>
+			<xs:element name="summary" type="xs:string"/>
+			<xs:element name="categories" type="categoryListType"/>
+			<xs:element name="code" type="xs:string"/>
+			<xs:element name="type" type="typeType"/>
+			<xs:element name="date" type="xs:date"/>
+			<xs:element name="result" type="resultType"/>
+			<xs:element name="votes" type="votesType"/>
+			<xs:element name="tags" type="tagListType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+  <xs:complexType name="raadsstukListType">
+    <xs:sequence>
+      <xs:element name="raadsstuk" type="raadsstukType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="raadsstukken" type="raadsstukListType"/>
+</xs:schema>

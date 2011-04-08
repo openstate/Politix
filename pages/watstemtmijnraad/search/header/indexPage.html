@@ -1,0 +1,39 @@
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+{literal}
+
+window.addEvent('domready', function() {
+	var search = $('searchBlock');
+	var searchImage = $('searchImage');
+
+	search.open = function() {
+		search.setStyle('display', '');
+		searchImage.setProperty('src', '/styles/close');
+	}
+
+	search.close = function() {
+		search.setStyle('display', 'none');
+		searchImage.setProperty('src', '/styles/open');
+	}
+
+	search.isOpen = function() {
+		return search.getStyle('display') != 'none';
+	}
+
+	var st = $('search_span');
+	var el = new Element('a', {href: '#'}).setText(st.getText()).injectTop('search_toggle');
+	st.remove();
+
+	$('search_toggle').addEvent('click', function() {
+		if (search.isOpen())
+			search.close();
+		else
+			search.open();
+	});
+
+	if ($$('.result').length) search.close();
+});
+
+{/literal}
+//--><!]]>
+</script>

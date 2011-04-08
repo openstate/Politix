@@ -1,0 +1,71 @@
+<form template="../../../../../../formgen/template.xml">
+	<object name="BackofficeUser">
+		<id name="id" />
+		<property name="username" required="1">
+			<caption>Gebruikersnaam</caption>
+		</property>
+		
+		<property name="password">
+			<caption>Wachtwoord</caption>
+		</property>
+	</object>
+
+	<createform formname="createPage">
+		{pofile form}
+		<field property="username" type="text" maxlength="40" />
+		<field property="password" type="password" maxlength="40" required="1" />
+		<field>
+			<label>Bevestig wachtwoord</label>
+			<value>
+				<input type="password" id="password2" required="1">
+					<check type="equal">
+						<option name="compareWith">password</option>
+						<error>Wachtwoorden zijn niet gelijk</error>
+					</check>			
+				</input>
+			</value>
+		</field>
+		
+		<field id="submit">
+			<label />
+			<value><input type="submit" value="Verstuur" /></value>
+		</field>
+	</createform>
+
+	<editform formname="editPage">
+		{pofile form}
+		<field property="username" type="text" maxlength="40" />
+		<field property="password" type="password" value="" maxlength="40" />		
+		<field>
+			<label>Bevestig wachtwoord</label>
+			<value>
+				<input type="password" id="password2">
+					<check type="equal">
+						<option name="compareWith">password</option>
+					</check>
+				</input>
+			</value>
+		</field>
+		<field id="submit">
+			<label />
+			<value><input type="submit" value="Wijzigen" /></value>
+		</field>
+	</editform>
+
+	<list formname="indexPage">
+		{pofile form}
+		<columns>
+			<column property="username">			
+				<label>username</label>
+				<value><a href="role/{$id}/">{$datarow.username}</a></value>
+			</column>
+			<column class="options">
+				<label>Options</label>
+				<value>					
+					<a href="edit/{$id}/"><img src="/images/edit.png" border="0" alt="Wijzigen" title="Wijzigen" /></a>
+					<a href="delete/{$id}/" onclick="return confirm('Weet u zeker dat u deze gebruiker wilt verwijderen?')"><img src="/images/delete.png" border="0" alt="Verwijderen" title="Verwijderen" /></a>					
+				</value>
+			</column>
+		</columns>
+	</list>
+</form>

@@ -1,0 +1,9 @@
+{pofile index}
+{if !$extern}
+<div class="titleBlock"></div><h2>##index.title##</h2>
+{/if}
+{include file=`$smartyData.contentDir`/search.html}
+<div class="titleBlock"></div><h2>{$page->title|htmlentities}</h2>
+<div class="contentBlock">
+	{$page->content}
+</div>

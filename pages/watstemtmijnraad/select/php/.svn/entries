@@ -1,0 +1,52 @@
+8
+
+dir
+57
+http://host08.accepte.nl/repos/politix/pages/watstemtmijnraad/select/php
+http://host08.accepte.nl/repos/politix
+
+
+
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a3189d24-e339-4d94-a982-af3f4112dbaa
+
+politicianPage.class.php
+file
+
+
+
+
+2008-11-18T08:33:40.000000Z
+33733e9571b194658a104ee358266251
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+partyPage.class.php
+file
+
+
+
+
+2008-11-18T08:33:40.000000Z
+9d18c191d34814d35ab9a933cd0b4a06
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+

@@ -1,0 +1,12 @@
+<h2>Tag wijzigen</h2>
+<form name="tagEdit" id="tagEditForm" method="post" action="">
+<input type="hidden" name="category" value="{$id}" />
+<input type="hidden" name="id" value="{$formdata.id}" />
+<table class="form"><tr>
+	<td>Naam</td>
+	<td><input type="text" name="name" value="{$formdata.name|htmlentities:2:'UTF-8'}" /><span class="error" id="name_error" style="display:none;">Niet ingevuld</span></td>
+</tr><tr>
+	<td>&nbsp;</td>
+	<td><input type="submit" name="edit" value="Wijzigen" /></td>
+</tr></table>
+</form>

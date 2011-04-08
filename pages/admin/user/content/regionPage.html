@@ -1,0 +1,24 @@
+<h2>Regio's voor {$user->username}</h2>
+<p><a href="/user/"><img src="/images/arrow_turn_up.png" alt="Terug" border="0" /></a> <a href="/user/">Terug</a></p>
+<form method="post" action="">
+<input type="hidden" name="userid" value="{$userid}" />
+<div id="tree">
+{assign var='currentKey' value='0'}
+{foreach from=$regions item=region}
+{if $region.level eq ($currentKey + 1)}
+	<ul id="region_{$region.parent}" class="child">{capture name=closing} {/capture}
+{elseif $region.level eq ($currentKey - 1)}	
+	</li></ul></li>
+{else}
+	{$smarty.capture.closing}		
+{/if}
+<li class="child"><img src="/images/collapse.gif" border="0" id="label_{$region.id}" class="toggler" alt=""/><label><input type="checkbox" name="regions[]" value="{$region.id}" {if isset($selectedRegions[$region.id])}checked="checked" {/if}/>{$region.name}</label>
+{capture name=closing}</li>{/capture}
+{assign var='currentKey' value=`$region.level`}
+{/foreach}
+{section name=finishing loop=$currentKey start=0 max=$currentKey}
+</li></ul>
+{/section}
+</div>
+<input type="submit" name="submit" value="Verstuur" />
+</form>

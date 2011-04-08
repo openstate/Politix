@@ -1,0 +1,91 @@
+{pofile raadsstuk}
+{pofile index}
+<div class="titleBlock"></div><h2 id="search_toggle" class="nomargin-bottom"><span id="search_span">Wijzig zoekopdracht</span> <img id="searchImage" src="" alt=""/></h2>
+<p></p>
+{if $fts}
+<div id="searchBlock" class="contentBlock">
+	<form action="/search" method="post">
+		<p><label for="q">Vul uw zoekterm in: </label> <input type="text" name="q" id="q" value="" class="search" size="30" maxlength="2048"/> <input type="submit" value="zoeken" class="submitButton"/></p>
+	</form>
+</div>
+{else}
+{include file=`$smartyData.contentDir`/../../advsearch/content/search.html}
+{/if}
+{if $stats.count}
+<div class="contentSection">
+	<div class="titleBlock"></div><h2>Zoekresultaten {$stats.start+1}-{$stats.end} van {$stats.count}</h2>
+	{if $warning}<div class="warning"><p>##index.maxresults##</p></div>{/if}
+	{if $header}
+	<div class="contentBlock result">
+		<p>{$header.0}</p>
+		<div class="title">{$header.1}</div>
+		{assign var=header value=$header|@array_slice:2}
+		{"\n"|implode:$header|htmlspecialchars|nl2br}
+	</div>
+	<hr class="filter"/>
+	{/if}
+	{if $filter}
+	<div class="contentBlock result">
+		<table class="filter">
+			<tr><td rowspan="2" class="filterDetails">
+				<div class="title">{$filter|@reset}</div>
+				{assign var=filter value=$filter|@array_slice:1}
+				{"\n"|implode:$filter|htmlspecialchars|nl2br}
+			</td>
+			<th scope="col" class="filterHeader vote r0 first">Voor</th>
+			<th scope="col" class="filterHeader vote r1">Tegen</th>
+			{if $totals|@count == 3}
+			<th scope="col" class="filterHeader vote r-1 last">Verdeeld</th>
+			{else}
+			<th scope="col" class="filterHeader vote r2">Onthouden</th>
+			<th scope="col" class="filterHeader vote r3 last">Afwezig</th>
+			{/if}
+			</tr><tr>
+			{foreach from=$totals item=val name=totalloop}
+			<td class="filterTotals{if $smarty.foreach.totalloop.first} first{elseif $smarty.foreach.totalloop.last} last{/if}">{$val}</td>
+			{/foreach}
+			</tr>
+		</table>
+	</div>
+	<hr class="filter"/>
+	{/if}
+	{foreach from=$formdata item=datarow name=result_loop}
+	<div class="contentBlock result{if $smarty.foreach.result_loop.last} last{/if}">
+		<div class="link">
+			<a href="/raadsstukken/raadsstuk/{$datarow->id}">&gt;</a>
+		</div>
+		<div class="stats">
+			{if $datarow->vote_0 + $datarow->vote_1 + $datarow->vote_2 + $datarow->vote_3 == 1}
+			{if $datarow->vote_0}
+			<div><span class="vote r0"><strong>Voor</strong></span></div>
+			{elseif $datarow->vote_1}
+			<div><span class="vote r1"><strong>Tegen</strong></span></div>
+			{elseif $datarow->vote_2}
+			<div><span class="vote r2"><strong>Onthouden</strong></span></div>
+			{elseif $datarow->vote_3}
+			<div><span class="vote r3"><strong>Afwezig</strong></span></div>
+			{/if}
+			<br />
+			{else}
+			<div class="leftStats"><span class="green"><strong>Voor</strong></span><br/>{$datarow->vote_0}</div>
+			<div class="rightStats"><span class="red"><strong>Tegen</strong></span><br/>{$datarow->vote_1}</div>
+			{/if}
+			<span class="result r{$datarow->result}">{$datarow->getResultTitle()}</span>
+		</div>
+		<div class="date">{$datarow->vote_date|date_format:"%d"}<br/>
+			{$datarow->vote_date|date_format:"%m"}<br/>
+			{$datarow->vote_date|date_format:"%y"}</div>
+		<div class="title">
+			<span class="regio">{$datarow->region_name}</span>: <a href="/raadsstukken/raadsstuk/{$datarow->id}" title="{$datarow->title|htmlentities:2:'UTF-8'}">{if $fts}{$datarow->title_hl|htmlspecialchars:2:'UTF-8'|replace:'[[':'<b>'|replace:']]':'</b>'}{else}{$datarow->title|truncate:37:'...':1|htmlspecialchars:2:'UTF-8'|nl2br}{/if}</a>
+		</div>
+		<div class="summary">
+			{if $fts}{$datarow->summary_hl|htmlspecialchars:2:'UTF-8'|replace:'[[':'<b>'|replace:']]':'</b>'}{else}{$datarow->summary|strip_tags|html_entity_decode|truncate:110:'...':1|htmlspecialchars:2:'UTF-8'}{/if}
+			<a href="/raadsstukken/raadsstuk/{$datarow->id}">lees verder &raquo;</a>
+		</div>
+	</div>
+	{/foreach}
+</div>
+{if $pager}<p>{$pager}</p>{/if}
+{else}
+<div class="titleBlock"></div><h2>##index.noresults##</h2>
+{/if}

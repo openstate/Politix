@@ -1,0 +1,12 @@
+<a name="BackofficeUserList"></a><form action="" name="BackofficeUserList">
+<table class="list">
+				
+		{pofile form}
+		<tr><th><a href="?sortcol=username&amp;sort={if $formsort.col=='username' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='username'}current {$formsort.dir}{else}asc{/if}">Gebruikersnaam</a></th><th>Options</th></tr>
+			{foreach from=$formdata item=datarow key=id name='dataloop'}
+<tr class="link{cycle values=', alt'}"><td><a href="role/{$id}/">{$datarow.username}</a></td><td class="options"><a href="edit/{$id}/"><img src="/images/edit.png" border="0" alt="Wijzigen" title="Wijzigen" /></a>
+					<a href="delete/{$id}/" onclick="return confirm('Weet u zeker dat u deze gebruiker wilt verwijderen?')"><img src="/images/delete.png" border="0" alt="Verwijderen" title="Verwijderen" /></a></td></tr>
+{/foreach}
+
+			</table>
+</form>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/repos/politix/!svn/ver/1/pages/admin/pages/php
+END
+LoadFormById.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/politix/!svn/ver/1/pages/admin/pages/php/LoadFormById.class.php
+END
+deletePage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/politix/!svn/ver/1/pages/admin/pages/php/deletePage.class.php
+END
+FormPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/politix/!svn/ver/1/pages/admin/pages/php/FormPage.class.php
+END
+createPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/politix/!svn/ver/1/pages/admin/pages/php/createPage.class.php
+END
+editPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/politix/!svn/ver/1/pages/admin/pages/php/editPage.class.php
+END
+indexPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/politix/!svn/ver/1/pages/admin/pages/php/indexPage.class.php
+END

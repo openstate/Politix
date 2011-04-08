@@ -1,0 +1,36 @@
+{pofile form}
+<div class="contentSection">
+	<div class="titleBlock"></div><h2>Snel zoeken</h2>
+	<form action="/search" method="post">
+	<p><label for="q">Vul uw zoekterm in: </label> <input type="text" name="q" id="q" value="" class="search" size="30" maxlength="2048"/> <input type="submit" value="##form_search##" class="submitButton"/></p>
+	</form>
+</div>
+<div class="contentSection">
+	<div class="titleBlock"></div><h2>Laatste {$recent|@count} voorstellen</h2>
+	{foreach from=$recent item=r name=result_loop}
+	<div class="contentBlock result{if $smarty.foreach.result_loop.last} last{/if}">
+		<div class="link">
+			<a href="/raadsstukken/raadsstuk/{$r->id}">&gt;</a>
+		</div>
+		<div class="stats">
+			<div class="leftStats"><span class="green"><strong>Voor</strong></span><br/>{$r->vote_0}</div>
+			<div class="rightStats"><span class="red"><strong>Tegen</strong></span><br/>{$r->vote_1}</div>
+			<span class="result r{$r->result}">{$r->getResultTitle()}</span>
+		</div>
+		<div class="date">{$r->vote_date|date_format:"%d"}<br/>
+			{$r->vote_date|date_format:"%m"}<br/>
+			{$r->vote_date|date_format:"%y"}</div>
+		<div class="title">
+			<span class="regio">{$r->region_name}</span>: <a href="/raadsstukken/raadsstuk/{$r->id}">{$r->title|truncate:37:'...':1|htmlentities:2:'UTF-8'|nl2br}</a>
+		</div>
+		<div class="summary">
+			{$r->summary|strip_tags|truncate:110:'...':1}
+			<a href="/raadsstukken/raadsstuk/{$r->id}">lees verder &raquo;</a>
+		</div>
+	</div>
+	{/foreach}
+</div>
+<div class="titleBlock"></div><h2>{$page->title|htmlentities}</h2>
+<div class="contentBlock">
+	{$page->content}
+</div>

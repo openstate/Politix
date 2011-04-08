@@ -1,0 +1,36 @@
+<script type="text/javascript" src="/javascripts/formValidation.js"></script>
+{if !$form.freeze}
+<script type="text/javascript">
+{literal}
+<!--
+window.addEvent('domready', function() {
+	var parents = $('parents');
+	var tr_parents = $('tr_parents');
+
+	parents.addEvent('validate', function(_) {
+  	_(!($('combination').checked && this.getValue().length < 2), 'required');
+	});
+
+	parents.open = function() {
+		tr_parents.setStyle('display', '');
+	}
+
+	parents.close = function() {
+		tr_parents.setStyle('display', 'none');
+	}	
+
+	parents.isOpen = function() {
+		return tr_parents.getStyle('display') != 'none';
+	}
+
+	$('combination').addEvent('click', function() {
+		if (parents.isOpen())
+			parents.close();
+		else
+			parents.open();
+	});
+});
+//-->
+{/literal}
+</script>
+{/if}

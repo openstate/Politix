@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+					 elementFormDefault="qualified">
+	<xs:complexType name="queryType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="title" type="xs:string" minOccurs="0"/>
+				<xs:element name="summary" type="xs:string" minOccurs="0"/>
+				<xs:element name="category" type="xs:string" minOccurs="0"/>
+				<xs:element name="code" type="xs:string" minOccurs="0"/>
+				<xs:element name="type" type="xs:string" minOccurs="0"/>
+				<xs:element name="date" type="xs:date" minOccurs="0"/>
+				<xs:element name="tag" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+			<xs:element name="fullText" type="xs:string"/>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:element name="query" type="queryType"/>
+</xs:schema>

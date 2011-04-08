@@ -1,0 +1,44 @@
+{pofile politician}
+{pofile form}
+<h2>Politici</h2>
+
+<form method="get" action="/politicians/">
+<label for="query">Zoek op naam:</label>
+<input type="text" name="q" id="query" value="{$query}" />
+<input type="submit" value="Zoeken" />
+</form>
+
+{if $pager}<p class="pager">{$pager}</p>{/if}
+<p><a href="create/"><img src="/images/add.png" border="0" title="Toevoegen" alt="Toevoegen"/> <a href="create/">Toevoegen</a></a>
+
+<form action="" name="PoliticianList">
+	<div id="accordion">
+		<table class="list">
+			<tr>
+				<th>##politician.title##</th>
+				<th>##politician.first_name##</th>
+				<th>##politician.last_name##</th>
+				<th>##politician.gender##</th>
+				<th>##politician.email##</th>
+				<th>##form_options##</th>
+			</tr>
+			{foreach from=$formdata item=datarow key=id name='dataloop'}
+				<tr class="link{cycle values=', alt'}">
+					<td>{$datarow.title|htmlentities:2:'UTF-8'}</td>
+					<td>{$datarow.first_name|htmlentities:2:'UTF-8'}</td>
+					<td>{if isset($datarow.extern_id)}<a href="{$politician_base_url}{$datarow.extern_id}" title="{$datarow.last_name|htmlentities:2:'UTF-8'}" target="_blank" onclick="event.cancelBubble = true; if(event.stopPropagation) event.stopPropagation();">{$datarow.last_name|htmlentities:2:'UTF-8'}</a>{else}{$datarow.last_name|htmlentities:2:'UTF-8'}{/if}</td>
+					<td>{if $datarow.gender_is_male}Man{else}Vrouw{/if}</td>
+					<td>{$datarow.email|htmlentities:2:'UTF-8'}</td>
+					<td>
+						<a class="edit" href="edit/{$datarow.id}"><img src="/images/edit.png" alt="##form_edit##" title="##form_edit##" border="0" /></a>
+						{if $datarow.canDelete}
+						<a href="delete/{$datarow.id}"><img src="/images/delete.png" alt="##form_delete##" title="##form_delete##" border="0" /></a>
+						{/if}
+						<a href="/appointments/{$datarow.id}"><img src="/images/page_white_text.png" border="0" alt="Aanstelling toevoegen" title="Aanstelling toevoegen" /></a>
+					</td>
+				</tr>
+{/foreach}
+
+			</table>
+</div>
+</form>

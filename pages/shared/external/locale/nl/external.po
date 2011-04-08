@@ -1,0 +1,9 @@
+msgid "external.header"
+msgstr "Externe link"
+
+msgid "external.description"
+msgstr "De link die u geselecteerd heeft wijst naar een externe pagina. Deze pagina is niet onder de controle van "
+"politix.nl en kan mogelijk schadelijk zijn."
+
+msgid "external.backlink"
+msgstr "Terug naar politix.nl"

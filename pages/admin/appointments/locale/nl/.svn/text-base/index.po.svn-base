@@ -1,0 +1,17 @@
+msgid "index.success"
+msgstr "De aanstelling is succesvol %s."
+
+msgid "index.error"
+msgstr "De aanstelling kon niet worden %s, probeer het later nog eens."
+
+msgid "index.action.create"
+msgstr "toegevoegd"
+
+msgid "index.action.edit"
+msgstr "gewijzigd"
+
+msgid "index.action.delete"
+msgstr "verwijderd"
+
+msgid "index.add.politician"
+msgstr "Politicus toevoegen"

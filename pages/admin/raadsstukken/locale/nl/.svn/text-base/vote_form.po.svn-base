@@ -1,0 +1,14 @@
+msgid "votes.intro"
+msgstr "Resultaten stemming over"
+
+msgid "votes.on"
+msgstr "op"
+
+msgid "votes.success"
+msgstr "De resultaten zijn succesvol opgeslagen."
+
+msgid "votes.error"
+msgstr "De resultaten konden niet worden opgeslagen. Probeer het later nog eens."
+
+msgid "votes.result"
+msgstr "Resultaat:"

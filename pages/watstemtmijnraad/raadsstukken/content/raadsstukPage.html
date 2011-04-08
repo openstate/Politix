@@ -1,0 +1,152 @@
+{pofile raadsstuk}
+{pofile index}
+{pofile votes}
+<div class="raadsstuk">
+	<div class="titleBlock"></div><h2><span class="title">{$raadsstuk->title|htmlentities:2:'UTF-8'|nl2br}</span> - <span class="result r{$raadsstuk->result}">{$raadsstuk->getResultTitle()}</span></h2>
+	<div class="contentBlock">{$raadsstuk->summary}</div>
+</div>
+<div class="contentBlock extramargin">
+	<table class="raadsstuk">
+		<tr>
+			<th scope="row">##raadsstuk.region##:</th>
+			<td>{$raadsstuk->region_name|htmlentities}</td>
+		</tr>
+		<tr>
+			<th scope="row">##raadsstuk.category##:</th>
+			<td><span class="category">{foreach from=$categories item=category key=k name=category_loop}<a href="/search/category/{$k|urlencode}/submit/1">{$category}</a>{if !$smarty.foreach.category_loop.last}, {/if}{foreachelse}Geen{/foreach}</span></td>
+		</tr>
+		<tr>
+			<th scope="row">##raadsstuk.code##:</th>
+			<td>{$raadsstuk->code|htmlentities}</td>
+		</tr>
+		<tr>
+			<th scope="row">##raadsstuk.vote_date##:</th>
+			<td>{$raadsstuk->vote_date|date_format:"%e %B %Y"}</td>
+		</tr>
+		<tr>
+			<th scope="row">##raadsstuk.type##:</th>
+			<td>{$raadsstuk->type_name|htmlentities}</td>
+		</tr>
+		{if count($submitters)}
+		<tr>
+			<th scope="row">##raadsstuk.submitters##:</th>
+			<td>
+				{foreach from=$submitters item=p key=name name=party_loop}
+				<div>
+					<span class="sub_party">{$name}</span>
+					<img src="/styles/open" alt="open"/>
+					<span class="submitter">
+						{foreach from=$p item=submitter key=k name=submitter_loop}
+						<a href="/search/submitter_id/{$k|urlencode}/submit/1" title="Toon alle moties en amendementen van {$submitter}">{$submitter}</a>{if !$smarty.foreach.submitter_loop.last}, {/if}
+						{/foreach}
+					</span>
+					{if !$smarty.foreach.party_loop.last}<br/>{/if}
+				</div>
+				{/foreach}
+			</td>
+		</tr>
+		{elseif $paty_sbmitter OR $regering}
+		<tr>
+			<th scope="row">##raadsstuk.submitters##:</th>
+			<td>
+				<div>
+					{if $regering}{$regering}
+					{else}<a href="/search/party/{$paty_sbmitter->id|urlencode}/submit/1" title="Toon alle moties en amendementen van {$paty_sbmitter->name}">{$paty_sbmitter->name}</a>{/if}
+				</div>
+			</td>
+		</tr>
+		{/if}
+		<tr>
+			<th scope="row">##index.tags##:</th>
+			<td><span class="tag">{foreach from=$tags item=tag name=tag_loop}<a href="/search/tags/{$tag|urlencode}/submit/1">{$tag}</a>{if !$smarty.foreach.tag_loop.last}, {/if}{foreachelse}Geen{/foreach}</span></td>
+		</tr>
+		{if $parent}
+		<tr>
+			<th scope="row">##raadsstuk.parent##:</th>
+			<td><a href="/raadsstukken/raadsstuk/{$parent->id}">{$parent->title|htmlentities:2:'UTF-8'|nl2br}</a></td>
+		</tr>
+		{/if}
+		{if $moties}
+		<tr>
+			<th scope="row">##raadsstuk.moties##:</th>
+			<td>
+				{foreach from=$moties item=child name=motie_loop}{strip}
+					{if $child->id != $raadsstuk->id}<a href="/raadsstukken/raadsstuk/{$child->id}">{/if}
+						{$child->title|htmlentities:2:'UTF-8'|nl2br}
+					{if $child->id != $raadsstuk->id}</a>{/if}
+					{if !$smarty.foreach.motie_loop.last}<br />{/if}
+				{/strip}{/foreach}
+			</td>
+		</tr>
+		{/if}
+		{if $amendementen}
+		<tr>
+			<th scope="row">##raadsstuk.amendementen##:</th>
+			<td>
+				{foreach from=$amendementen item=child name=amendement_loop}{strip}
+					{if $child->id != $raadsstuk->id}<a href="/raadsstukken/raadsstuk/{$child->id}">{/if}
+						{$child->title|htmlentities:2:'UTF-8'|nl2br}
+					{if $child->id != $raadsstuk->id}</a>{/if}
+					{if !$smarty.foreach.amendement_loop.last}<br />{/if}
+				{/strip}{/foreach}
+			</td>
+		</tr>
+		{/if}
+	</table>
+</div>
+{if $raadsstuk->result > 0}
+<div class="titleBlock"></div><h2>Overzicht resultaten</h2>
+<div class="contentBlock">
+	<table id="votes">
+		<thead>
+			<tr>
+				<th scope="col" class="vote r0">##votes.voor##</th>
+				<th scope="col" class="vote r1">##votes.tegen##</th>
+				<th scope="col" class="vote r2">##votes.onthouden##</th>
+				<th scope="col" class="vote r3">##votes.afwezig##</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{$raadsstuk->vote_0}</td>
+				<td>{$raadsstuk->vote_1}</td>
+				<td>{$raadsstuk->vote_2}</td>
+				<td>{$raadsstuk->vote_3}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+{if $img & 1}<p><img src="/home/pie/{$raadsstuk->id}" alt="pie"/></p>{/if}
+{/if}
+{if count($formdata)}
+<div class="contentBlock">
+	<table id="parties">
+		<thead>
+			<tr>
+				<th scope="col" class="titleCol"><a href="?sortcol=party_name&amp;sort={if $formsort.col=='party_name' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='party_name'}current {$formsort.dir}{else}asc{/if}">##index.party##</a></th>
+				<th scope="col" class="votes">##index.result##</th>
+			</tr>
+		</thead>
+		<tbody>
+			{foreach from=$formdata item=datarow title='dataloop'}
+			{assign var=pname value=$datarow->party_name}
+			<tr class="link{cycle values=', alt'}">
+				<td class="party titleCol">
+					<a class="partyLink" href="../party/{$datarow->party}?raadsstuk={$raadsstuk->id}">{$datarow->party_name|htmlentities:2:'UTF-8'|nl2br}</a>
+				</td>
+				<td class="vote r{$datarow->getResult()}">{$datarow->getResultTitle()}</td>
+			</tr>
+			{foreach from=$council.$pname.politicians item=politician}
+			<tr	class="politician nodisplay">
+				<td class="name">{if not is_null($politician.extern_id)}<a href="{$politician_base_url}{$politician.extern_id}" title="{$politician.name}" target="_blank">{$politician.name}</a>{else}{$politician.name}{/if}</td>
+				<td class="vote r{$politician.vote->vote}">{$politician.vote->getVoteTitle()}</td>
+			</tr>
+			{/foreach}
+			{/foreach}
+		</tbody>
+	</table>
+	{if $img & 2}<p style="margin-top: 30px"><img src="/home/bar/{$raadsstuk->id}" alt="bar"/></p>{/if}
+</div>
+{else}
+<div class="titleBlock"></div><h2 id="noresults">##index.noresults##</h2>
+{/if}

@@ -1,0 +1,2 @@
+<h2>Aanstelling wijzigen</h2>
+{include file="`$smartyData.contentDir`/editPageBase.html"}

@@ -1,0 +1,22 @@
+{pofile raadsstuk}
+{pofile votes}
+<table class="list">
+	<tr>
+		<th><a href="?sortcol=title&amp;sort={if $formsort.col=='title' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='title'}current {$formsort.dir}{else}asc{/if}">##raadsstuk.title##</a></th>
+		<th><a href="?sortcol=vote_date&amp;sort={if $formsort.col=='vote_date' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='vote_date'}current {$formsort.dir}{else}asc{/if}">##raadsstuk.vote_date##</a></th>
+		<th><a href="?sortcol=vote_0&amp;sort={if $formsort.col=='vote_0' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='vote_0'}current {$formsort.dir}{else}asc{/if}">V</a></th>
+		<th><a href="?sortcol=vote_1&amp;sort={if $formsort.col=='vote_1' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='vote_1'}current {$formsort.dir}{else}asc{/if}">T</a></th>
+		<th><a href="?sortcol=vote_2&amp;sort={if $formsort.col=='vote_2' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='vote_2'}current {$formsort.dir}{else}asc{/if}">O</a></th>
+		<th><a href="?sortcol=vote_3&amp;sort={if $formsort.col=='vote_3' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='vote_3'}current {$formsort.dir}{else}asc{/if}">A</a></th>
+	</tr>
+	{foreach from=$formdata item=datarow title='dataloop'}
+	<tr class="link{cycle values=', alt'}">
+		<td width="50%"><a href="raadsstuk/{$datarow->id}">{$datarow->title|htmlentities:2:'UTF-8'|nl2br}</a></td>
+		<td>{$datarow->vote_date|date_format:"%e %B %Y"}</td>
+		<td>{$datarow->vote_0}</td>
+		<td>{$datarow->vote_1}</td>
+		<td>{$datarow->vote_2}</td>
+		<td>{$datarow->vote_3}</td>
+	</tr>
+	{/foreach}
+</table>

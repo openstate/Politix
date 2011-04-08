@@ -1,0 +1,52 @@
+{pofile selection} {pofile politician} {pofile localparty} {pofile region}
+
+<h2>##selection.title##</h2>
+
+{if $count == 0}
+<p>##selection.noroles##</p>
+<a href="/logout">##selection.logout##</a>
+{/if}
+
+{if count($politicians) > 0}
+<table class="list">
+	<caption>Politici</caption>
+	<tr>
+		<th>##politician.name##</th>
+	</tr>
+	{foreach from=$politicians item=politician}
+	<tr class="link{cycle values=', alt'}">
+		<td><a href="/selection/politician/{$politician->id}">{$politician->first_name} {$politician->last_name}</a></td>
+	</tr>
+	{/foreach}
+</table>
+{/if}
+<br />
+{if count($localparties) > 0}
+<table class="list">
+	<caption>Secretariaten</caption>
+	<tr>
+		<th>##localparty.name##</th>
+		<th>##localparty.region##</th>
+	</tr>
+	{foreach from=$localparties item=localparty}
+	<tr class="link{cycle values=', alt'}">
+		<td><a href="/selection/localparty/{$localparty->id}">{$localparty->party_name}</a></td>
+		<td>{$localparty->formatRegionName()}</td>
+	</tr>
+	{/foreach}
+</table>
+{/if}
+<br />
+{if count($regions) > 0}
+<table class="list">
+	<caption>Griffies</caption>
+	<tr>
+		<th>##region.name##</th>
+	</tr>
+	{foreach from=$regions item=region}
+	<tr class="link{cycle values=', alt'}">
+		<td><a href="/selection/region/{$region->id}">{$region->formatName()}</a></td>
+	</tr>
+	{/foreach}
+</table>
+{/if}

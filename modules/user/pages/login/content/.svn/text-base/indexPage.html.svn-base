@@ -1,0 +1,8 @@
+{pofile login}
+<h2>##login_header##</h2>
+<div class="block" id="loginForm">
+	{include file="`$smartyData.contentDir`/indexPageBase.html"}
+<p>
+<a href="/login/password/" class="formLink">##login_forgotpass##</a><br />
+</p>
+</div>

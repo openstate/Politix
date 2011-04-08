@@ -1,0 +1,1 @@
+{include file=`$smarty.server.DOCUMENT_ROOT`/../pages/admin/politicians/content/formPage.html}

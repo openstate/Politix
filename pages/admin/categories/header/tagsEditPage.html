@@ -1,0 +1,17 @@
+{literal}<script type="text/javascript">
+window.addEvent('domready', function() {		
+	//onsubmit		
+	$('tagEditForm').addEvent('submit', function(e) {
+		var error = $('name_error');
+		error.style.display = 'none';
+		var e = new Event(e);			
+	
+		if($('tagAddForm').name.value.length == 0) {
+			error.style.display = 'block';
+			e.preventDefault();
+			return false;
+		}		
+	});
+});
+
+</script>{/literal}

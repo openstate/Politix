@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/politix/!svn/ver/1/modules/user/pages/admin/list/php
+END
+createPageBase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/politix/!svn/ver/1/modules/user/pages/admin/list/php/createPageBase.class.php
+END
+editPageBase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/politix/!svn/ver/1/modules/user/pages/admin/list/php/editPageBase.class.php
+END
+rolePage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/politix/!svn/ver/1/modules/user/pages/admin/list/php/rolePage.class.php
+END
+indexPageBase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/politix/!svn/ver/1/modules/user/pages/admin/list/php/indexPageBase.class.php
+END
+createPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/politix/!svn/ver/1/modules/user/pages/admin/list/php/createPage.class.php
+END
+editPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/politix/!svn/ver/1/modules/user/pages/admin/list/php/editPage.class.php
+END
+indexPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/politix/!svn/ver/1/modules/user/pages/admin/list/php/indexPage.class.php
+END

@@ -1,0 +1,20 @@
+<h2>Regio's</h2>
+
+{if $error}<p class="error">{$error}</p>{/if}
+
+<form method="get" action="/regions/">
+<label for="region">Zoek in regio:</label>
+<select name="region" id="region">
+	<option value="-1"{if !isset($selectedRegion) || $selectedRegion == -1} selected="selected"{/if}>Alle regio's</option>
+	<option value="false"{if $selectedRegion == "false"} selected="selected"{/if}>Landelijk en hoger</option>
+{foreach from=$regions item=region}
+	<option value="{$region->id}"{if $selectedRegion == $region->id} selected="selected"{/if}>{$region->formatName()}</option>
+{/foreach}
+</select>
+<input type="submit" value="Zoeken" />
+</form>
+
+{if $pager}<p class="pager">{$pager}</p>{/if}
+<p><a href="create/"><img src="/images/add.png" border="0" title="Toevoegen" alt="Toevoegen"/></a> <a href="create/">Toevoegen</a></p>
+
+{include file="`$smartyData.contentDir`/indexPageBase.html"}

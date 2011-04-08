@@ -1,0 +1,46 @@
+{literal}<script type="text/javascript">
+window.addEvent('domready', function() {
+	//check boxes
+	var div = $('selects_java');
+	var link1 = new Element('a').setText('Selecteer alles');
+	var link2 = new Element('a').setText('Deselecteer alles');
+	
+	link1.addEvent('click', function(e) {
+		var boxes = $$('.checkbox');
+		boxes.each(function(box, i) {
+			box.checked = "checked";
+		});
+	});
+	
+	link2.addEvent('click', function(e) {
+		var boxes = $$('.checkbox');
+		boxes.each(function(box, i) {
+			box.checked = "";
+		});
+	});
+	div.appendChild(link1);
+	div.appendChild(new Element('span').setHTML('&#160;-&#160;'));
+	div.appendChild(link2);
+	
+	//onsubmit	
+	$('tagsListForm').addEvent('submit', function(e) {
+		var e = new Event(e);
+		if(!confirm('Weet u zeker dat u de geselecteerde tags wilt verwijderen?')) {
+			e.preventDefault();
+			return false;
+		}
+	});
+	$('tagAddForm').addEvent('submit', function(e) {
+		var error = $('name_error');
+		error.style.display = 'none';
+		var e = new Event(e);			
+	
+		if($('tagAddForm').name.value.length == 0) {
+			error.style.display = 'block';
+			e.preventDefault();
+			return false;
+		}		
+	});
+});
+
+</script>{/literal}

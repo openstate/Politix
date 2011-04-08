@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<xs:schema xmlns="http://www.watstemtmijnraad.nl"
+					 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					 targetNamespace="http://www.watstemtmijnraad.nl"
+					 elementFormDefault="qualified">
+
+	<xs:simpleType name="voteType">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="politicianType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:positiveInteger"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="vote" type="voteType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="politicianListType">
+		<xs:sequence>
+			<xs:element name="politician" type="politicianType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="votesType">
+		<xs:sequence>
+			<xs:element name="yea" type="xs:integer"/>
+			<xs:element name="nay" type="xs:integer"/>
+			<xs:element name="abstain" type="xs:integer"/>
+			<xs:element name="absent" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="partyType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:positiveInteger"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="votes" type="votesType"/>
+			<xs:element name="politicians" type="politicianListType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="partyListType">
+		<xs:sequence>
+			<xs:element name="party" type="partyType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="raadType">
+		<xs:sequence>
+			<xs:element name="raadsstuk" type="xs:positiveInteger"/>
+			<xs:element name="parties" type="partyListType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+  <xs:element name="raad" type="raadType"/>
+</xs:schema>

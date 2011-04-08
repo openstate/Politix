@@ -1,0 +1,40 @@
+8
+
+dir
+57
+http://host08.accepte.nl/repos/politix/modules/search
+http://host08.accepte.nl/repos/politix
+
+
+
+2008-09-30T15:18:14.489521Z
+24
+wietse.vanderwal
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a3189d24-e339-4d94-a982-af3f4112dbaa
+
+searchHandler.class.php
+file
+
+
+
+
+2008-11-18T08:33:49.000000Z
+4779b319e4fc5afd5cb7dd3d16719b3c
+2008-09-30T15:18:14.489521Z
+24
+wietse.vanderwal
+

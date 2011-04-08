@@ -1,0 +1,22 @@
+<a name="EditableRoleList"></a><form action="" name="EditableRoleList">
+<table class="list">
+				
+		{pofile form} {pofile roles}
+		<tr>
+			<th><a href="?sortcol=title&amp;sort={if $formsort.col=='title' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='title'}current {$formsort.dir}{else}asc{/if}">##roles_title##</a></th>
+			<th>##roles_site##</th>
+			<th>##form_options##</th>
+		</tr>
+		{foreach from=$formdata item=datarow key=id name='dataloop'}
+		<tr class="link{cycle values=', alt'}">
+			<td class="link">{$datarow.title|htmlentities:2:'UTF-8'|nl2br}</td>
+			<td class="link">{$datarow.site|htmlentities:2:'UTF-8'|nl2br}</td>
+			<td class="options"><a href="/users/roles/assignRights/{$id}/">##roles_assign_rights##</a>
+								<a href="/users/roles/edit/{$id}/"><img src="/images/edit.png" alt="##form_edit##" title="##form_edit##" border="0" /></a>
+								<a href="/users/roles/delete/{$id}/" onclick="return confirm('##form_delete_question##')"><img src="/images/delete.png" alt="##form_delete##" title="##form_delete##" border="0" /></a>
+			</td>
+		</tr>
+		{/foreach}
+
+			</table>
+</form>

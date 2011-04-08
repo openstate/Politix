@@ -1,0 +1,24 @@
+{literal}<script type="text/javascript">
+<!--
+function updateVisibility(form) {
+	
+}
+
+function clearErrors() {
+			document.getElementById('_err_username_0').style.display = 'none';
+		document.getElementById('_err_password2_0').style.display = 'none';
+
+}
+
+function validate(form) {
+	var maySubmit = true;
+			if (!form['username'].value!='') { document.getElementById('_err_username_0').style.display = ''; maySubmit = false; }
+		if ((form['password2'].value!='' && !(form['password2'].value == form['password'].value))) { document.getElementById('_err_password2_0').style.display = ''; maySubmit = false; }
+
+//	if (!maySubmit)
+//		location.hash = 'BackofficeUserEdit';
+	return maySubmit;
+}
+
+// -->
+</script>{/literal}

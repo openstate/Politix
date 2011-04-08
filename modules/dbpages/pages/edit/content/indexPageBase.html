@@ -1,0 +1,9 @@
+<a name="PageList"></a><form action="" name="PageList">
+<table class="list">
+				<tr><th><a href="?sortcol=id&amp;sort={if $formsort.col=='id' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='id'}current {$formsort.dir}{else}asc{/if}">id</a></th><th><a href="?sortcol=title&amp;sort={if $formsort.col=='title' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='title'}current {$formsort.dir}{else}asc{/if}">Titel</a></th><th>Opties</th></tr>
+			{foreach from=$formdata item=datarow key=id name='dataloop'}
+<tr class="link{cycle values=', alt'}"><td>{$datarow.id|htmlentities:2:'UTF-8'|nl2br}</td><td>{$datarow.title|htmlentities:2:'UTF-8'|nl2br}</td><td class="options"><a href="/pages/edit/{$id}/"><img src="/images/edit.png" border="0" alt="Bewerken" title="Bewerken" /></a></td></tr>
+{/foreach}
+
+			</table>
+</form>

@@ -1,0 +1,23 @@
+<h2>Regio wijzigen</h2>
+<form id="prsEditForm" method="post" action="">
+<input type="hidden" name="region" value="{$id}" />
+<input type="hidden" name="id" value="{$formdata.id}" />
+<table class="form"><tr>
+	<th>Regio</th>
+	<td>
+		{html_options options=$regions name=region selected=$formdata.region}
+	</td>
+</tr>
+	<tr>
+		<th>Aanvangsdatum</th>
+		<td>{html_select_date name="time_start" time=$formdata.time_start field_order='DMY' prefix="TS_" day_empty="" month_empty="" year_empty="" start_year=-5 end_year=+5} <span class="error" id="_err_time_start_invalid" style="{if !$formerrors.time_start_invalid}display:none{/if}">##form_validDate##</span></td>
+	</tr>
+	<tr>
+		<th>Einddatum</th>
+		<td>{html_select_date name="time_end" time=$formdata.time_end field_order='DMY' prefix="TE_" day_empty="" month_empty="" year_empty="" start_year=-5 end_year=+5} <span class="error" id="_err_time_end_invalid" style="{if !$formerrors.time_end_invalid}display:none{/if}">##form_validDate##</span></td>
+	</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td><input type="submit" name="edit" value="Wijzigen" /></td>
+</tr></table>
+</form>

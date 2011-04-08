@@ -1,0 +1,2 @@
+<h2>Nieuwe gebruiker</h2>
+{include file="`$smartyData.contentDir`/createPageBase.html"}

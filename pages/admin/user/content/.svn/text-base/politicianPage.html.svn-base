@@ -1,0 +1,35 @@
+<a href="/user/"><img src="/images/arrow_turn_up.png" alt="Terug" border="0" /></a>
+<h2>Gebruiker: {$user->username}</h2>
+<div class="message">{if $message}<span class="message">{$message}</span>{/if}</div>
+<form id="politicianRoleForm" method="post" action="">
+	<input type="hidden" name="userid" value="{$userid}" />
+	<table class="list">
+		<tr>
+			<th>&nbsp;</th>
+			<th>Naam</th>
+		</tr>
+		{foreach from=$ps item=p key=id}
+		<tr class="link{cycle values=', alt'}">
+			<td><input type="checkbox" name="ps[]" value="{$p->id}" class="checkbox" /></td>
+			<td>{$p->formatName()|htmlentities:2:'UTF-8'|nl2br}</td>
+		</tr>
+		{foreachelse}
+		<tr class="link"><td>Geen rollen aanwezig</td></tr>
+		{/foreach}
+	</table>
+	<div id="selects_java"></div>
+	<input type="submit" name="delete" value="Verwijder geselecteerde(n)"/>
+</form>
+<br/><br/>
+<form id="roleAddForm" method="post" action="">
+<input type="hidden" name="userid" value="{$userid}" />
+<table class="form"><tr>
+	<td>Politicus</td>
+	<td>
+		{html_options options=$politicians id="politician" name=politician}
+	</td>
+</tr><tr>
+	<td>&nbsp;</td>
+	<td><input type="submit" name="add" value="Toevoegen" /></td>
+	</tr></table>
+</form>

@@ -1,0 +1,22 @@
+{literal}<script type="text/javascript">
+<!--
+function updateVisibility(form) {
+	
+}
+
+function clearErrors() {
+			document.getElementById('_err_title_0').style.display = 'none';
+
+}
+
+function validate(form) {
+	var maySubmit = true;
+			if (!form['title'].value!='') { document.getElementById('_err_title_0').style.display = ''; maySubmit = false; }
+
+//	if (!maySubmit)
+//		location.hash = 'EditableRoleCreate';
+	return maySubmit;
+}
+
+// -->
+</script>{/literal}

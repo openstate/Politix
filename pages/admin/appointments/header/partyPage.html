@@ -1,0 +1,14 @@
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+{literal}
+
+window.addEvent('domready', function() {
+	$$('tr.link').addEvent('click', function() {
+		document.location.href = $E('a.app', this).href;
+	});
+});
+
+{/literal}
+//--><!]]>
+</script>
+

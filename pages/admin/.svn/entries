@@ -1,0 +1,67 @@
+8
+
+dir
+57
+http://host08.accepte.nl/repos/politix/pages/admin
+http://host08.accepte.nl/repos/politix
+
+
+
+2009-09-07T12:22:55.117808Z
+57
+hendri.smit
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a3189d24-e339-4d94-a982-af3f4112dbaa
+
+pages
+dir
+
+party
+dir
+
+raadsstukken
+dir
+
+style
+dir
+
+appointments
+dir
+
+categories
+dir
+
+selection
+dir
+
+regions
+dir
+
+home
+dir
+
+confirm
+dir
+
+politicians
+dir
+
+user
+dir
+
+words
+dir
+

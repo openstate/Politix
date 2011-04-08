@@ -1,0 +1,53 @@
+{pofile form} {pofile appointments}
+<h2>Aanstellingen {$politician->formatName()}</h2>
+<p>
+{if $includeExpired}<a href="/appointments/{$politician->id}?curr">Verberg verlopen aanstellingen</a>
+{else}<a href="/appointments/{$politician->id}?all">Toon verlopen aanstellingen</a>{/if}
+</p>
+<p><a href="create/?politician={$politician->id}"><img src="/images/add.png" border="0" title="Toevoegen" alt="Toevoegen"/></a> <a href="create/?politician={$politician->id}">Toevoegen</a></p>
+<form action="" name="AppointmentList">
+	{*<input type="check"/>*}
+	<table class="list">
+		<tr>
+			<th>
+				<a href="?sortcol=party_name&amp;sort={if $formsort.col=='party_name' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='party_name'}current {$formsort.dir}{else}asc{/if}">##appointments.party##</a>
+			</th>
+			<th>
+				<a href="?sortcol=region_name&amp;sort={if $formsort.col=='region_name' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='region_name'}current {$formsort.dir}{else}asc{/if}">##appointments.region##</a>
+			</th>
+			<th>
+				<a href="?sortcol=cat_name&amp;sort={if $formsort.col=='cat_name' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='cat_name'}current {$formsort.dir}{else}asc{/if}">##appointments.category##</a>
+			</th>
+			<th>
+				<a href="?sortcol=time_start&amp;sort={if $formsort.col=='time_start' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='time_start'}current {$formsort.dir}{else}asc{/if}">##appointments.date_start##</a>
+			</th>
+			<th>
+				<a href="?sortcol=time_end&amp;sort={if $formsort.col=='time_end' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='time_end'}current {$formsort.dir}{else}asc{/if}">##appointments.date_end##</a>
+			</th>
+			<th>
+				<a href="?sortcol=description&amp;sort={if $formsort.col=='description' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='description'}current {$formsort.dir}{else}asc{/if}">##appointments.description##</a>
+			</th>
+			<th>Opties</th>
+		</tr>
+		{foreach from=$formdata item=datarow key=id name='dataloop'}
+		<tr class="link{cycle values=', alt'}">
+			<td>{$datarow.party_name}</td>
+			<td>{$datarow.region_name}</td>
+			<td>{$datarow.cat_name}</td>
+			<td>{if $datarow.time_start == $smarty.const.NEG_INFINITY}Geen{else}{$datarow.time_start|date_format:"%e %B %Y"}{/if}</td>
+			<td>{if $datarow.time_end == $smarty.const.POS_INFINITY}Geen{else}{$datarow.time_end|date_format:"%e %B %Y"}{/if}</td>
+			<td>{$datarow.description}</td>
+			<td>
+				{if $datarow.showOptions}
+				<a href="edit/{$datarow.id}?politician={$politician->id}" class="edit"><img src="/images/edit.png" alt="##form_edit##" title="##form_edit##" border="0" /></a>
+				<a href="delete/{$datarow.id}?politician={$politician->id}"><img src="/images/delete.png" alt="##form_delete##" title="##form_delete##" border="0" /></a>
+				{/if}
+			</td>
+		</tr>
+		{foreachelse}
+		  <tr>
+				<td colspan="7">##appointments.empty##</td>
+			</tr>
+		{/foreach}
+	</table>
+</form>

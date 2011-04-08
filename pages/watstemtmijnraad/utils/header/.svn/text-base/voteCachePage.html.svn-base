@@ -1,0 +1,74 @@
+<style type="text/css">
+{literal}
+
+body {
+	color: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 14px;
+}
+
+
+.voor {
+	color: #49C100;
+	font-weight: bold;
+}
+
+.tegen {
+	color: #C1001B;
+	font-weight: bold;
+}
+
+.onthouden {
+	color: #FF6600;
+	font-weight: bold;
+}
+
+.afweizig {
+	color: #AAAA00;
+	font-weight: bold;
+}
+
+.raadstuk {
+	padding-bottom: 10px;
+}
+
+.raadstuk a {
+	text-decoration: none;
+	color: #555;
+}
+
+.raadstuk a:hover {
+	text-decoration: underline;
+	color: #49C1EE;
+}
+
+.border_line td {
+	border-top: 1px solid #ccc;
+	padding-top: 5px;
+}
+
+.fault {
+	font-weight: bold;
+	color: red;
+}
+
+.correct {
+	font-weight: bold;
+	color: green;
+}
+
+.real {
+	color: #888;
+}
+
+.missing {
+	color: #ccc;
+}
+
+.completely_missing {
+	color: darkred;
+}
+
+{/literal}
+</style>

@@ -1,0 +1,154 @@
+{pofile index}
+{pofile raadsstuk}
+{pofile form}
+<div id="searchBlock" class="contentBlock extramargin">
+<form action="/search" method="post">
+	{if count($params)}
+	<p>
+	{foreach from=$params key=key item=i}
+		<input type="hidden" name="{$key}" value="{$i}"/>
+	{/foreach}
+	</p>
+	{/if}
+	<table class="form">
+		{if $region_page}
+		<tr><td><input type="hidden" name="region" value="{$region_page->id}"/></td></tr>
+		{else}
+		{if $form.show_region}
+		<tr>
+			<th scope="row"><label for="regionSelect">##raadsstuk.region##</label></th>
+			<td>{html_options name="region" id="regionSelect" options=$regions selected=$query->region}</td>
+		</tr>
+		{/if}
+		{/if}
+		{if $form.show_party}
+		<tr>
+			<th scope="row"><label for="partySelect">##index.party##</label></th>
+			<td>
+				<span id="party">{html_options name="party" id="partySelect" options=$parties selected=$query->party}</span>
+				<label><input type="checkbox" id="parExpired"{if $parExpired} checked="checked"{/if} /> Toon ook voormalige partijen</label>
+			</td>
+		</tr>
+		{/if}
+		{if $form.show_politician_id}
+		<tr>
+			<th scope="row"><label for="politicianSelect">##index.submitters##</label></th>
+			<td>
+				<span id="politician">{html_options name="politician_id" id="politicianSelect" options=$politicians selected=$query->politician_id}</span>
+				<label><input type="checkbox" id="polExpired"{if $polExpired} checked="checked"{/if} /> Toon ook voormalige politici</label>
+			</td>
+		</tr>
+		{/if}
+		{if $form.show_code}
+		<tr>
+			<th scope="row"><label for="code">##raadsstuk.code##</label></th>
+			<td><input type="text" name="code" id="code" value="{$query->code|urldecode|htmlspecialchars}"/></td>
+		</tr>
+		{/if}
+		{if $form.show_title}
+		<tr>
+			<th scope="row"><label for="title">##raadsstuk.title##</label></th>
+			<td><input type="text" name="title" id="title" value="{$query->title|urldecode|htmlspecialchars}"/></td>
+		</tr>
+		{/if}
+		{if $form.show_summary}
+		<tr>
+			<th scope="row"><label for="summary">##raadsstuk.summary##</label></th>
+			<td><input type="text" name="summary" id="summary" value="{$query->summary|urldecode|htmlspecialchars}"/></td>
+		</tr>
+		{/if}
+		{if $form.show_category}
+		<tr>
+			<th scope="row"><label for="categorySelect">##raadsstuk.category##</label></th>
+			<td>{html_options name="category" id="categorySelect" options=$categories selected=$query->category}</td>
+		</tr>
+		{/if}
+		{if $form.show_type}
+		<tr>
+			<th scope="row"><label for="typeSelect">##raadsstuk.type##</label></th>
+			<td>{html_options name="type" id="typeSelect" options=$types selected=$query->type}</td>
+		</tr>
+		{/if}
+		{if $form.show_vote_date}
+		<tr>
+			<th scope="row"><label for="dateMonthSelect">##raadsstuk.vote_date##</label></th>
+			<td>{html_select_date field_order='MY' month_extra='id="dateMonthSelect"' start_year=-5 year_empty="" month_empty="" time=$time}</td>
+		</tr>
+		{/if}
+		{if $form.show_tags}
+		<tr>
+			<th scope="row"><label for="tags">##raadsstuk.tags##</label></th>
+			<td><input type="text" name="tags" id="tags" value="{$query->tags|urldecode|htmlspecialchars}"/></td>
+		</tr>
+		{/if}
+		<tr>
+			<th/>
+			<td><input type="submit" class="submitButton" name="submit" value="##form_search##"/></td>
+		</tr>
+	</table>
+</form>
+</div>
+
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+{literal}
+function fillSelect(select, text) {
+	var lines = text.split('\n');
+	var selected = select.value;
+	select.options.length = 0;
+	for (var i = 0; i < lines.length; i++) {
+		keyval = lines[i].split('||');
+		option = new Option();
+		option.value = keyval[0];
+		option.label = keyval[1];
+		option.selected = keyval[0] == selected;
+		option.text = keyval[1];
+		select.options[i] = option;
+	}
+}
+{/literal}
+
+{if $form.show_party && $form.show_politician_id}{literal}
+function partyChanged() {
+	new Ajax('/select/politician/?party='+$('partySelect').value+'&region={/literal}{if $region_page}{$region_page->id}{elseif !$form.show_region}0{/if}'{if !$region_page}+$('regionSelect').value{/if}{literal}+($('polExpired').checked ? '&expired' : ''), {method: 'get', onComplete: function(text) {
+		fillSelect($('politicianSelect'), text);
+	}}).request();
+}
+
+{/literal}{/if}
+
+{if $form.show_party}{literal}
+function regionChanged() {
+	new Ajax('/select/party/?region={/literal}{if $region_page}{$region_page->id}{elseif !$form.show_region}0{/if}'{if !$region_page && $form.show_region}+$('regionSelect').value{/if}{literal}+($('parExpired').checked ? '&expired' : ''), {method: 'get', onComplete: function(text) {
+		fillSelect($('partySelect'), text);
+		{/literal}{if $form.show_politician_id}{literal}
+		$('partySelect').addEvent('change', partyChanged);
+		{/literal}{/if}{literal}
+	}}).request();
+	{/literal}{if $form.show_politician_id}{literal}
+	partyChanged();
+	{/literal}{/if}{literal}
+}
+
+//window.addEvent('domready', regionChanged);
+{/literal}{/if}
+
+{if $form.show_party && $form.show_politician_id}{literal}
+window.addEvent('domready', function() {
+	$('partySelect').addEvent('change', partyChanged);
+	$('polExpired').addEvent('click', partyChanged);
+	partyChanged();
+});
+{/literal}{/if}
+
+{if $form.show_party}{literal}
+window.addEvent('domready', function() {
+{/literal}{if $form.show_region && !$region_page}{literal}
+	$('regionSelect').addEvent('change', regionChanged);
+{/literal}{/if}{literal}
+	$('parExpired').addEvent('click', regionChanged);
+	regionChanged();
+});
+{/literal}{/if}
+//--><!]]>
+</script>

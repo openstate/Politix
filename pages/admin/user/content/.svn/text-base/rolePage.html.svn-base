@@ -1,0 +1,7 @@
+<h2>Rollen voor {$user->username}</h2>
+<p><a href="/user/"><img src="/images/arrow_turn_up.png" alt="Terug" border="0" /></a> <a href="/user/">Terug</a></p>
+<form method="post" action="">
+<input type="hidden" name="userid" value="{$userid}" />
+{html_checkboxes options=$roles name='roles' selected=$selectedRoles labels=true}<br /><br />
+<input type="submit" name="submit" value="Verstuur" />
+</form>

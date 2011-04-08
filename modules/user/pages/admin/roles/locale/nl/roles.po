@@ -1,0 +1,23 @@
+msgid "roles_title"
+msgstr "Naam"
+
+msgid "roles_site"
+msgstr "Site"
+
+msgid "roles_add"
+msgstr "Rol toevoegen"
+
+msgid "roles_assign_rights"
+msgstr "Rechten toekennen"
+
+msgid "role"
+msgstr "Rol"
+
+msgid "roles_module"
+msgstr "Module"
+
+msgid "roles_right"
+msgstr "Recht"
+
+msgid "roles_list_rights"
+msgstr "Bekijk alle gebruikte rechten"

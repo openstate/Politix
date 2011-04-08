@@ -1,0 +1,12 @@
+{literal}
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.addEvent('domready', function() {
+	$$('textarea').addEvent('keyup', function(e) {
+		var id = this.getProperty('id').substr(4);
+		$('check'+id).checked = (this.value !== '');
+	});
+});
+//--><!]]>
+</script>
+{/literal}

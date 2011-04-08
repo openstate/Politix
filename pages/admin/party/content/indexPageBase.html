@@ -1,0 +1,26 @@
+{pofile form}
+<a name="PartyList"></a>
+<form action="" name="PartyList">
+	<table class="list">
+		<tr>
+			<th><a href="?sortcol=name&amp;sort={if $formsort.col=='name' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='name'}current {$formsort.dir}{else}asc{/if}">Naam</a></th>
+			{if !$superAdmin}<th>In {$regionName}</th>{/if}
+			<th>Opties</th>
+		</tr>
+		{foreach from=$formdata item=datarow key=id name='dataloop'}
+		<tr class="link{cycle values=', alt'}">
+			<td>{$datarow.party_name|htmlentities:2:'UTF-8'|nl2br}</td>
+			{if !$superAdmin}<td>{if $localParties.$id}{if $localParties.$id->time_start > $now}Per {$localParties.$id->time_start|date_format:"%e %B %Y"}{else}{if $localParties.$id->time_end != $smarty.const.POS_INFINITY}Tot {$localParties.$id->time_end|date_format:"%e %B %Y"}{else}##form_yes##{/if}{/if}{else}##form_no##{/if}</td>{/if}
+			<td>{if $datarow.canEdit}
+				<a href="/party/edit/{$datarow.id}"><img src="/images/edit.png" alt="Wijzigen" title="Wijzigen" border="0" /></a>
+				<a href="/party/delete/{$datarow.id}"><img src="/images/delete.png" alt="Verwijderen" title="Verwijderen" border="0" /></a>{/if}
+				{if $superAdmin}
+				<a href="/party/regions/{$datarow.id}"><img src="/images/link.png" border="0" alt="Wijzig Regio" title="Wijzig Regio" /></a>
+				{else}
+				<a href="/party/regionLink/{$datarow.id}"><img src="/images/link.png" border="0" alt="Wijzig koppeling" title="Wijzig koppeling" /></a>
+				{/if}
+			</td>
+		</tr>
+		{/foreach}
+	</table>
+</form>

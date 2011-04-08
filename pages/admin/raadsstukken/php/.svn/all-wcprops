@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/52/pages/admin/raadsstukken/php
+END
+parentsPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/politix/!svn/ver/1/pages/admin/raadsstukken/php/parentsPage.class.php
+END
+votePage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/politix/!svn/ver/52/pages/admin/raadsstukken/php/votePage.class.php
+END
+LoadFormById.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/politix/!svn/ver/46/pages/admin/raadsstukken/php/LoadFormById.class.php
+END
+submittersPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/politix/!svn/ver/1/pages/admin/raadsstukken/php/submittersPage.class.php
+END
+deletePage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/politix/!svn/ver/39/pages/admin/raadsstukken/php/deletePage.class.php
+END
+FormPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/politix/!svn/ver/46/pages/admin/raadsstukken/php/FormPage.class.php
+END
+createPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/politix/!svn/ver/46/pages/admin/raadsstukken/php/createPage.class.php
+END
+editPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/politix/!svn/ver/46/pages/admin/raadsstukken/php/editPage.class.php
+END
+indexPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/politix/!svn/ver/1/pages/admin/raadsstukken/php/indexPage.class.php
+END

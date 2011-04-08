@@ -1,0 +1,5 @@
+
+<h2>Statische Pagina's</h2>
+<a href="create/"><img src="/images/add.png" border="0" title="Toevoegen" alt="Toevoegen"/></a>
+
+{include file="`$smartyData.contentDir`/indexPageBase.html"}

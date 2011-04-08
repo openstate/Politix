@@ -1,0 +1,20 @@
+msgid "index.party"
+msgstr "Partij"
+
+msgid "index.total"
+msgstr "Totaal"
+
+msgid "index.tags"
+msgstr "Tags"
+
+msgid "index.noresults"
+msgstr "Geen stemresultaten"
+
+msgid "index.result"
+msgstr "Stem"
+
+msgid "index.open"
+msgstr "Openen"
+
+msgid "index.close"
+msgstr "Sluiten"

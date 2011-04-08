@@ -1,0 +1,23 @@
+<a name="CategoryEdit"></a><form action="" name="CategoryEdit" method="post" onsubmit="return formSubmit(this)" enctype="multipart/form-data">
+<input type="hidden" name="id" value="{$formdata.id}" />
+<table class="form">
+						
+		{pofile form}		
+		<tr>
+				<th>Naam</th>
+				<td><input type="text" name="category_name" value="{$formdata.category_name|htmlentities:2:'UTF-8'}" id="category_name" onkeyup="revalidate(this.form)" /> <span class="error" id="_err_category_name_0" style="{if !$formerrors.category_name_0}display:none{/if}">##form_required##</span></td>
+			</tr>
+				
+		<tr>
+				<th>Beschrijving</th>
+				<td><textarea name="description" rows="5" cols="40">{$formdata.description|escape:'html':'UTF-8'}</textarea></td>
+			</tr>
+		
+					
+		<tr>
+				<th />
+				<td><input type="submit" value="Wijzigen" /> </td>
+			</tr>
+			</table>
+</form><script type="text/javascript"><!--
+updateVisibility(document.forms['CategoryEdit']) //--></script>

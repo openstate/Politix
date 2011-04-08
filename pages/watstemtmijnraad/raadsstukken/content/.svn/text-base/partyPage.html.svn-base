@@ -1,0 +1,19 @@
+{pofile politician}
+<div style="padding-left: 77px;">
+
+<h2>{$raadsstuk->title|htmlentities:2:'UTF-8'|nl2br}</h2>
+<h3>{$party->name|htmlentities:2:'UTF-8'|nl2br}</h3>
+<table class="list">
+	<tr>
+		<th><a href="?raadsstuk={$raadsstuk->id}&amp;sortcol=name_sortkey&amp;sort={if $formsort.col=='name_sortkey' and $formsort.dir=='asc'}desc{else}asc{/if}" class="{if $formsort.col=='name_sortkey'}current {$formsort.dir}{else}asc{/if}">##politician.name##</a></th>
+		<th>Stem</th>
+	</tr>
+	{foreach from=$formdata item=datarow title='dataloop'}
+	<tr class="{cycle values=',alt'}">
+		<td>{$datarow->formatName()|htmlentities:2:'UTF-8'|nl2br}</td>
+		<td class="vote r{$datarow->vote}">{$datarow->getVoteTitle()}</td>
+	</tr>
+	{/foreach}
+</table>
+
+</div>

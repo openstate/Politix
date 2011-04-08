@@ -1,0 +1,36 @@
+{pofile form}
+{pofile politician}
+<form action="" name="{$form.name}" method="post" onsubmit="return formSubmit(this)" enctype="multipart/form-data">
+	<h2>{$form.header}</h2>
+	<p>{$form.note}</p>
+	<table class="form">
+		<tr>
+			<th>##politician.title##</th>
+			<td>{if $form.freeze}{$formdata.title|htmlentities:2:'UTF-8'}{else}<input type="text" name="title" value="{$formdata.title}" onkeyup="revalidate(this.form)" />{/if}</td>
+		</tr>
+		<tr>
+			<th>##politician.first_name##</th>
+			<td>{if $form.freeze}{$formdata.first_name|htmlentities:2:'UTF-8'}{else}<input type="text" name="first_name" value="{$formdata.first_name}" onkeyup="revalidate(this.form)" />{/if}</td>
+		</tr>
+		<tr>
+			<th>##politician.last_name##</th>
+			<td>{if $form.freeze}{$formdata.last_name|htmlentities:2:'UTF-8'}{else}<input type="text" name="last_name" class="vld_required defErrorHandler" value="{$formdata.last_name}" onkeyup="revalidate(this.form)" /> <span class="error" id="_err_last_name_required" style="{if !$formerrors.last_name_required}display:none{/if}">##form_required##</span>{/if}</td>
+		</tr>
+		<tr>
+			<th>##politician.gender##</th>
+			<td>{if $form.freeze}{if $formdata.gender == 1}##politician.gender.male##{else}##politician.gender.female##{/if}{else}<input type="radio" name="gender" value="1"{if $formdata.gender !== 0} checked="checked"{/if}/>##politician.gender.male## <input type="radio" name="gender" value="0"{if $formdata.gender === 0} checked="checked"{/if}/>##politician.gender.female##{/if}</td>
+		</tr>
+		<tr>
+			<th>##politician.email##</th>
+			<td>{if $form.freeze}{$formdata.email|htmlentities:2:'UTF-8'}{else}<input type="text" name="email" class="vld_email_optional defErrorHandler" value="{$formdata.email}" onkeyup="revalidate(this.form)"/> <span class="error" id="_err_email_invalid" style="{if !$formerrors.email_invalid}display:none{/if}">##form_invalidemail##</span>{/if}</td>
+		</tr>
+		<tr>
+			<th>##politician.extern_id##</th>
+			<td>{if $form.freeze}{$formdata.extern_id|htmlentities:2:'UTF-8'}{else}<input type="text" name="extern_id" class="vld_optional defErrorHandler" value="{$formdata.extern_id}"/>{/if}</td>
+		</tr>
+		<tr>
+			<th/>
+			<td><input type="submit" name="submit" value="{$form.submitText}"/></td>
+		</tr>
+	</table>
+</form>

@@ -1,0 +1,4 @@
+<a href="/">Home</a>
+{foreach from=$crumbs item=crumb name=crumbs}
+	&raquo; <a href="{$crumb.url}">{$crumb.title}</a>
+{/foreach}

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<xs:schema xmlns="http://www.watstemtmijnraad.nl"
+					 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					 targetNamespace="http://www.watstemtmijnraad.nl"
+					 elementFormDefault="qualified">
+
+	<xs:complexType name="regionType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:positiveInteger"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="parent" type="xs:positiveInteger" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="typeType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:positiveInteger"/>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="categoryType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer"/>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="regionListType">
+		<xs:sequence>
+			<xs:element name="region" type="regionType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="typeListType">
+		<xs:sequence>
+			<xs:element name="type" type="typeType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="categoryListType">
+		<xs:sequence>
+			<xs:element name="category" type="categoryType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="formType">
+		<xs:sequence>
+			<xs:element name="regions" type="regionListType"/>
+			<xs:element name="categories" type="categoryListType"/>
+			<xs:element name="types" type="typeListType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="form" type="formType"/>
+</xs:schema>

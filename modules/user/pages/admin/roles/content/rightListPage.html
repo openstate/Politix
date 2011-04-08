@@ -1,0 +1,13 @@
+{pofile form} {pofile roles}
+<h2>Rechten</h2>
+<table class="list">
+	<tr><th>##roles_module##</th><th>##roles_right##</th></tr>
+	{foreach from=$rights key=module item=rights}
+		{foreach from=$rights item=right}
+			<tr {cycle values=',class="alt"'}>
+				<td>{$module}</td>
+				<td>{$right}</td>
+			</tr>
+		{/foreach}
+	{/foreach}
+</table>
