@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/repos/politix/!svn/ver/52/classes
+END
+Dispatcher.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/39/classes/Dispatcher.class.php
+END
+SearchLexer.class.plex
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/SearchLexer.class.plex
+END
+BlockHandler.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/BlockHandler.class.php
+END
+Validate.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/repos/politix/!svn/ver/1/classes/Validate.class.php
+END
+SearchQuery.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/classes/SearchQuery.class.php
+END
+SearchEngine.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/44/classes/SearchEngine.class.php
+END
+CSV.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/repos/politix/!svn/ver/1/classes/CSV.class.php
+END
+Council.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/repos/politix/!svn/ver/52/classes/Council.class.php
+END
+InputFilterFactory.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/politix/!svn/ver/1/classes/InputFilterFactory.class.php
+END
+Pager.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/repos/politix/!svn/ver/1/classes/Pager.class.php
+END
+Xml.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/repos/politix/!svn/ver/39/classes/Xml.class.php
+END
+FormHandlerLoad.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/politix/!svn/ver/1/classes/FormHandlerLoad.class.php
+END
+FormHandler.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/classes/FormHandler.class.php
+END
+SecurityManager.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/politix/!svn/ver/1/classes/SecurityManager.class.php
+END
+SearchPage.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/23/classes/SearchPage.class.php
+END
+ObjectList.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/politix/!svn/ver/1/classes/ObjectList.class.php
+END
+SearchResult.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/SearchResult.class.php
+END
+Query.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/politix/!svn/ver/22/classes/Query.class.php
+END
+InputFilter.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/classes/InputFilter.class.php
+END
+SearchLexer.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/classes/SearchLexer.class.php
+END
+IndexHandler.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/IndexHandler.class.php
+END
+Sites.txt
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/repos/politix/!svn/ver/1/classes/Sites.txt
+END
+Color.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/repos/politix/!svn/ver/1/classes/Color.class.php
+END
+SearchParser.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/SearchParser.class.php
+END
+Image.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/repos/politix/!svn/ver/1/classes/Image.class.php
+END
+Session.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/repos/politix/!svn/ver/1/classes/Session.class.php
+END
+SearchPager.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/classes/SearchPager.class.php
+END
+FileUpload.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/politix/!svn/ver/1/classes/FileUpload.class.php
+END
+Message.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/repos/politix/!svn/ver/1/classes/Message.class.php
+END

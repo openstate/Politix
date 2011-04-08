@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/repos/politix/!svn/ver/49/classes/records
+END
+RaadsstukSubmitType.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/politix/!svn/ver/46/classes/records/RaadsstukSubmitType.class.php
+END
+Politician.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/politix/!svn/ver/49/classes/records/Politician.class.php
+END
+RaadsstukTag.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/politix/!svn/ver/46/classes/records/RaadsstukTag.class.php
+END
+SubmitterParty.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/politix/!svn/ver/46/classes/records/SubmitterParty.class.php
+END
+Appointment.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/politix/!svn/ver/1/classes/records/Appointment.class.php
+END
+RaadsstukCategory.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/politix/!svn/ver/46/classes/records/RaadsstukCategory.class.php
+END
+Party.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/49/classes/records/Party.class.php
+END
+Style.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/7/classes/records/Style.class.php
+END
+Raadsstuk.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/politix/!svn/ver/1/classes/records/Raadsstuk.class.php
+END
+VoteCache.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/politix/!svn/ver/1/classes/records/VoteCache.class.php
+END
+RaadsstukType.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/politix/!svn/ver/1/classes/records/RaadsstukType.class.php
+END
+PendingAppointment.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/politix/!svn/ver/1/classes/records/PendingAppointment.class.php
+END
+Site.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/records/Site.class.php
+END
+Level.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/1/classes/records/Level.class.php
+END
+PartyParent.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/politix/!svn/ver/1/classes/records/PartyParent.class.php
+END
+LocalParty.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/politix/!svn/ver/1/classes/records/LocalParty.class.php
+END
+Tag.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/classes/records/Tag.class.php
+END
+Page.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/records/Page.class.php
+END
+Category.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/politix/!svn/ver/45/classes/records/Category.class.php
+END
+Vote.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/records/Vote.class.php
+END
+Submitter.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/politix/!svn/ver/1/classes/records/Submitter.class.php
+END
+PartyVoteCache.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/politix/!svn/ver/1/classes/records/PartyVoteCache.class.php
+END
+Region.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/1/classes/records/Region.class.php
+END

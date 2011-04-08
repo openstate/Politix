@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/repos/politix/!svn/ver/1/classes/exceptions
+END
+SecurityException.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/politix/!svn/ver/1/classes/exceptions/SecurityException.class.php
+END
+NotFoundException.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/politix/!svn/ver/1/classes/exceptions/NotFoundException.class.php
+END

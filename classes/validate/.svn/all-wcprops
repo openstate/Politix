@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/repos/politix/!svn/ver/1/classes/validate
+END
+Alpha.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/1/classes/validate/Alpha.class.php
+END
+Alnum.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/1/classes/validate/Alnum.class.php
+END
+EmailAddress.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/politix/!svn/ver/1/classes/validate/EmailAddress.class.php
+END
+Color.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/1/classes/validate/Color.class.php
+END
+NotEmpty.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/politix/!svn/ver/1/classes/validate/NotEmpty.class.php
+END
+Interface.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/politix/!svn/ver/1/classes/validate/Interface.class.php
+END

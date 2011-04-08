@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/repos/politix/!svn/ver/1/classes/logger
+END
+JLogger.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/1/classes/logger/JLogger.class.php
+END
+LogListeners.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/politix/!svn/ver/1/classes/logger/LogListeners.class.php
+END
+Logger.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/1/classes/logger/Logger.class.php
+END

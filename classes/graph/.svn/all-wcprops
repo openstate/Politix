@@ -1,0 +1,227 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/repos/politix/!svn/ver/1/classes/graph
+END
+imgdata_stars.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/politix/!svn/ver/1/classes/graph/imgdata_stars.inc.php
+END
+imgdata_balls.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/politix/!svn/ver/1/classes/graph/imgdata_balls.inc.php
+END
+jpgraph_log.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_log.php
+END
+jpgraph_iconplot.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_iconplot.php
+END
+jpgraph_flags.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_flags.php
+END
+jpgraph_antispam-digits.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_antispam-digits.php
+END
+jpgraph_gb2312.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_gb2312.php
+END
+jpgraph_plotmark.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_plotmark.inc.php
+END
+imgdata_bevels.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/politix/!svn/ver/1/classes/graph/imgdata_bevels.inc.php
+END
+jpgraph_scatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_scatter.php
+END
+jpgraph_ttf.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_ttf.inc.php
+END
+jpgraph_gantt.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_gantt.php
+END
+jpgraph_date.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_date.php
+END
+jpgraph_mgraph.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_mgraph.php
+END
+jpg-config.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/1/classes/graph/jpg-config.inc.php
+END
+jpgraph.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/repos/politix/!svn/ver/1/classes/graph/jpgraph.php
+END
+imgdata_diamonds.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/politix/!svn/ver/1/classes/graph/imgdata_diamonds.inc.php
+END
+jpgraph_stock.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_stock.php
+END
+jpgraph_imgtrans.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_imgtrans.php
+END
+jpgraph_line.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_line.php
+END
+jpgraph_radar.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_radar.php
+END
+jpgraph_error.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_error.php
+END
+imgdata_pushpins.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/politix/!svn/ver/1/classes/graph/imgdata_pushpins.inc.php
+END
+jpgraph_gradient.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_gradient.php
+END
+jpgraph_errhandler.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_errhandler.inc.php
+END
+jpgraph_plotband.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_plotband.php
+END
+jpgraph_bar.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_bar.php
+END
+jpgraph_led.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_led.php
+END
+jpgraph_pie3d.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_pie3d.php
+END
+imgdata_squares.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/politix/!svn/ver/1/classes/graph/imgdata_squares.inc.php
+END
+jpgraph_utils.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_utils.inc.php
+END
+jpgraph_canvtools.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_canvtools.php
+END
+jpgraph_regstat.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_regstat.php
+END
+jpgraph_canvas.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_canvas.php
+END
+jpgraph_antispam.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_antispam.php
+END
+jpgraph_polar.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_polar.php
+END
+jpgraph_pie.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/classes/graph/jpgraph_pie.php
+END

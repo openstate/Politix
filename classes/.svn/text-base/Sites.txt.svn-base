@@ -1,0 +1,128 @@
+Document: Sites
+
+Section: Introduction
+This document describes how to configure <Site>s in the framework.
+
+First, a few terms should be explained. We recognise the following
+parts:
+
+The *repository* is the complete set of source code, templates, and other assets used for a
+project, which is generally stored within a single SVN repository (hence the name).
+
+A *site* is a set of web pages available from one or more hostnames. e.g., the pages accessible
+from www.accepte.nl are one site, or the pages accessible from *.jaarclubs.net are one site
+(with the exception of www.jaarclubs.net, which is another, different site).
+
+A *module* is a related set of functionality grouped together within one directory, which allows
+the module to be easily integrated into an existing repository. Modules may provide a number of
+page sets.
+
+A *page set* is a set of php/html pages that are related to eachother, but different than modules.
+To explain by example: A module for menus contains everything related to creating, editing and
+integrating menus in a site. A pageset may contain all pages (from all modules) related to backoffice
+functionality.
+
+Another way of viewing this is by stating that modules are vertical, and pagesets are horizontal
+slices of functionality.
+
+Section: Site
+A site is created by the following steps:
+- Determine the regular expression that matches the host names that should be able to access
+  this site.
+- Determine the modules you wish to include in the site.
+- Determine the page sets you wish the site to use.
+- Create a master Smarty template.
+- If emails will be sent, create a master email template.
+- Create subdirectories in a few public asset directories. Currently, these subdirectories are
+  files, images, and stylesheets. This technique allows splitting up of public assets, while
+	having this split hidden from people using the site.
+
+	Essentially, urls like /images/filename.ext are caught and redirected to /images/[subdir]/filename.ext.
+
+Section: Site configuration
+Sites are configured in the file sites.include.php, which must be located somewhere in the include
+path. This file must return one associative array, which maps the regular expressions for the hosts
+to the site config of that host.
+
+An example:
+(code)
+<?php
+return array(
+	'/^.*www\.site\.com$/' => array(
+		'sets'      => array('main', 'shared'),
+		'modules'   => array('default', 'menu'),
+		'title'     => 'Example site',
+		'template'  => 'template.html',
+		'publicdir' => 'site',
+		'systemMail => 'no-reply@site.com'
+
+		'locale' =>
+		  'sources' => array('cookie', 'browser'),
+			'locales'  => array('en', 'nl'),
+			'defaults' => array(
+				'/./' => 'en',
+			)
+	)
+);
+?>
+(end code)
+
+The regular expression itself may capture the named groups *subdomain*, *domain* and *tld* (via
+the (?P<name>) construct) to make these parts of the domain available via the dispatcher.
+
+A site configuration is an associative array with four keys:
+sets       - An array of the names of pagesets this site uses.
+modules    - An array of the names of modules this site uses.
+title      - The title of this site.
+template   - The name of the master template for this site.
+publicdir  - The name of the subdirectory used to split the public asset directories.
+systemMail - The email address that should be used for emails originating from the framework.
+locale     - The locale configuration for this site.
+
+Subsection: Locales
+The locale configuration itself is again an associative array, with
+these keys:
+
+source     - An array of sources to determine the active locale from. See below for valid sources. The
+             order of the sources determines in what order they are checked.
+locales    - An array of locale codes. These should be ISO-639 two-letter codes.
+defaults   - An array of regular expressions to locale codes. This determines which locale to default
+             to for a given domain (matching a regex) in case none of the sources yield a locale.
+
+Currently, two sources are
+supported:
+
+cookie  - Attempts to load the current locale from a cookie named 'language'.
+browser - Attempts to find a locale matching the client's Accept-Language HTTP header.
+
+Section: Modules
+A module is a set of related functionality contained within a single directory that can easily be
+added to a repository. Modules can provide pages and blocks to a site using it.
+
+A page is a PHP class, possibly combined with one or more HTML templates, and contains some logic
+to display (and optionally process) a certain page request.
+
+A block is similar to a page, except that it is not meant to handle page requests, but to provide
+general parts of the final generated HTML (such as menus or breadcrumbs).
+
+What each module *must* provide is a so-called Handler, which is a class designed to check whether
+a certain URL can be processed by that module. Handler classes must be placed in the root of the
+module, and be named moduleHandler, with module being replaced to the directory name of the
+module. For details on handlers, check the <DefaultHandler> of the default module. Of course,
+while a handler must be provided, it may be empty.
+
+To provide blocks, all that has to be done is that a blocks directory is created inside the module,
+and a file named blocknameBlock.class.php (with a similarly-named class in it) must be created.
+blockname here is the name under which the block will be available. A block class must provide
+a display($smarty) method, which should output the HTML for the block.
+
+Section: Page sets
+Since many sites can be configured in the same repository, and not all sites may show all pages
+from all modules, page sets are used. A page set defines a subset of a module's pages, and sites
+may select any, none or all of a module's pagesets to use.
+
+A page set itself is nothing more than an agreed-upon name under which modules provide parts of
+their functionality. The following is a list of all known (and non-project specific) pagesets
+that can be used (note that this list may change):
+
+admin - Contains administration functionality.

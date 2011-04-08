@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/repos/politix/!svn/ver/1/classes/database
+END
+DBs.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/classes/database/DBs.class.php
+END
+MyDatabase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/politix/!svn/ver/1/classes/database/MyDatabase.class.php
+END
+PgDatabase.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/politix/!svn/ver/1/classes/database/PgDatabase.class.php
+END
+Record.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/politix/!svn/ver/1/classes/database/Record.class.php
+END
+Database.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/politix/!svn/ver/1/classes/database/Database.class.php
+END
