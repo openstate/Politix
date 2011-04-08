@@ -1,0 +1,2 @@
+msgid "region.name"
+msgstr "Naam"

@@ -1,0 +1,5 @@
+msgid "localparty.name"
+msgstr "Naam"
+
+msgid "localparty.region"
+msgstr "Gebied"

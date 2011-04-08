@@ -1,0 +1,48 @@
+{assign var=thcol value="#9999ee"}
+{assign var=tdcol value="#ddddff"}
+<div style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+	<p>An error occurred while processing a request, URL was:<br />{$smarty.server.REQUEST_URI}</p>
+	<p><strong>Message:</strong><br />{$data.message}</p>
+	{if $data.sql}
+		<p><strong>Query:</strong><br />{$data.sql}</p>
+		<p><strong>Error:</strong><br />{$data.error}</p>
+	{/if}
+	<p>The error occurred in <strong>{$data.file}</strong> at line <strong>{$data.line}</strong>.</p>
+	<p>Trace:</p>
+	<table>
+		<tr>
+			<th bgcolor="{$thcol}">#</th><th bgcolor="{$thcol}">Function</th><th bgcolor="{$thcol}">Location</th>
+		</tr>
+		{foreach from=$data.trace item=trace key=idx}
+		<tr>
+			<td bgcolor="{$tdcol}">{$idx+1}</td><td bgcolor="{$tdcol}">
+				{if isset($trace.type)}{$trace.class}{$trace.type}{/if}{$trace.function}(
+					{if isset($trace.args)}
+						{foreach from=$trace.args item=arg key=argidx}
+							{if is_string($arg)}
+								<span style="color:red">'{$arg|truncate:80|htmlentities:2:'UTF-8'}'</span>
+							{elseif is_integer($arg)}
+								<span style="color:green">{$arg}</span>
+							{elseif is_float($arg)}
+								<span style="color:blue">{$arg}</span>
+							{elseif is_bool($arg)}
+								<span style="color:#75507b">{if $arg}true{else}false{/if}</span>
+							{elseif is_null($arg)}
+								<span style="color:#3465a4">null</span>
+							{else}
+								{assign var=argdata value=$arg|@print_r:true}
+								{$argdata|truncate:80|htmlentities:2:'UTF-8'}
+							{/if}
+							{if $argidx < count($trace.args) - 1},{/if}
+						{/foreach}
+					{/if}
+				)</td><td bgcolor="{$tdcol}">{$trace.file}:{$trace.line}</td></tr>
+		{/foreach}
+		</tr>
+	</table>
+	{if $data.string}
+	<pre>
+		{$data.string}
+	</pre>
+	{/if}
+</div>

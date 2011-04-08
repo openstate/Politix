@@ -1,0 +1,98 @@
+msgid "form_required"
+msgstr "Dit veld is verplicht"
+
+msgid "form_inenum"
+msgstr "Ongeldige waarde geselecteerd"
+
+msgid "form_validDate"
+msgstr "Ongeldige datum"
+
+msgid "form_regex"
+msgstr "Ongeldige waarde"
+
+msgid "form_equal"
+msgstr "De waarden komen niet overeen"
+
+msgid "form_notequal"
+msgstr "De waarden komen overeen"
+
+msgid "form_invalidemail"
+msgstr "Ongeldig e-mailadres"
+
+msgid "form_toolarge"
+msgstr "De waarde is te groot voor dit veld"
+
+msgid "form_options"
+msgstr "Opties"
+
+msgid "form_details"
+msgstr "Details"
+
+msgid "form_add"
+msgstr "Toevoegen"
+
+msgid "form_create"
+msgstr "Aanmaken"
+
+msgid "form_edit"
+msgstr "Wijzigen"
+
+msgid "form_delete"
+msgstr "Verwijderen"
+
+msgid "form_delete_question"
+msgstr "Weet u zeker dat u dit item wilt verwijderen?"
+
+msgid "form_yes"
+msgstr "Ja"
+
+msgid "form_no"
+msgstr "Nee"
+
+msgid "form_next"
+msgstr "Volgende"
+
+msgid "form_previous"
+msgstr "Vorige"
+
+msgid "form_select"
+msgstr "Selecteer..."
+
+msgid "form_postalcode_regex"
+msgstr "/^[0-9]{4} ?[a-zA-Z]{2}$/"
+
+msgid "form_mobile_regex"
+msgstr "/^06-?[0-9]{8}$/"
+
+msgid "form_filter"
+msgstr "Zoeken"
+
+msgid "form_search"
+msgstr "Zoeken"
+
+msgid "form_reset"
+msgstr "Leegmaken"
+
+msgid "form_submit"
+msgstr "Versturen"
+
+msgid "form_up"
+msgstr "Omhoog"
+
+msgid "form_down"
+msgstr "Omlaag"
+
+msgid "form_hasfile"
+msgstr "Er is een bestand geupload.<br />"
+
+msgid "form_file_input"
+msgstr "Klik op \'Bladeren\' om een bestand te selecteren van uw computer."
+
+msgid "form_download"
+msgstr "Download"
+
+msgid "form_download_csv"
+msgstr "Download deze lijst als .csv"
+
+msgid "form_download_csv_separator"
+msgstr "Gescheiden door"

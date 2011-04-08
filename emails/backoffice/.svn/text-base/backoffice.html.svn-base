@@ -1,0 +1,23 @@
+<html style="height:100%;">
+<body bgcolor="FFFFFF" style="background-color: #FFFFFF;height:100%;">
+	<font face="Arial" color="83083A" style="color:#83083A;font-family:Arial;font-size: 12px;" size="2">
+
+		<table bgcolor="FFCC00" style="background-color: #FFCC00;height:100%;" cellpadding="4" cellspacing="0" height="100%">
+			<tr>
+				<td bgcolor="F08E07" style="background-color: #F08E07;">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</td>
+
+				<td valign="top" style="text-align:top;padding-left:10px;">
+					<font face="Arial" color="83083A" style="color:#83083A;font-family:Arial;font-size: 12px;" size="2">
+						<br><br><br>
+						{include file=$smartyData.contentFile}
+					</font>
+				</td>
+			</tr>
+
+		</table>
+
+	</font>
+</body>
+</html>

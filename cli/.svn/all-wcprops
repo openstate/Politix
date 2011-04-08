@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/repos/politix/!svn/ver/41/cli
+END
+import.php
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/repos/politix/!svn/ver/1/cli/import.php
+END
+README.import.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/repos/politix/!svn/ver/38/cli/README.import.txt
+END
+politixExtract.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/repos/politix/!svn/ver/40/cli/politixExtract.php
+END

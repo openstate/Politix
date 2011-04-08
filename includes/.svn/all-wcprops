@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/repos/politix/!svn/ver/47/includes
+END
+PageSize.include.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/includes/PageSize.include.php
+END
+sites.include.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/politix/!svn/ver/47/includes/sites.include.php
+END
+formlib.php
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/repos/politix/!svn/ver/1/includes/formlib.php
+END
+functions.include.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/1/includes/functions.include.php
+END
+prequel.include.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/politix/!svn/ver/1/includes/prequel.include.php
+END
+strftime.include.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/1/includes/strftime.include.php
+END
+settings.include.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/21/includes/settings.include.php
+END
+prequel.cli.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/politix/!svn/ver/1/includes/prequel.cli.php
+END

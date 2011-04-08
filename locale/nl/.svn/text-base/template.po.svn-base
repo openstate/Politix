@@ -1,0 +1,38 @@
+msgid "template.title"
+msgstr "politix.nl"
+
+msgid "template.header"
+msgstr "politix.nl"
+
+msgid "template.mailwizard"
+msgstr "Schrijf een E-mail"
+
+msgid "template.archive"
+msgstr "Vragenarchief"
+
+msgid "template.about"
+msgstr "Over politix.nl"
+
+msgid "template.login"
+msgstr "Inloggen"
+
+msgid "template.logout"
+msgstr "Uitloggen"
+
+msgid "template.loggedinas"
+msgstr "Ingelogd als: %s"
+
+msgid "template.next"
+msgstr "Volgende"
+
+msgid "template.prev"
+msgstr "Vorige"
+
+msgid "template.cancel"
+msgstr "Annuleren"
+
+msgid "template.finish"
+msgstr "Voltooien"
+
+msgid "template.raadsstukken"
+msgstr "Voorstellen"

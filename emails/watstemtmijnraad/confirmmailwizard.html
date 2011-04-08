@@ -1,0 +1,11 @@
+Politicus: {if $politician}{$politician->formatName()}{else}willekeurig{/if}<br/>
+Partij: {$party->name}<br/>
+Regio: {$region->formatName()}<br/>
+Categorie: {$category->name}<br/>
+
+Brief: {$wizard->content}
+
+Klik op de onderstaande link om je brief te verzenden:<br/>
+<a href="http://{$smarty.server.HTTP_HOST}/mailwizard/confirm/{$hash}/">
+	http://{$smarty.server.HTTP_HOST}/mailwizard/confirm/{$hash}/
+</a>

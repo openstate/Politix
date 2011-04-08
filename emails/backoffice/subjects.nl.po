@@ -1,0 +1,5 @@
+msgid "appointmentmail"
+msgstr "Nieuwe aanstelling op politix.nl"
+
+msgid "answermail"
+msgstr "Uw brief aan de politiek is beantwoord."

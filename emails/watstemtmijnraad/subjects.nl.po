@@ -1,0 +1,12 @@
+msgid  "newregistration"
+msgstr "Bedankt voor je registratie bij Maildepolitiek!"
+
+
+msgid "passwordrequest"
+msgstr "Verzoek om een nieuw wachtwoord"
+
+msgid "confirmmailwizard"
+msgstr "Bevestig je mail aan de politiek"
+
+msgid "politicianmail"
+msgstr "Nieuwe mail op maildepolitiek.nl"

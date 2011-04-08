@@ -1,0 +1,59 @@
+msgid "raadsstuk.site"
+msgstr "Site"
+
+msgid "raadsstuk.title"
+msgstr "Titel"
+
+msgid "raadsstuk.vote_date"
+msgstr "Stemdatum"
+
+msgid "raadsstuk.category"
+msgstr "Onderwerp(en)"
+
+msgid "raadsstuk.summary"
+msgstr "Samenvatting"
+
+msgid "raadsstuk.code"
+msgstr "Code"
+
+msgid "raadsstuk.type"
+msgstr "Soort"
+
+msgid "raadsstuk.tags"
+msgstr "Tags"
+
+msgid "raadsstuk.region"
+msgstr "Gemeente"
+
+msgid "raadsstuk.result"
+msgstr "Uitslag"
+
+msgid "raadsstuk.party"
+msgstr "Partij"
+
+msgid "raadsstuk.submitters"
+msgstr "Ingediend door"
+
+msgid "raadsstuk.parent"
+msgstr "Voorstel"
+
+msgid "raadsstuk.children"
+msgstr "Onderdelen"
+
+msgid "raadsstuk.amendementen"
+msgstr "Amendementen"
+
+msgid "raadsstuk.moties"
+msgstr "Moties"
+
+msgid "raadsstuk.accepted"
+msgstr "Aangenomen"
+
+msgid "raadsstuk.rejected"
+msgstr "Afgewezen"
+
+msgid "raadsstuk.notvoted"
+msgstr "Niet gestemd"
+
+msgid "raadsstuk.show"
+msgstr "Toon op homepage"

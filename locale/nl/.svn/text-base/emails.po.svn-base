@@ -1,0 +1,11 @@
+msgid "regmail_header"
+msgstr "Bedankt voor je registratie bij Maildepolitiek.nl!"
+
+msgid "regmail_body"
+msgstr "Je account bij Maildepolitiek.nl is aangemaakt en je kan nu direct inloggen! \n\n\nGebruikersnaam: {$username}\nWachtwoord: {$password}\n\nWij raden je aan om deze gegevens zorgvuldig te bewaren.\n\nMet vriendelijke groeten,\nMaildepolitie.nl"
+
+msgid "inform.header"
+msgstr "Bericht"
+
+msgid "inform.closing"
+msgstr "Met vriendelijke groet,"

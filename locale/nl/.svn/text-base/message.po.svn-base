@@ -1,0 +1,14 @@
+msgid  "message_success_title"
+msgstr "Succes"
+
+msgid  "message_notice_title"
+msgstr "Notice"
+
+msgid  "message_warning_title"
+msgstr "Waarschuwing"
+
+msgid  "message_error_title"
+msgstr "Fout"
+
+msgid  "message_debug_title"
+msgstr "Debug"

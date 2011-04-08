@@ -1,0 +1,11 @@
+msgid  "site_accessDenied_header"
+msgstr "Toegang geweigerd"
+
+msgid  "site_accessDenied"
+msgstr "U heeft niet de rechten om deze pagina ({$data.url}) te zien."
+
+msgid  "site_notFound_header"
+msgstr "404 Pagina niet gevonden"
+
+msgid  "site_notFound"
+msgstr "De opgevraagde URL {$data.url} kon niet worden gevonden op deze server."

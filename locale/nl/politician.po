@@ -1,0 +1,26 @@
+msgid "politician.name"
+msgstr "Naam"
+
+msgid "politician.title"
+msgstr "Titels"
+
+msgid "politician.first_name"
+msgstr "Voorletters"
+
+msgid "politician.last_name"
+msgstr "Achternaam"
+
+msgid "politician.gender"
+msgstr "Geslacht"
+
+msgid "politician.gender.male"
+msgstr "Man"
+
+msgid "politician.gender.female"
+msgstr "Vrouw"
+
+msgid "politician.email"
+msgstr "Email"
+
+msgid "politician.extern_id"
+msgstr "Extern ID"

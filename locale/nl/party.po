@@ -1,0 +1,11 @@
+msgid "party.name"
+msgstr "Naam"
+
+msgid "party.combination"
+msgstr "Combinatiepartij"
+
+msgid "party.parents"
+msgstr "Combinatie van"
+
+msgid "party.owner"
+msgstr "Niveau"

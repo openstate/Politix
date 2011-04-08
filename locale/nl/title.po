@@ -1,0 +1,5 @@
+msgid  "title.male"
+msgstr "Dhr."
+
+msgid  "title.female"
+msgstr "Mw."

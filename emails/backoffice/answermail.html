@@ -1,0 +1,6 @@
+<p>Uw brief van {$question->created|date_format:'%d %B %Y'} is door {$politician->formatName()} beantwoord:</p>
+
+{$answer->content}
+<p><em>{$politician->formatName()}, {$answer->created|date_format:'%d %B %Y'}</em></p>
+
+<p>-- Maildepolitiek.nl</p>

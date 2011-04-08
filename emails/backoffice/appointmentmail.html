@@ -1,0 +1,12 @@
+Politicus: {$politician->formatName()}<br/>
+Partij: {$appointment->party_name}<br/>
+Regio: {$appointment->region_name}<br/>
+Categorie: {$appointment->cat_name}<br/>
+Aanvangsdatum: {if $appointment->time_start == $smarty.const.NEG_INFINITY}Geen{else}{$appointment->time_start|date_format:"%e %B %Y"}{/if}<br/>
+Einddatum: {if $appointment->time_end == $smarty.const.POS_INFINITY}Geen{else}{$appointment->time_end|date_format:"%e %B %Y"}{/if}<br/>
+Omschrijving: {$appointment->description}<br/>
+
+Klik op de onderstaande link om deze aanstelling te bevestigen:<br/>
+<a href="http://{$smarty.server.HTTP_HOST|regex_replace:"/^[^.]+\./":"backoffice."}/confirm/{$appointment->hash}/">
+	http://{$smarty.server.HTTP_HOST|regex_replace:"/^[^.]+\./":"backoffice."}/confirm/{$appointment->hash}/
+</a>

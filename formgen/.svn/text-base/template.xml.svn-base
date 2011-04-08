@@ -1,0 +1,64 @@
+<templates>
+	<createform>
+		<dateinput><img src="/images/calendar.png" alt="" /></dateinput>
+		<form>
+			<table class="form">
+				<fields />
+			</table>
+		</form>
+
+		<field selector="field">
+			<tr>
+				<th><label /></th>
+				<td><value /> <errormsg /></td>
+			</tr>
+		</field>
+
+		<field selector="tr field">
+			<td><strong><label /></strong><br />
+				<value /> <errormsg /></td>
+		</field>
+
+		<field selector="field field">
+			<span optional="1"><label />: <value /> <errormsg /><br /></span>
+		</field>
+
+		<group selector="group">
+			<tbody><elements /></tbody>
+		</group>
+		<group selector="group group">
+			<div><elements /></div>
+		</group>
+
+		<errormsg>
+			<span class="error"><msg /></span>
+		</errormsg>
+
+		<fieldset>
+			<fieldset><table><content /></table></fieldset>
+		</fieldset>
+
+	</createform>
+
+	<editform inherits="createform" />
+	<view inherits="createform" />
+
+	<list>
+		<form>
+			<table class="list">
+				<fields />
+			</table>
+		</form>
+
+		<columns>
+			<tr><header /></tr>
+			<elements />
+		</columns>
+
+		<colhead><th><value /></th></colhead>
+		<colrow><tr class="link{cycle values=', alt'}"><row /></tr></colrow>
+		<colvalue><td><value /></td></colvalue>
+		<emptyrow><tr><row /></tr></emptyrow>
+	</list>
+
+</templates>
