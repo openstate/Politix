@@ -1,0 +1,88 @@
+8
+
+dir
+57
+http://host08.accepte.nl/repos/politix/public_html/tinymce/jscripts/tiny_mce/plugins/fullpage
+http://host08.accepte.nl/repos/politix
+
+
+
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a3189d24-e339-4d94-a982-af3f4112dbaa
+
+editor_plugin.js
+file
+
+
+
+
+2008-11-18T08:33:46.000000Z
+7a592637a2a28831098bde7ee6e82807
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+jscripts
+dir
+
+langs
+dir
+
+images
+dir
+
+editor_plugin_src.js
+file
+
+
+
+
+2008-11-18T08:33:46.000000Z
+83ba29daed25205cf59b454481b95e1d
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+fullpage.htm
+file
+
+
+
+
+2008-11-18T08:33:46.000000Z
+55840ded7f300a193fa48cfd4c896d79
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+css
+dir
+
+blank.htm
+file
+
+
+
+
+2008-11-18T08:33:46.000000Z
+d3a419b46d2119debb3d0981d433d75b
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
