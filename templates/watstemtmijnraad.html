@@ -1,0 +1,143 @@
+{pofile template}
+{pofile form}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>##template.title##</title>
+		<meta name="robots" content="index, follow" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="" />
+		<link href="/styles/main" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 7]>
+			<link href="styles/patchie7less.css" rel="stylesheet" type="text/css" />
+		<![endif]-->
+
+		<script src="/javascripts/mootools/moo.tools.v1.11.js" type="text/javascript"></script>
+		{if !$region_page}<script type="text/javascript" src="/javascripts/main.js"></script>{/if}
+		<script type="text/javascript" src="/javascripts/Swiff.base.js"></script>
+		<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+
+		{if $smartyData.headerFile != ''}{include file=$smartyData.headerFile}{/if}
+	</head>
+	<body>
+    <div id="wrapper">
+			<div id="headerBar">
+				<div id="headerBarContent">
+					<div id="metaMenu">
+						<a href="/">home</a> | <a href="/advsearch/">zoeken</a>
+					</div>
+					<a href="/"><img src="/styles/logo" class="logo" alt="Politix"/></a>
+					<h1>##template.header##<span id="slogan">{$style->slogan|htmlentities}</span></h1>
+				</div>
+			</div>
+			<div id="headerBarStripes"></div>
+			<div id="columnContainer">
+				<div id="leftBar">
+					<div id="leftBarArrow">&gt;</div>
+				</div>
+				<div id="leftColumn">
+					<div id="menuBar">
+						<ul>
+							<li{if preg_match('!^/(\?.*)?$!', $smarty.server.REQUEST_URI)} class="active"{/if}><a href="/">Home</a></li>
+							<li{if preg_match('!^/advsearch/!', $smarty.server.REQUEST_URI)} class="active"{/if}><a href="/advsearch/">Voorstellen</a></li>
+							{*<li{if preg_match('!^/regio/!', $smarty.server.REQUEST_URI)} class="active"{/if}><a href="/regio/">Regio's</a></li>*}
+							<li{if preg_match('!^/about/!', $smarty.server.REQUEST_URI)} class="active"{/if}><a href="/about/">Meer informatie</a></li>
+							{foreach from=$menu_pages item=p}
+							{capture assign=regex}'!^/{$p->url}/!'{/capture}
+							<li{if preg_match($regex, $smarty.server.REQUEST_URI)} class="active"{/if}><a href="/{$p->url|urlencode}/">{$p->linkText|htmlentities}</a></li>
+							{/foreach}
+						</ul>
+					</div>
+					<div id="content">
+						{include file=$smartyData.contentFile}
+					</div>
+				</div>
+				<div id="rightColumn">
+					<div class="titleBlockSmall"></div><h2>Zoeken</h2>
+					<p class="logo"><a href="http://www.publiekezaak.nl"><img src="/images/dpz.png" alt="de publieke zaak" /></a></p>
+					{if !$region_page}
+					<div id="countryFlash"><img src="/styles/map" width="204" height="204" alt="Nederland" /></div>
+					<script type="text/javascript">
+					<!--//--><![CDATA[//><!--
+						window.addEvent('domready', function() {ldelim}
+							var swf1 = new Swiff('/flash/nederland.swf', {ldelim}
+									width: 204,
+									height: 204,
+									container: $('countryFlash'),
+									params: {ldelim} wmode: 'transparent' {rdelim},
+									vars: {ldelim} pcolor: '0x{$style->color3}', pcolorhover: '0x{$style->color2}' {rdelim}
+							{rdelim});
+						{rdelim});
+					//--><!]]>
+					</script>
+					<div id="regionSelectForm">
+						<h3><label for="province">Stap 1</label></h3>
+						<select name="province" id="province" onchange="setProvincie(this)">
+							<option value="-1">Kies een provincie</option>
+							<option value="3">Drenthe</option>
+							<option value="4">Flevoland</option>
+							<option value="5">Friesland</option>
+							<option value="6">Gelderland</option>
+							<option value="7">Groningen</option>
+							<option value="8">Limburg</option>
+							<option value="9">Noord-Brabant</option>
+							<option value="10">Noord-Holland</option>
+							<option value="11">Overijssel</option>
+							<option value="12">Utrecht</option>
+							<option value="13">Zeeland</option>
+							<option value="14">Zuid-Holland</option>
+						</select>
+						<form action="/search" method="post">
+							<div id="gemeente_div" class="nodisplay">
+								<h3><label for="gemeente">Stap 2</label></h3>
+								<select name="region" id="gemeente">
+									<option value="-1">Geen</option>
+								</select>
+							</div>
+							<div id="home_search" class="nodisplay">
+								<input name="submit" class="submitButton" type="submit" value="##form_search##"/>
+							</div>
+						</form>
+					</div>
+					{/if}
+					{if $smarty.server.SCRIPT_URL != '/'}
+					<h3>Categorie&euml;n:</h3>
+					<div id="categories">
+						<ul>
+							{foreach from=$cat_count item=c}
+							<li><a href="/search{if isset($c.url)}{$c.url|htmlentities}{else}{if $region_page->id}/region/{$region_page->id}{/if}/category/{$c.category}/submit/1{/if}">{$c.name}</a> ({$c.count})</li>
+							{foreachelse}
+							<li>Geen resultaten</li>
+							{/foreach}
+						</ul>
+					</div>
+					{/if}
+					<p class="extraLogos">in partnerschap met:<br />{strip}
+					<a href="http://www.maildepolitiek.nl"><img src="/images/maildepolitiek.gif" alt="Mail de politiek" class="last" /></a><br />
+					<a href="http://www.150vv.nl"><img src="/images/150vv.gif" alt="150 volksvertegenwoordigers" /></a><br/>
+					<a href="http://www.burgerbuddy.nl"><img src="/images/burgerbuddys.gif" alt="Burger Buddy's" class="last" /></a><br />
+					<a href="http://www.watstemtmijnraad.nl"><img src="/images/wsmr.gif" alt="Wat stemt mijn raad?" class="last" /></a><br /></p>{/strip}
+				</div>
+			</div>
+		</div>
+
+
+{literal}
+<!-- Google analytics: 05-02-2009 -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7333267-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!-- END of Google analytics script -->
+{/literal}
+
+	</body>
+</html>

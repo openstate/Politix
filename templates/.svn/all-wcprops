@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/repos/politix/!svn/ver/55/templates
+END
+backoffice.html
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/repos/politix/!svn/ver/39/templates/backoffice.html
+END
+forbidden.html
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/politix/!svn/ver/1/templates/forbidden.html
+END
+exception.html
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/politix/!svn/ver/1/templates/exception.html
+END
+watstemtmijnraad.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/politix/!svn/ver/55/templates/watstemtmijnraad.html
+END
+ajax.html
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/repos/politix/!svn/ver/1/templates/ajax.html
+END
+popup.html
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/repos/politix/!svn/ver/1/templates/popup.html
+END
+search.html
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/repos/politix/!svn/ver/1/templates/search.html
+END
+404.html
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/repos/politix/!svn/ver/1/templates/404.html
+END

@@ -1,0 +1,54 @@
+{assign var=thcol value="#9999ee"}
+{assign var=tdcol value="#ddddff"}
+<div>
+{if $data.developer}
+	<br />
+	<h2 class="header">Exception</h2>
+	<p>An error occurred while processing a request ({$data.exception}).</p>
+	<p><strong>Message:</strong><br />{$data.message|htmlentities|default:'No message.'}</p>
+	{if $data.data}<p><strong>Extra data:</strong><br /><pre>{$data.data|htmlentities}</pre></p>{/if}
+	{if $data.sql}
+	<p><strong>Query:</strong><br /><pre style="overflow:scroll">{$data.sql}</pre></p>
+	<p><strong>Error:</strong><br />{$data.error}</p>
+	{/if}
+	<p>The error occurred in <strong>{$data.file}</strong> at line <strong>{$data.line}</strong>.</p>
+	<p>Trace:</p>
+	<div style="overflow:scroll">
+	<table>
+		<tr>
+			<th bgcolor="{$thcol}">#</th><th bgcolor="{$thcol}">Function</th><th bgcolor="{$thcol}">Called from</th>
+		</tr>
+		{foreach from=$data.trace item=trace key=idx}
+		<tr>
+			<td bgcolor="{$tdcol}">{$idx+1}</td><td bgcolor="{$tdcol}">
+				{if isset($trace.type)}{$trace.class}{$trace.type}{/if}{$trace.function}(
+					{if isset($trace.args)}
+						{foreach from=$trace.args item=arg key=argidx}
+							{if is_string($arg)}
+								<span style="color:red">'{$arg|truncate:80|htmlentities:2:'UTF-8'}'</span>
+							{elseif is_integer($arg)}
+								<span style="color:green">{$arg}</span>
+							{elseif is_float($arg)}
+								<span style="color:blue">{$arg}</span>
+							{elseif is_bool($arg)}
+								<span style="color:#75507b">{if $arg}true{else}false{/if}</span>
+							{elseif is_null($arg)}
+								<span style="color:#3465a4">null</span>
+							{else}
+								{assign var=argdata value=$arg|@print_r:true}
+								{$argdata|truncate:80|htmlentities:2:'UTF-8'}
+								{assign var=argdata value=''} {* This assign is needed to free up the memory used by large prints. *}
+							{/if}
+							{if $argidx < count($trace.args) - 1},{/if}
+						{/foreach}
+					{/if}
+				)</td><td bgcolor="{$tdcol}">{$trace.file}:{$trace.line}</td></tr>
+		{/foreach}
+		</tr>
+	</table>
+	</div>
+{else}
+	<h2>Fout</h2>
+	<p>Er is een fout opgetreden in het systeem. De beheerder van de website is hiervan op de hoogte gesteld.</p>
+{/if}
+</div>
