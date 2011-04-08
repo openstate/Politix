@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/repos/politix/!svn/ver/56/privates
+END
+log.config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/repos/politix/!svn/ver/1/privates/log.config.xml
+END
+settings.private.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/politix/!svn/ver/3/privates/settings.private.txt
+END
+database.private.txt
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/politix/!svn/ver/53/privates/database.private.txt
+END

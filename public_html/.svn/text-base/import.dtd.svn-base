@@ -1,0 +1,438 @@
+<!--
+   Watstemtmijnraad Raadsstukken import DTD
+
+   Namespace = http://watstemtmivjnraad.gl
+
+   Copyright (c) 2008 Accepté
+   All Rights Reserved. 
+
+   This DTD module is identified by the SYSTEM identifier:
+
+   SYSTEM "http://watstemtmijnraad.gl/import.dtd"
+-->
+
+<!-- Import block, root element. -->
+<!ELEMENT import (schema?, raadsstukken?)>
+<!-- 
+	version - import file version, always 1.0
+	site    - site name, eg "Watstemtmijnraad" or "Politix"
+-->
+<!ATTLIST import
+    version   CDATA         #REQUIRED
+    site      CDATA         #REQUIRED
+    >
+
+
+<!-- "The World" of Watstemtmijnraad. Describes all objects referenced by raadsstukken -->
+<!ELEMENT schema (regions?, categories?, parties?, politicians?)>
+<!ATTLIST schema >
+
+
+<!--
+  Describes all regions references by this document.
+  You should receive dump of region tree together with this DTD.
+  
+  The importer will lookup for any regions already defined in our database prior
+  to create new one on demand. The unique name is used for the lookup. 
+-->
+<!ELEMENT regions (region*)>
+<!ATTLIST regions >
+
+<!--
+    Region tree. Each raadsstuk, politician and party belong to one or more regions.
+    
+    The region is normally referenced by name path like:
+      '/Europa/Nederland/Groningen' - starts by level 1, absolute path
+      'Groningen' - starts by level 3 (provincie), relative path, resolved to /Europa/Nederland/Groningen
+      'Groningen/Assen' - starts by level 3, relative path, resolved to /Europa/Nederland/Groningen/Assen
+-->
+<!ELEMENT region (regions?)>
+<!--
+	name  - name of the region, path of names in the tree is unique key
+	path  - optional '/' separated path to the parent region. The path will be
+            calculated from the current level. By default the path is empty, thus
+            the parent region is the current node, except for the top most 'regions'
+            element which has default path of 'Europa/Nederland'.
+            
+            Note: by using 'path' you may ommit 'regions' container and define
+            the regions tree as a simple list of 'region' elements.
+            
+    Warning: you can't create regions 'Europa' and 'Nederland' at level 3, so
+    any relative name starting with 'Europa will be seen as absolute /Europa and
+    any relative name starting with Nederland will be seen as absolute /Europa/Nederland.
+-->
+<!ATTLIST region
+    name    CDATA   #REQUIRED
+    path    CDATA   #IMPLIED
+    >
+
+
+<!--
+    List of categories referenced by other objects.
+    
+    You should obtain list of all categories together with this DTD.
+    Any category not registered in watstemtmijnraad.nl database can be
+    added on demand by 'category' element described bellow.
+-->
+<!ELEMENT categories (category*)>
+<!ATTLIST categories >
+
+
+<!--
+    Single category.
+
+    Per import file category list is optional, any missing category referenced
+    elsewere will be created on demand. However this element is usefull to specify
+    level information and description of the category.
+    
+    This element is also used in 'raadsstuk' element refferencing to a category.
+    In that context 'description' attribute and any contents of this element
+    will be ignored. If category doesn't exist, then it will be created on demand
+    without additional info, so always define categories in header (schema) if
+    you need descriptions and/of inlevel registrations.
+-->
+<!ELEMENT category (inlevel*)>
+<!--
+    name            - unique name of the category
+    description     - description of the category, used only when creating new category, default empty
+-->
+<!ATTLIST category
+    name            CDATA       #REQUIRED
+    description     CDATA       #IMPLIED
+>
+
+
+<!--
+    Per level category description.
+    
+    There are following levels available:
+        - 1 - Internationaal - /Europa is of this level
+        - 2 - Landelijk - /Europa/Nederland
+        - 3 - Provincie - /Europa/Nederland/Groningen
+        - 4 - Gemeente - /Europa/Nederland/Groningen/Assen
+        - 5 - Stadsdeel - /Europa/Nederland/Noord-Holland/Amsterdam/Osdorp
+    
+    Other levels than listed above are invalid.
+    
+    You may specify which categories are available at which levels. By default
+    any new category will be added to level 2 - 'Landelijk'.
+-->
+<!ELEMENT inlevel EMPTY>
+<!--
+	level           - region level (number)
+    description     - additional description of the category whithin this level, default empty
+-->
+<!ATTLIST inlevel
+    level           CDATA       #REQUIRED
+    description     CDATA       #IMPLIED
+    >
+
+
+
+<!-- Describes all parties references by this document. -->
+<!ELEMENT parties (party+)>
+<!ATTLIST parties >
+    
+
+<!-- Party tree.
+     Party  name is unique.
+-->
+<!ELEMENT party (combination?, inregion*)>
+
+<!--
+	name   - unique name of the party, eg: Christen-Democratisch Appèl
+	region - region path where in the party was "created", where party is "globaly" active, the level.
+             Use '/Europa/Nederland' if you don't have such information.
+             
+	abbreviation - short form, eg: CDA, default empty
+-->
+<!ATTLIST party 
+    name            CDATA       #REQUIRED
+    region          CDATA       #REQUIRED
+    abbreviation    CDATA       #IMPLIED
+    >
+
+
+<!-- List of all parent parties.
+     If this element is present and is not empty, then party becomes a combination
+     of other parties. For example 'Progressief Woerden (PvdA/GroenLinks)' is a
+     combination of 'GroenLinks' and 'Partij van de Arbeid'
+-->
+<!ELEMENT combination (partyref*)>
+<!ATTLIST combination >
+
+<!-- Reference to a party within combination block. -->
+<!ELEMENT partyref EMPTY>
+<!--
+    party   - unique party name
+-->
+<!ATTLIST partyref
+    party           CDATA       #REQUIRED
+>
+
+
+<!--
+    Each party is present in one or more regions for specific timerange.
+    
+    This element is optional, if a party is voting while not being present in a
+    region, then it will be automatically registered for a short time period
+    including the vote date. By using this element you may register a party
+    for an actual/real time period.
+    
+    Warning: to prevent lots of party registrations just for one day (vote date
+    of the raadsstuk) always register party for the range from the earliest
+    to the latest vote date of the raadsstuks that party is voting. 
+-->
+<!ELEMENT inregion EMPTY>
+<!--
+	region     - region path where in party may vote voor a raadsstuk
+    date_start - 'YYYY-mm-dd' or 'dd-mm-YYYY', first day, inclusive, default: negative infinity
+    date_end   - 'YYYY-mm-dd' or 'dd-mm-YYYY', last day, inclusive, default: positive infinity
+-->
+<!ATTLIST inregion
+    region          CDATA       #REQUIRED
+    date_start      CDATA       #IMPLIED
+    date_end        CDATA       #IMPLIED
+    >
+
+
+<!--
+    List of all politicians refferenced by raadsstukken in this document.
+    
+    You should obtain list of all politicians together with this DTD.
+    Any politician not registered in watstemtmijnraad.nl database can be
+    registered by 'politician' element described bellow.
+-->
+<!ELEMENT politicians (politician*)>
+<!ATTLIST politicians >
+
+
+<!--
+    Register politician. A politician is a unique combination of:
+        (initials, last_name, gender, email, region)
+        
+    Importer look-up's for any already defined politician usign fields described above.
+    Any missing politician will be created on demand.
+    
+    WARNING: If you want to add a *new* politician with already existing
+    (initials, last_name, gender) combinatin, then be sure to provide email and/or
+    region distinct from already existing politician. Otherwise you will link all
+    info to the existing politician. Of course you should be sure that your person
+    and the registered one are really different people in the real world.
+    
+    The 'id' is an document wide unique identifier of the politician. This id
+    can be referenced by following syntax:
+      - '{id}' or 'in:{id}' - reffers to a politician defined in this import document, eg. '3' or 'in:3'
+      - 'ex:{id}' - reffers to a politician defined in a supplied list of politicians, eg: 'ex:10' 
+-->
+<!ELEMENT politician (function*)>
+<!--
+	id       	- unique identifier of this politician, eg: '4'. Will be referenced as 'in:4' or '4' by other objects
+    title       - title of the politician, default empty
+    initials    - initials of the politician, default empty
+    last_name   - last name of the politicians including any prefixes like 'van der', default empty
+    gender      - gender of the politician, either 'male' or 'female'.
+    email       - e-mail, default empty
+    region      - region path, region where in this politician was "created", default empty
+-->
+<!ATTLIST politician
+    id          CDATA              #REQUIRED
+    title       CDATA           #IMPLIED
+    initials    CDATA           #IMPLIED
+    last_name   CDATA           #REQUIRED
+    gender      (male|female)   #REQUIRED
+    email       CDATA           #IMPLIED
+    region      CDATA           #IMPLIED
+    >
+
+    
+<!--
+    Optional element, register the politician for a specific function in (region, party).
+    
+    To be able to make vote for a specific raadsstuk the politician must have a not-expired 
+    function in the region of that raadsstuk. The politician will be registered
+    on demand for a small period of time including the vote date of the raadsstuk.
+    Use this element to register a politician for a longer/actual/real period of time.
+    
+    Warning: always pre-register function for the time-range including all
+    raadsstukken that this politician will vote for. This will prevent lots of
+    'on demand' function registration just for one day (vote date of the raadsstuk). 
+    
+    Constraint:
+        (politician.party.inregion.region = politician.function.region) AND
+        (politician.party.inregion.[date_start, date_end] include politician.function.[date_start, date_end] 
+        
+-->
+<!ELEMENT function EMPTY>
+<!--
+	category        - name of the category describing the function of the politician, default 'Geen' (no category)
+    region          - region path where in this politician works (he/she may vote for raadsstukken in this region)
+    party           - the party name where this politician belongs to
+    date_start      - 'YYYY-mm-dd' or 'dd-mm-YYYY', first day, inclusive, default: negative infinity
+    date_end        - 'YYYY-mm-dd' or 'dd-mm-YYYY', last day, inclusive, default: positive infinity
+    description     - short description of the function, default empty
+-->
+<!ATTLIST function
+    category        CDATA       #IMPLIED
+    region          CDATA       #REQUIRED
+    party           CDATA       #REQUIRED
+    date_start      CDATA       #IMPLIED
+    date_end        CDATA       #IMPLIED
+    description     CDATA       #IMPLIED
+    >
+
+    
+<!-- Block of raadstukken to import. -->
+<!ELEMENT raadsstukken (raadsstuk*)>
+<!ATTLIST raadsstukken >
+
+
+<!--
+    Single raadsstuk to import.
+    
+    The collection of tags is optional, any missing tag will be created on demand.
+    
+    The 'description' and any 'level' information of the 'category' element will be
+    ignored if category with such name is already defined in schema or is found
+    in watstemtmijnraad.nl database.
+-->
+<!ELEMENT raadsstuk (summary, submitter, tag*, category*, votes)>
+<!--
+	id          - docment wide unique identifier that is used by 'parentref' elements of the submitting procedure
+    title       - name, short (single line) description
+    code        - source ID and any other info important to the source site (free field), default empty
+    vote_date   - voting date, format: YYYY-mm-dd or dd-mm-YYYY
+    region      - region path, region where this raadsstuk belongs to
+    show        - show in home page, default no
+-->
+<!ATTLIST raadsstuk
+    id          CDATA          #IMPLIED
+    title       CDATA       #REQUIRED
+    code        CDATA       #IMPLIED
+    vote_date   CDATA       #REQUIRED
+    region      CDATA       #REQUIRED
+    show        (yes|no)    #IMPLIED
+    >
+
+
+<!-- Raadsstuk summary. Contains usually text in CDATA block -->
+<!ELEMENT summary (#PCDATA)>
+<!ATTLIST summary >
+
+
+<!-- Assigns a single tag to the raadsstuk -->
+<!ELEMENT tag EMPTY>
+<!--
+	name        - name of the tag, eg 'politix'
+-->
+<!ATTLIST tag
+    name        CDATA       #REQUIRED
+>
+
+
+<!--
+    The submitting procedure.
+    
+    Depending on the 'type' the submitter may or may not contain the list of
+    politicians and reffer to the parent raadsstuk. Following types are available:
+    
+        - "Raadsvoorstel" - attribute 'submitter' is required and can be only "College", "Presidium" or "Onbekend", contents of this element are ignored
+        - "Burgerinitiatief" - attributes and contents of this element are ignored
+        - "Initiatiefvoorstel" - list of 'politician' elements is required, 'submitter' attribute is ignored, 'parentref' element is ignored
+        - "Motie", "Amendement" -  'parentref' element and list of 'politician' elements are required, 'submitter' attribute is ignored
+        - "Onbekend" - attributes and contents of this element are ignored
+
+    The following values are possible for 'submitter' attribute:
+    
+        - "College", "Presidium" - used by "Raadsvoorstel"
+        - "Raadslid" - used by "Initiatiefvoorstel", "Motie" and "Amendement"
+        - "Burger" - used by "Burgerinitiatief"
+        - "Onbekend" - used by "Onbekend"
+
+    Note: set submitter to "Onbekend" if you don't have such info.
+          parentref and politicianref are optional, even when they
+          are logically 'required', do not add them if you don't have
+          such info.
+-->
+<!ELEMENT submitter (parentref?, politicianref*)>
+<!--
+	type            - submitting instance type
+    submitter       - submitter type
+-->
+<!ATTLIST submitter
+    type            CDATA       #REQUIRED
+    submitter       CDATA       #IMPLIED
+>
+
+
+<!--
+    Links the child raadsstuk to the parent raadsstuk.
+    
+    WARNING: referenced raadsstuk MUST be defined prior to referencing them!
+-->
+<!ELEMENT parentref EMPTY>
+<!--
+	raadsstuk       - references 'id' attribute of the 'raadsstuk' element
+-->
+<!ATTLIST parentref
+    raadsstuk       CDATA       #REQUIRED
+>
+
+
+<!-- Links politician with the submitting procedure of the raadsstuk. -->
+<!ELEMENT politicianref EMPTY>
+<!--
+	politician       - references 'id' attribute of the 'politician' element
+-->
+<!ATTLIST politicianref
+    politician       CDATA       #REQUIRED
+>
+
+
+<!-- Votes block. -->
+<!ELEMENT votes (vote*)>
+<!--
+	type        - voting resolution, either per party or per politician.
+    result      - the actual/real-life status of the raadsstuk. for flexibility
+                  reasons it is possible that all politicians vote 'no' and the
+                  status is 'accepted', default 'new'.
+-->
+<!ATTLIST votes
+    type        (politician|party)          #REQUIRED
+    result      (new|declined|accepted)     #IMPLIED
+>
+
+
+<!--
+    A single vote.
+    
+    A vote may be made by a politician or by a party. The politician must have
+    a valid non expired function to be able to vote, if not, then he/she will
+    be registered on demand for the small time period including 'vote_date' of
+    the raadsstuk.
+    
+    If the vote belongs to a party, then the vote will be assigned for the
+    special "Onbekend" politician. You can't mix votes of politicians and parties
+    together in one 'votes' block. 
+-->
+<!ELEMENT vote EMPTY>
+<!--
+	vote            - the vote made
+    politician      - if votes.type is 'politician' then this attribute reffers
+                      to the politician.id that made the vote, eg '15', 'in:10' or 'ex:6',
+                      reffer to 'politician' element for more info.
+
+    party           - if votes.type is 'party' then this attribue reffers to the
+                      party.name that made the vote
+                      
+    Constraint: either 'politician' or 'party' must be present, but not both. 
+-->
+<!ATTLIST vote
+    vote            (yes|no|remember|absent)    #REQUIRED
+    politician      CDATA                       #IMPLIED
+    party           CDATA                       #IMPLIED
+>
+
+<!-- End of import file definition.
+     @author Sardar Yumatov (ja.doma@gmail.com)
+-->

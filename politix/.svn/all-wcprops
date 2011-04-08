@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/repos/politix/!svn/ver/57/
+END
+db aggregate.txt
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/repos/politix/!svn/ver/1/db%20aggregate.txt
+END
+rewrite rules.txt
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/repos/politix/!svn/ver/1/rewrite%20rules.txt
+END
+db tables.txt
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/repos/politix/!svn/ver/1/db%20tables.txt
+END

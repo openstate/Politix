@@ -1,0 +1,100 @@
+8
+
+dir
+57
+http://host08.accepte.nl/repos/politix
+http://host08.accepte.nl/repos/politix
+
+
+
+2009-09-07T12:22:55.117808Z
+57
+hendri.smit
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a3189d24-e339-4d94-a982-af3f4112dbaa
+
+docs
+dir
+
+classes
+dir
+
+formgen
+dir
+
+privates
+dir
+
+templates
+dir
+
+db tables.txt
+file
+
+
+
+
+2008-11-18T08:33:51.000000Z
+c35d5e9639b35276029ddb76cac42abc
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+locale
+dir
+
+pages
+dir
+
+public_html
+dir
+
+includes
+dir
+
+cli
+dir
+
+modules
+dir
+
+emails
+dir
+
+db aggregate.txt
+file
+
+
+
+
+2008-11-18T08:33:51.000000Z
+6b559eb294e6d17dfbfbf456389b2aa8
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+rewrite rules.txt
+file
+
+
+
+
+2008-11-18T08:33:51.000000Z
+0ffe60fd88b50f141f130e8ce176a6a6
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+

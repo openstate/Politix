@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config>
+    <!--  Level names are (each next includes all previous):
+            - none      - disable logging
+            - error     - 'error' type mesasges
+            - warning   - 'warning' type mesages
+            - notice    - 'notice' and 'info' messages
+            - debug     - 'debug', 'pre-select', 'pre-update', 'post-update', 'enter' and 'leave' messages
+            - all       - enable all message types
+            
+          Message types are:
+            - error         - severe error
+            - warning       - recoverable error
+            - notice        - something needs attention 
+            - info          - generic message, something is happening
+            - debug         - generic debug info (extra info)
+            - pre-select    - before fetching info from database or any other source
+            - pre-update    - before updating database or any other source
+            - post-update   - successfully completed update
+            - enter         - entering critical block of code or a function 
+            - leave         - leaving critical block of code or a function
+    -->
+            
+    <!-- The logger tree as a flat list of 'logger' nodes.
+    
+         Each node must be labeled with 'name' attribute specifying the name-path
+         of the logger node. The name-path defines the name and the position of
+         the logger node in the tree, which usually corresponds to the logic
+         organization of the subsystems.
+         
+         The name-path is the list of names separated by dot '.', eg: "modules.user.db-backend"
+         Special name '.' reffers to the root node.
+         
+         Each node may contain optional 'level' attribute, containing one of the
+         levels defined above, which defines initial logging level.
+    -->
+    <loggers>
+        <logger name="." level="all">
+            <!-- Inside the logger element you may enable/disable specific message
+                 types with corresponding <enable>/<disable> elements. Each of
+                 these element must define 'type' attribute which must contain
+                 one message type deined above.
+                 
+                 Note: if message is disabled, it will not be reported to the
+                 parent logger.
+            -->
+            <enable type="enter" />
+            <enable type="leave" />
+            <!-- <disable type="type name" /> -->
+            
+            <!-- One or more optional 'handler' elements define the handlers that will
+                 receive the messages. The message will bubble up to the root logger
+                 notifying handlers on each logger node. If no handlers are defined,
+                 then the message will be effectively sent to the Oblivion.
+                 
+                 The 'class' attribute is required and specifies the handler class.
+                 The class will be included on demand.
+            -->
+            <!-- <handler class="CollectorJLoggerHandler"> -->
+                <!-- Any optional parameters for the handler can be defined by
+                     using 'param' element.
+                -->
+                <!-- <param name="" value="" /> -->
+            <!-- </handler> -->
+        </logger>
+        
+        
+        <!-- Logger with wildcard-name '$' matches all loggers, so use it to
+             define properties of all loggers at once (default configs)
+        -->
+        <logger name="$" level="all" />
+    </loggers>    
+</config>

@@ -1,0 +1,109 @@
+8
+
+dir
+57
+http://host08.accepte.nl/repos/politix/public_html
+http://host08.accepte.nl/repos/politix
+
+
+
+2009-08-25T08:18:22.778364Z
+54
+harrie.bos
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a3189d24-e339-4d94-a982-af3f4112dbaa
+
+files
+dir
+
+library
+dir
+
+import.dtd
+file
+
+
+
+
+2008-11-18T08:33:48.000000Z
+1cc33c7f895fa76a7d4539b8eba61e37
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+xsd.php
+file
+
+
+
+
+2008-11-18T08:33:48.000000Z
+edcd4be9bd20810818535d8cade60ed5
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+images
+dir
+
+import.xsd
+file
+
+
+
+
+2008-11-18T08:33:48.000000Z
+54436df86a53d213325c29519314a131
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+redirect.php
+file
+
+
+
+
+2008-11-18T08:33:48.000000Z
+e4ffe514c608d05f71540ee3784795d0
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+
+tinymce
+dir
+
+javascripts
+dir
+
+stylesheets
+dir
+
+flash
+dir
+
+index.php
+file
+
+
+
+
+2008-11-18T08:33:48.000000Z
+8d52c0d221a24d960a9abaa86c764cf7
+2008-09-15T12:25:23.151478Z
+1
+sardar.yamatov
+

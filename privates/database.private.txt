@@ -1,0 +1,5 @@
+<?php
+return array(
+	DBs::SYSTEM => array('type' => 'pgsql', 'host' => 'develop.lokaal', 'user' => 'wsmr', 'pass' => 'yraSdSG8IGd5LxWZ', 'database' => 'politix'),
+);
+?>
