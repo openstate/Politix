@@ -1,0 +1,16 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+
+RewriteRule ^/images/filler.gif$ /antispam.php [L]
+
+RewriteCond %{IS_SUBREQ} false
+RewriteRule ^/(files|images|stylesheets) /redirect.php [L]
+
+RewriteRule ^/(flash|files|images|library|javascripts|stylesheets|tinymce) - [L]
+
+RewriteCond %{IS_SUBREQ} false
+RewriteRule ^. /index.php [QSA,L]
