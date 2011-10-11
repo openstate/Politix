@@ -470,8 +470,9 @@ class Dispatcher {
 
 			$handlerClass = $module.'Handler';
 			$handler = new $handlerClass();
+			$scriptUrl = $_SERVER['SCRIPT_URL'] ? $_SERVER['SCRIPT_URL'] : $_SERVER['REQUEST_URI'];
 			foreach ($handler->urlMap as $preg => $call) {
-				if (preg_match($preg, $_SERVER['SCRIPT_URL'], $match)) {
+				if (preg_match($preg, $scriptUrl, $match)) {
 					$this->pageInfo = $handler->$call($match, $this->activeSite['sets']);
 					if ($this->pageInfo) {
 						set_include_path(get_include_path().PATH_SEPARATOR.$_SERVER['DOCUMENT_ROOT'].'/../modules/'.$module.'/classes/');
@@ -508,7 +509,8 @@ class Dispatcher {
 
 				if ($this->isFrontoffice()) {
 					$ra = new Raadsstuk();
-					if (null == $search = &$_SESSION['search'] || $search['fts'] || !preg_match('!/search!', $_SERVER['SCRIPT_URL'])) {
+					$scriptUrl = $_SERVER['SCRIPT_URL'] ? $_SERVER['SCRIPT_URL'] : $_SERVER['REQUEST_URI'];
+					if (null == $search = &$_SESSION['search'] || $search['fts'] || !preg_match('!/search!', $scriptUrl)) {
 						if (null == $cache = &$_SESSION['categoryCount'] || CACHE_LIFETIME < (time() - @$cache['time'])) {
 							$cache = array('time' => time(), 'results' => $ra->getCountByCategory((int) @$this->region->id));
 						}

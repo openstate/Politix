@@ -131,7 +131,8 @@ class IndexPage extends SearchPage {
 		$cnt = count($this->searchData);
 		if ($this->start >= $cnt) $this->start = (($cnt - $this->limit) >= 0) ? $cnt - $this->limit : 0;
 
-		$q = SearchQuery::fromString($_SERVER['SCRIPT_URL']);
+		$scriptUrl = $_SERVER['SCRIPT_URL'] ? $_SERVER['SCRIPT_URL'] : $_SERVER['REQUEST_URI'];
+		$q = SearchQuery::fromString($scriptUrl);
 		$smarty->assign('formdata', array_slice($this->searchData, $this->start, $this->limit));
 		$smarty->assign('header', $this->searchHeader);
 		$smarty->assign('filter', $this->searchFilter);
