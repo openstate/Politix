@@ -70,8 +70,11 @@ function _or($a, $b) {
 	return $a || $b;
 }
 
-function lcfirst($str) {
-	return strtolower(substr($str, 0, 1)) . substr($str, 1);
+// lcfirst already exists in PHP 5.3+
+if (!function_exists('lcfirst')) {
+    function lcfirst($str) {
+    	return strtolower(substr($str, 0, 1)) . substr($str, 1);
+    }
 }
 
 function dump($var) {
