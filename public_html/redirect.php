@@ -16,7 +16,9 @@ foreach ($sitesConf as $hostPreg => $site) {
 
 if (!$config) die;
 
-preg_match('|^(/[^/]+/)(.*)$|', $_SERVER['SCRIPT_URL'], $match);
+$scriptUrl = ($_SERVER['SCRIPT_URL']) ? $_SERVER['SCRIPT_URL'] : $_SERVER['REQUEST_URI'];
+
+preg_match('|^(/[^/]+/)(.*)$|', $scriptUrl, $match);
 $actualFile = $match[1].$config['publicdir'].'/'.$match[2];
 $fileInfo = apache_lookup_uri($actualFile);
 

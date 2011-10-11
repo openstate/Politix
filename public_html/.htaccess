@@ -8,9 +8,9 @@ RewriteRule ^.*$ - [NC,L]
 RewriteRule ^/images/filler.gif$ /antispam.php [L]
 
 RewriteCond %{IS_SUBREQ} false
-RewriteRule ^/(files|images|stylesheets) /redirect.php [L]
+RewriteRule ^/?(files|images|stylesheets) /redirect.php [L]
 
-RewriteRule ^/(flash|files|images|library|javascripts|stylesheets|tinymce) - [L]
+RewriteRule ^/?(flash|files|images|library|javascripts|stylesheets|tinymce) - [L]
 
 RewriteCond %{IS_SUBREQ} false
 RewriteRule ^. /index.php [QSA,L]
