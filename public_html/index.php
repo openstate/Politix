@@ -12,10 +12,10 @@
 		echo '<pre>'.$e->__toString().'</pre>';
 	}
 
-	//var_dump(array_keys($_SESSION));
-	//var_dump($_SESSION['user']);
-	//$sites = $_SESSION['user']->listSites();
-	//foreach ($sites as $site) {
-//		echo $site->title, "<br>\n";
-//	}
+	var_dump(array_keys($_SESSION));
+	var_dump($_SESSION['user']);
+	$sites = $_SESSION['user']->listSites();
+	foreach ($sites as $site) {
+		echo $site->title, "<br>\n";
+	}
 ?>
